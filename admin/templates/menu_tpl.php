@@ -5,6 +5,48 @@
 <ul id="menu" class="nav">
 <li class="dash" id="menu1"><a class=" active" title="" href="index.php"><span>Trang chủ</span></a></li>
 
+<li class="categories_li gallery_li <?php if($_GET['com']=='anhnen' || $_GET['com']=='background' || $_GET['com']=='slider' || $_GET['com']=='letruot') echo ' activemenu' ?>" id="menu_qc"><a href="" title="" class="exp"><span>Homepage</span><strong></strong></a>
+     <ul class="sub">
+		<?php //phanquyen_menu('Cập nhật background','anhnen','capnhat','background'); ?>
+        <?php phanquyen_menu('Cập nhật logo','background','capnhat','logo'); ?>
+        <?php phanquyen_menu('Quản lý slider','slider','man_photo','slider'); ?>
+        <?php phanquyen_menu('Cập nhật banner trái','background','capnhat','bannerqc'); ?>
+        
+        <?php phanquyen_menu('Cập nhật nội dung homepage','background','capnhat','banner'); ?>
+         
+<!--        Cập nhật sản phẩm hiển thị
+        Cập nhật notice hiển thị
+        Cập nhật new hiển thị
+        Cập nhật bài viết hiển thị
+        Cập nhật tel bên phải
+        Cập nhật image bên phải
+        cập nhật bottom footer-->
+        
+        
+        
+        <?php // phanquyen_menu('Cập nhật notice hiển thị','background','capnhat','banner'); ?>
+        
+         
+        <?php // phanquyen_menu('Cập nhật banner hỗ trợ','background','capnhat','bannerhotro'); ?>
+         
+        
+        <?php // phanquyen_menu('Cập nhật footer bên trái','background','capnhat','banner2'); ?>
+        
+        
+        <?php // phanquyen_menu('Cập nhật banner bảo trì','background','capnhat','baotri'); ?>
+        <?php // phanquyen_menu('Quản lý đối tác','slider','man_photo','doitac'); ?>
+        <?php // phanquyen_menu('Quản lý quảng cáo','slider','man_photo','quangcao'); ?>
+        <?php // phanquyen_menu('Quản lý quảng cáo 2 bên','slider','man_photo','letruot'); ?>
+        <?php // phanquyen_menu('Cập nhật pupop quảng cáo','background','capnhat','pupop'); ?>
+     </ul>
+</li>
+
+<li class="categories_li <?php if($_GET['type']=='gioithieu') echo ' activemenu' ?>" id="menu_gioithieu"><a href="" title="" class="exp"><span>Company</span><strong></strong></a>
+    <ul class="sub">
+        <?php phanquyen_menu('Quản lý giới thiệu','news','man','gioithieu'); ?>
+    </ul>
+</li>
+
 <li class="categories_li <?php if($_GET['type']=='sanpham') echo ' activemenu' ?>" id="menu_"><a href="" title="" class="exp"><span>Sản phẩm</span><strong></strong></a>
     <ul class="sub">
     	<?php phanquyen_menu('Quản lý danh mục 1','product','man_danhmuc','sanpham'); ?>
@@ -30,11 +72,7 @@
     </ul>
 </li>
 
-<li class="categories_li <?php if($_GET['type']=='gioithieu') echo ' activemenu' ?>" id="menu_gioithieu"><a href="" title="" class="exp"><span>Giới thiệu</span><strong></strong></a>
-    <ul class="sub">
-        <?php phanquyen_menu('Quản lý giới thiệu','news','man','gioithieu'); ?>
-    </ul>
-</li>
+
 
 <li class="categories_li <?php if($_GET['type']=='dichvu') echo ' activemenu' ?>" id="menu_dichvu"><a href="" title="" class="exp"><span>Dịch vụ</span><strong></strong></a>
     <ul class="sub">
@@ -90,23 +128,6 @@
             <?php phanquyen_menu('Backup database','backup','backup_database',''); ?>
             <?php phanquyen_menu('Backup file','backup','backup_file',''); ?>    	
         </ul>
-</li>
-
-<li class="categories_li gallery_li <?php if($_GET['com']=='anhnen' || $_GET['com']=='background' || $_GET['com']=='slider' || $_GET['com']=='letruot') echo ' activemenu' ?>" id="menu_qc"><a href="" title="" class="exp"><span>Banner - Quảng cáo</span><strong></strong></a>
-     <ul class="sub">
-		<?php //phanquyen_menu('Cập nhật background','anhnen','capnhat','background'); ?>
-        <?php phanquyen_menu('Cập nhật banner','background','capnhat','banner'); ?>
-        <?php phanquyen_menu('Cập nhật banner quảng cáo','background','capnhat','bannerqc'); ?>
-        <?php phanquyen_menu('Quản lý slider','slider','man_photo','slider'); ?>
-        <?php phanquyen_menu('Cập nhật banner 2','background','capnhat','banner2'); ?>
-        <?php phanquyen_menu('Cập nhật logo','background','capnhat','logo'); ?>
-        <?php phanquyen_menu('Cập nhật banner hỗ trợ','background','capnhat','bannerhotro'); ?>
-        <?php phanquyen_menu('Cập nhật banner bảo trì','background','capnhat','baotri'); ?>
-        <?php //phanquyen_menu('Quản lý đối tác','slider','man_photo','doitac'); ?>
-        <?php //phanquyen_menu('Quản lý quảng cáo','slider','man_photo','quangcao'); ?>
-        <?php //phanquyen_menu('Quản lý quảng cáo 2 bên','slider','man_photo','letruot'); ?>
-        <?php //phanquyen_menu('Cập nhật pupop quảng cáo','background','capnhat','pupop'); ?>
-     </ul>
 </li>
  
 <li class="categories_li none <?php if($_GET['com']=='phanquyen' || $_GET['com']=='com') echo ' activemenu' ?>" id="menu_pq"><a href="" title="" class="exp"><span>Phân quyền</span><strong></strong></a>
