@@ -6,27 +6,40 @@
 	$slider=$d->result_array();
 	
 ?>
-<link href="css/css_jssor_slider.css" type="text/css" rel="stylesheet" />
-<script type="text/javascript" src="js/jssor.js"></script>
-<script type="text/javascript" src="js/jssor.slider.js"></script>
-<script type="text/javascript" src="js/js_jssor_slider.js"></script>
 
-<div id="slider1_container" style="position: relative;width: 1366px; height: 390px;">
-    <!-- Slides Container -->
-    <div u="slides" style="cursor: move;width: 1366px; height: 390px;overflow: hidden;">
-        <?php for($i=0,$count_slider=count($slider);$i<$count_slider;$i++){ ?>
-        <div>
-            <img u="image" src="<?php if($slider[$i]['photo']!='')echo _upload_hinhanh_l.$slider[$i]['photo'];else echo 'images/noimage.png' ?>" alt="<?=$$slider[$i]['ten']?>" />
-            <div class="ten_ss">
-                <?=$slider[$i]['noidung']?>
+<div class="slider_wrap"> <a href="#" class="prev" title=""><img src="images/main/m_prev.png" alt="prev" /></a>
+    <a href="#" class="next" title=""><img src="images/main/m_next.png" alt="next" /></a>
+    <div class="slider_show">
+      <!-- slider_box -->
+      <div class="slider_box">
+          <?php for($i=0,$count_slider=count($slider);$i<$count_slider;$i++){ ?>
+            <div class="slider_list">
+                <div class="custom_pic">
+                    <a href="javascript:sub02_04();">
+                        <img src="<?php if($slider[$i]['photo']!='')echo _upload_hinhanh_l.$slider[$i]['photo'];else echo 'images/noimage.png' ?>" usemap="#visual04" border="0" alt="<?=$$slider[$i]['ten']?>"/></a>
+                    </a>
+                </div>
             </div>
+            <?php } ?>    
+<!--        <div class="slider_list">
+          <div class="custom_pic"><a href="javascript:sub02_04();"><img src="../images/main/visual_04.png" usemap="#visual04" border="0" alt="NOBLEX Everything depends on you FineMEC new generation of laser"/></a></div>
         </div>
-        <?php } ?>                
+                    <div class="slider_list">
+          <div class="custom_pic"><a href="javascript:sub02_01();"><img src="../images/main/visual_01.png" usemap="#visual01" border="0" alt="AILEEN PLUS High power long puked ND:YAG laser system turn back time like a magic"/></a></div>
+        </div>
+        <div class="slider_list">
+          <div class="custom_pic"><a href="javascript:sub02_02();"><img src="../images/main/visual_02.png" usemap="#visual02" border="0" alt="NEOSYS sleady quality Q-switched ND:YAG laser system this is basic of antiaging"/></a></div>
+        </div>
+        <div class="slider_list">
+          <div class="custom_pic"><a href="javascript:sub02_03();"><img src="../images/main/visual_03.png" usemap="#visual03" border="0" alt="FINPULES Step by step forwardas a world leading medical laser skin as while as snow"/></a></div>
+        </div>
+                   <div class="slider_list">
+          <div class="custom_pic"><a href="javascript:sub02_05();"><img src="../images/main/visual_05.png" usemap="#visual03" border="0" alt="Rf benefits"/></a></div>
+        </div>
+                           <div class="slider_list">
+          <div class="custom_pic"><a href="javascript:sub02_06();"><img src="../images/main/visual_06.png" usemap="#visual03" border="0" alt="Right benefits"/></a></div>
+        </div>-->
+
+      </div>
     </div>
-    <!-- Trigger -->
-          
-    <!-- Arrow Left -->
-    <span u="arrowleft" class="jssora05l" style="top:40%;"></span>
-    <!-- Arrow Right -->
-    <span u="arrowright" class="jssora05r" style="top:40%;"></span>
-</div><!-- Jssor Slider End -->
+  </div>

@@ -2,7 +2,7 @@
     <div class="bc">
         <ul id="breadcrumbs" class="breadcrumbs">
         	            <li><a href="index.php?com=slider&act=man_photo<?php if($_REQUEST['type']!='') echo'&type='. $_REQUEST['type'];?>"><span>Hình ảnh</span></a></li>
-                        <li class="current"><a href="#" onclick="return false;">Sửa hình ảnh</a></li>
+                        <li class="current"><a href="#" onclick="return false;">Sửa nội dung homepage</a></li>
         </ul>
         <div class="clear"></div>
     </div>
@@ -12,13 +12,13 @@
 				$('#validate').submit();		
 	}
 </script>
-<form name="supplier" id="validate" class="form" action="index.php?com=background&act=save<?php if($_REQUEST['type']!='') echo'&type='. $_REQUEST['type'];?>" method="post" enctype="multipart/form-data">
+<form name="supplier" id="validate" class="form" action="index.php?com=homepage&act=save<?php if($_REQUEST['type']!='') echo'&type='. $_REQUEST['type'];?>" method="post" enctype="multipart/form-data">
 	<div class="widget">
 		<div class="title"><img src="./images/icons/dark/list.png" alt="" class="titleIcon" />
-			<h6>Sửa hình ảnh</h6>
+			<h6>Sửa nội dung homepage</h6>
 		</div>		
         <?php
-			if($_REQUEST['type']!='banner' and $_REQUEST['type']!='banner_mobi' and $_REQUEST['type']!='banner2' and $_REQUEST['type']!='bannerqc')
+//			if($_REQUEST['type']!='banner' and $_REQUEST['type']!='banner_mobi' and $_REQUEST['type']!='banner2' and $_REQUEST['type']!='bannerqc')
 				$config['lang'] = array(''=>'Tiếng Việt');	
 		?>
         <ul class="tabs">
@@ -29,6 +29,57 @@
 
 		<?php foreach ($config['lang'] as $key => $value) {?>
         <div id="content_lang_<?=$key?>" class="tab_content">	
+            <div class="formRow">
+                <label>Notice: </label>
+                <div class="formRight">
+                    <?php
+                    for ($i=0; $i<5; $i++){
+                        ?>
+                        <select name="notice[]" class="main_select">
+                            <option value=""> -Chọn bài viết-</option>
+                            <?php
+                            foreach ($itemNotice as $itemNo){
+                                $arrCheckSelected = array(
+                                    'id' => $itemNo['id'],
+                                    'is_homepage' => $i+1
+                                );
+                                $selected = in_array($arrCheckSelected, $itemNoticeSelected) ? "selected": "";
+                                ?>
+                            <option value="<?=$itemNo['id']?>" <?=$selected?>><?=$itemNo['title']?></option>
+                            <?php
+                            }
+                            ?>
+                        </select> 
+                    <?php
+                    }
+                    ?>
+                               
+                </div>
+                <div class="clear"></div>
+          </div>
+          <div class="formRow">
+                <label>News: </label>
+                <div class="formRight">
+                    <?php
+                    for ($i=0; $i<5; $i++){
+                        ?>
+                        <select name="news[]" class="main_select">
+                            <option value=""> -Chọn bài viết-</option>
+                            <?php
+                            foreach ($itemNews as $itemNo){
+                                ?>
+                            <option value="<?=$itemNo['id']?>"><?=$itemNo['title']?></option>
+                            <?php
+                            }
+                            ?>
+                        </select> 
+                    <?php
+                    }
+                    ?>
+                               
+                </div>
+                <div class="clear"></div>
+          </div>
              <div class="formRow">           
                 <label>Hình ảnh hiện tại: </label>      
                 <div class="formRight">          
@@ -53,23 +104,6 @@
         </div><!-- End content <?=$key?> -->
         <?php } ?>
         
-        <?php if($_REQUEST['type']=='pupop' or $_REQUEST['type']=='bannerqc') { ?>
-        <div class="formRow">
-            <label>Link liên kết: </label>
-            <div class="formRight">
-                <input type="text" id="price" name="link" value="<?=@$item['link']?>"  title="Nhập link liên kết cho hình ảnh" class="tipS" />
-            </div>
-            <div class="clear"></div>
-        </div>
-        <?php } ?>
-        <div class="formRow">
-              <label>Tùy chọn: <img src="./images/question-button.png" alt="Chọn loại" class="icon_que tipS" original-title="Check vào những tùy chọn "> </label>
-              <div class="formRight">           
-                <input type="checkbox" name="hienthi" id="check1" value="1" <?=(!isset($item['hienthi']) || $item['hienthi']==1)?'checked="checked"':''?> />
-                <label for="check1">Hiển thị</label>           
-              </div>
-              <div class="clear"></div>
-        </div>
 
 			<div class="formRow">
 			<div class="formRight">

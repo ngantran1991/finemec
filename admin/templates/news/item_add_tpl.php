@@ -167,7 +167,9 @@ function get_main_item()
 			<div class="clear"></div>
 		</div>
     
-       
+       <?php
+       if ($_REQUEST['type'] != "tintuc") {
+       ?>
     <div class="formRow">
 			<label>Tải hình ảnh:</label>
 			<div class="formRight">
@@ -177,6 +179,7 @@ function get_main_item()
 			</div>
 			<div class="clear"></div>
 		</div>
+          
 
     <?php if($_GET['act']=='edit'){?>
 		<div class="formRow">
@@ -188,7 +191,9 @@ function get_main_item()
 			</div>
 			<div class="clear"></div>
 		</div>
-		<?php } ?>
+		<?php } 
+       }
+       ?>
     
     <?php if($_GET['type']=='catalogue') { ?>
 
@@ -248,6 +253,27 @@ function get_main_item()
             </div>
             <div class="clear"></div>
         </div>
+          
+          <?php 
+          if ($_REQUEST['type'] == "tintuc"){
+              ?>
+          <div class="formRow">
+                <label>Mail</label>
+                <div class="formRight">
+                    <input type="text" value="<?=@$item['mail']?>" name="mail" title="Mail" class="tipS" />
+                </div>
+                <div class="clear"></div>
+            </div>
+          <div class="formRow">
+                <label>Tel</label>
+                <div class="formRight">
+                    <input type="text" value="<?=@$item['tel']?>" name="tel" title="Tel" class="tipS" />
+                </div>
+                <div class="clear"></div>
+            </div>
+          <?php
+          }
+          ?>
        
         <div class="formRow">
             <label>Từ khóa</label>
@@ -277,7 +303,7 @@ function get_main_item()
         
         <?php if($_GET['type']=='tintuc') { ?>
         <div class="formRow">
-          <label>Nổi bật : <img src="./images/question-button.png" alt="Chọn loại" class="icon_que tipS" original-title="Bỏ chọn để không hiển thị danh mục này !"> </label>
+          <label>Hot : <img src="./images/question-button.png" alt="Chọn loại" class="icon_que tipS" original-title="Bỏ chọn để không hiển thị danh mục này !"> </label>
 
          <div class="formRight">
             <input type="checkbox" name="noibat" id="check1" <?=($item['noibat']==1)?'checked="checked"':''?> />
@@ -323,7 +349,7 @@ function get_main_item()
 
        <div id="content_lang_<?=$key?>" class="tab_content">        
             <div class="formRow">
-            <label>Tên bài viết</label>
+            <label>Name</label>
             <div class="formRight">
                 <input type="text" name="ten<?=$key?>" title="Nhập tên bài viết" id="ten<?=$key?>" class="tipS" value="<?=@$item['ten'.$key]?>" />
             </div>

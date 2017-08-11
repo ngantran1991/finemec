@@ -1,7 +1,7 @@
 <?php if(!defined('_lib')) die("Error");
 
 	error_reporting(E_ALL & ~E_NOTICE & ~8192);
-	$config_url=$_SERVER["SERVER_NAME"].':8080/vcontrol';	
+	$config_url=$_SERVER["SERVER_NAME"].':81/vcontrol';	
 	
 	$config['database']['servername'] = 'localhost';
 	$config['database']['username'] = 'root';

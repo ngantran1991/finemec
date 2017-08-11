@@ -10,9 +10,9 @@
 		<?php //phanquyen_menu('Cập nhật background','anhnen','capnhat','background'); ?>
         <?php phanquyen_menu('Cập nhật logo','background','capnhat','logo'); ?>
         <?php phanquyen_menu('Quản lý slider','slider','man_photo','slider'); ?>
-        <?php phanquyen_menu('Cập nhật banner trái','background','capnhat','bannerqc'); ?>
+        <?php phanquyen_menu('Cập nhật banner phải','background','capnhat','bannerqc'); ?>
         
-        <?php phanquyen_menu('Cập nhật nội dung homepage','background','capnhat','banner'); ?>
+        <?php phanquyen_menu('Cập nhật nội dung homepage','homepage','capnhat','banner'); ?>
          
 <!--        Cập nhật sản phẩm hiển thị
         Cập nhật notice hiển thị

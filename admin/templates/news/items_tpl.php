@@ -185,8 +185,7 @@ function get_main_category()
         <td class="tb_data_small <?php if($_GET['type']!='dichvu' && $_GET['type']!='tuyendung' && $_GET['type']!='hotro') {?> none <?php } ?>"><?=get_main_list()?></td>
         <td class="tb_data_small none"><?=get_main_category()?></td>
         <td class="tb_data_small none"><?=get_main_item()?></td>
-        <td class="sortCol"><div>Tên sản phẩm<span></span></div></td>
-        <td width="100">Hình ảnh</td>
+        <td class="sortCol"><div>Title<span></span></div></td>
         <?php if($_GET['type']=='tintuc') { ?>
         <td class="tb_data_small">Nổi bật</td>
         <?php } ?>
@@ -237,10 +236,7 @@ function get_main_category()
 			?>      
         </td>
         <td class="title_name_data">
-            <a href="index.php?com=news&act=edit&id_danhmuc=<?=$items[$i]['id_danhmuc']?>&id_list=<?=$items[$i]['id_list']?>&id_cat=<?=$items[$i]['id_cat']?>&id_item=<?=$items[$i]['id_item']?>&type=<?=$_REQUEST['type']?>&p=<?=$_REQUEST['p']?>&id=<?=$items[$i]['id']?>" class="tipS SC_bold"><?=$items[$i]['ten']?></a>
-        </td>
-        <td align="center">
-            <a href="index.php?com=news&act=edit&id_danhmuc=<?=$items[$i]['id_danhmuc']?>&id_list=<?=$items[$i]['id_list']?>&id_cat=<?=$items[$i]['id_cat']?>&id_item=<?=$items[$i]['id_item']?>&type=<?=$_REQUEST['type']?>&p=<?=$_REQUEST['p']?>&id=<?=$items[$i]['id']?>" class="tipS SC_bold"><img src="<?=_upload_tintuc.$items[$i]['thumb']?>" style="max-height:40px; max-width:70px;" /></a>
+            <a href="index.php?com=news&act=edit&id_danhmuc=<?=$items[$i]['id_danhmuc']?>&id_list=<?=$items[$i]['id_list']?>&id_cat=<?=$items[$i]['id_cat']?>&id_item=<?=$items[$i]['id_item']?>&type=<?=$_REQUEST['type']?>&p=<?=$_REQUEST['p']?>&id=<?=$items[$i]['id']?>" class="tipS SC_bold"><?=$items[$i]['title']?></a>
         </td>
         
         <?php if($_GET['type']=='tintuc') { ?>

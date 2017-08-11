@@ -188,38 +188,43 @@ function get_item(){
 //Save tin tức
 function save_item(){
 	global $d,$config,$urlcu;
-	$file_name=$_FILES['file']['name'];
-	$file_up=$_FILES['fileup']['name'];
+        if ($_REQUEST['type' != "tintuc"]) {
+            $file_name=$_FILES['file']['name'];
+            $file_up=$_FILES['fileup']['name'];
+        }
+
 	
 	if(empty($_POST)) transfer("Không nhận được dữ liệu", "index.php?com=news&act=man".$urlcu);
 	$id = isset($_POST['id']) ? themdau($_POST['id']) : "";
 	
 	if($id){
 		$id =  themdau($_POST['id']);
-		if($photo = upload_image("file", _format_duoihinh, _upload_tintuc,$file_name)){
-			$data['photo'] = $photo;	
-			$data['thumb'] = create_thumb($data['photo'], 170, 130, _upload_tintuc,$file_name,1);									
-			$d->setTable('news');
-			$d->setWhere('id', $id);
-			$d->select();
-			if($d->num_rows()>0){
-				$row = $d->fetch_array();
-				delete_file(_upload_tintuc.$row['photo']);	
-				delete_file(_upload_tintuc.$row['thumb']);								
-			}
-		}
-		if($photo = upload_image("fileup", _format_duoitailieu, _upload_tintuc,$file_up)){
-			$data['fileup'] = $photo;	
-			//$data['thumb'] = create_thumb($data['photo'], 170, 130, _upload_tintuc,$file_name,1);									
-			$d->setTable('news');
-			$d->setWhere('id', $id);
-			$d->select();
-			if($d->num_rows()>0){
-				$row = $d->fetch_array();
-				delete_file(_upload_tintuc.$row['fileup']);	
-				//delete_file(_upload_tintuc.$row['thumb']);								
-			}
-		}
+                if ($_REQUEST['type' != "tintuc"]) {
+                    if($photo = upload_image("file", _format_duoihinh, _upload_tintuc,$file_name)){
+                            $data['photo'] = $photo;	
+                            $data['thumb'] = create_thumb($data['photo'], 170, 130, _upload_tintuc,$file_name,1);									
+                            $d->setTable('news');
+                            $d->setWhere('id', $id);
+                            $d->select();
+                            if($d->num_rows()>0){
+                                    $row = $d->fetch_array();
+                                    delete_file(_upload_tintuc.$row['photo']);	
+                                    delete_file(_upload_tintuc.$row['thumb']);								
+                            }
+                    }
+                    if($photo = upload_image("fileup", _format_duoitailieu, _upload_tintuc,$file_up)){
+                            $data['fileup'] = $photo;	
+                            //$data['thumb'] = create_thumb($data['photo'], 170, 130, _upload_tintuc,$file_name,1);									
+                            $d->setTable('news');
+                            $d->setWhere('id', $id);
+                            $d->select();
+                            if($d->num_rows()>0){
+                                    $row = $d->fetch_array();
+                                    delete_file(_upload_tintuc.$row['fileup']);	
+                                    //delete_file(_upload_tintuc.$row['thumb']);								
+                            }
+                    }
+                }
 		$data['tag'] = $_POST['tag'];
 		$data['id_danhmuc'] = (int)$_POST['id_danhmuc'];		
 		$data['id_list'] = (int)$_POST['id_list'];	
@@ -235,6 +240,10 @@ function save_item(){
 		$data['title'] = $_POST['title'];
 		$data['keywords'] = $_POST['keywords'];
 		$data['description'] = $_POST['description'];
+                if ($_REQUEST['type'] == "tintuc") {
+                    $data['mail'] = $_POST['mail'];
+                    $data['tel'] = $_POST['tel'];
+                }
 		foreach ($config['lang'] as $key => $value) {
 			$data['ten'.$key] = $_POST['ten'.$key];
 			$data['mota'.$key] = magic_quote($_POST['mota'.$key]);
@@ -306,7 +315,7 @@ function save_item(){
 		else
 			transfer("Cập nhật dữ liệu bị lỗi", "index.php?com=news&act=man".$urlcu);
 	}else {
-
+            if ($_REQUEST['type' != "tintuc"]) {
 		if($photo = upload_image("file", _format_duoihinh, _upload_tintuc,$file_name))
 		{
 			$data['photo'] = $photo;		
@@ -318,6 +327,7 @@ function save_item(){
 			$data['fileup'] = $photo;		
 			//$data['thumb'] = create_thumb($data['photo'], 170, 130, _upload_tintuc,$file_name,1);	
 		}
+            }
 		
 		$data['tag'] = $_POST['tag'];
 		$data['id_danhmuc'] = (int)$_POST['id_danhmuc'];		
@@ -334,6 +344,11 @@ function save_item(){
 		$data['title'] = $_POST['title'];
 		$data['keywords'] = $_POST['keywords'];
 		$data['description'] = $_POST['description'];
+                if ($_REQUEST['type'] == "tintuc") {
+                    $data['mail'] = $_POST['mail'];
+                    $data['tel'] = $_POST['tel'];
+                }
+                
 		
 		foreach ($config['lang'] as $key => $value) {
 			$data['ten'.$key] = $_POST['ten'.$key];
