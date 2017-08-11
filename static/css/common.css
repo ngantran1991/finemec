@@ -1,0 +1,19 @@
+/* CSS Document */
+html{overflow-y:scroll;}
+body,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textarea,button,select,figure,figcaption{margin:0;padding:0}
+body,input,textarea,select,button,table{font-family:'돋움',Dotum,helvetica,sans-serif;font-size:11px;line-height:1.7}
+img{border:0}
+ul,ol{list-style:none}
+fieldset{border:none}
+button{cursor:pointer}
+header,hgroup,article,nav,footer,figure,figcaption,canvas,section,time{display:block}
+
+a{color:#545258; text-decoration:none}
+a:link{color:#545258; text-decoration:none}
+a:hover{text-decoration:none}
+a:active{text-decoration:none}
+
+/*js*/
+.clear{clear:both;}
+.hide{display:none}
+.png24 {tmp:expression(setPng24(this));}
