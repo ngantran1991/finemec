@@ -43,38 +43,48 @@
 
 <li class="categories_li <?php if($_GET['type']=='gioithieu') echo ' activemenu' ?>" id="menu_gioithieu"><a href="" title="" class="exp"><span>Company</span><strong></strong></a>
     <ul class="sub">
-        <?php phanquyen_menu('Quản lý giới thiệu','news','man','gioithieu'); ?>
+        <?php phanquyen_menu('Quản lý bài viết','news','man','gioithieu'); ?>
     </ul>
 </li>
 
-<li class="categories_li <?php if($_GET['type']=='sanpham') echo ' activemenu' ?>" id="menu_"><a href="" title="" class="exp"><span>Sản phẩm</span><strong></strong></a>
+<li class="categories_li <?php if($_GET['type']=='sanpham') echo ' activemenu' ?>" id="menu_"><a href="" title="" class="exp"><span>Product</span><strong></strong></a>
     <ul class="sub">
-    	<?php phanquyen_menu('Quản lý danh mục 1','product','man_danhmuc','sanpham'); ?>
-        <?php phanquyen_menu('Quản lý danh mục 2','product','man_list','sanpham'); ?>
+    	<?php // phanquyen_menu('Quản lý danh mục 1','product','man_danhmuc','sanpham'); ?>
+        <?php // phanquyen_menu('Quản lý danh mục 2','product','man_list','sanpham'); ?>
         <?php phanquyen_menu('Quản lý sản phẩm','product','man','sanpham'); ?>
         <?php //phanquyen_menu('Quản lý đơn hàng','order','man',''); ?>
     </ul>
 </li>
 
-<li class="categories_li <?php if($_GET['type']=='duan') echo ' activemenu' ?>" id="menu_da"><a href="" title="" class="exp"><span>Dự án</span><strong></strong></a>
-    <ul class="sub">
-        <?php phanquyen_menu('Quản lý danh mục 1','product','man_danhmuc','duan'); ?>
-        <?php phanquyen_menu('Quản lý danh mục 2','product','man_list','duan'); ?>
-        <?php phanquyen_menu('Quản lý dự án','product','man','duan'); ?>
-        <?php //phanquyen_menu('Quản lý đơn hàng','order','man',''); ?>
-    </ul>
-</li>
-
-<li class="categories_li <?php if($_GET['type']=='tintuc') echo ' activemenu' ?>" id="menu_tintuc"><a href="" title="" class="exp"><span>Tin tức</span><strong></strong></a>
+<li class="categories_li <?php if($_GET['type']=='tintuc') echo ' activemenu' ?>" id="menu_tintuc"><a href="" title="" class="exp"><span>Media</span><strong></strong></a>
     <ul class="sub">
         <?php phanquyen_menu('Quản lý danh mục 1','news','man_danhmuc','tintuc'); ?>
         <?php phanquyen_menu('Quản lý tin tức','news','man','tintuc'); ?>
     </ul>
 </li>
 
+<li class="categories_li <?php if($_GET['type']=='duan') echo ' activemenu' ?>" id="menu_da"><a href="" title="" class="exp"><span>Clinic</span><strong></strong></a>
+    <ul class="sub">
+        <?php phanquyen_menu('Quản lý danh mục 1','product','man_danhmuc','duan'); ?>
+        <?php // phanquyen_menu('Quản lý danh mục 2','product','man_list','duan'); ?>
+        <?php phanquyen_menu('Quản lý dự án','product','man','duan'); ?>
+        <?php //phanquyen_menu('Quản lý đơn hàng','order','man',''); ?>
+    </ul>
+</li>
+
+<li class="categories_li <?php if($_GET['com']=='about' || $_GET['com']=='video') echo ' activemenu' ?>" id="menu_t"><a href="" title="" class="exp"><span>Trang tĩnh</span><strong></strong></a>
+    <ul class="sub">
+    	<?php //phanquyen_menu('Quản lý Video','video','man','video'); ?>
+        <?php phanquyen_menu('Cập nhật giới thiệu','about','capnhat','about'); ?>
+        <?php phanquyen_menu('Cập nhật liên hệ','about','capnhat','lienhe'); ?>
+        <?php phanquyen_menu('Cập nhật footer','about','capnhat','footer'); ?>
+        <?php phanquyen_menu('Cập nhật footer 2','about','capnhat','footer2'); ?>
+    </ul>
+</li>
 
 
-<li class="categories_li <?php if($_GET['type']=='dichvu') echo ' activemenu' ?>" id="menu_dichvu"><a href="" title="" class="exp"><span>Dịch vụ</span><strong></strong></a>
+
+<!--<li class="categories_li <?php if($_GET['type']=='dichvu') echo ' activemenu' ?>" id="menu_dichvu"><a href="" title="" class="exp"><span>Dịch vụ</span><strong></strong></a>
     <ul class="sub">
         <?php phanquyen_menu('Quản lý danh mục 1','news','man_danhmuc','dichvu'); ?>
         <?php phanquyen_menu('Quản lý danh mục 2','news','man_list','dichvu'); ?>
@@ -104,15 +114,7 @@
     </ul>
 </li>
 
-<li class="categories_li <?php if($_GET['com']=='about' || $_GET['com']=='video') echo ' activemenu' ?>" id="menu_t"><a href="" title="" class="exp"><span>Trang tĩnh</span><strong></strong></a>
-    <ul class="sub">
-    	<?php //phanquyen_menu('Quản lý Video','video','man','video'); ?>
-        <?php phanquyen_menu('Cập nhật giới thiệu','about','capnhat','about'); ?>
-        <?php phanquyen_menu('Cập nhật liên hệ','about','capnhat','lienhe'); ?>
-        <?php phanquyen_menu('Cập nhật footer','about','capnhat','footer'); ?>
-        <?php phanquyen_menu('Cập nhật footer 2','about','capnhat','footer2'); ?>
-    </ul>
-</li>
+
    
 <li class="categories_li <?php if($_GET['com']=='newsletter' || $_GET['com']=='lkweb' || $_GET['com']=='yahoo') echo ' activemenu' ?>" id="menu_nt"><a href="" title="" class="exp"><span>Marketing Online</span><strong></strong></a>
       	<ul class="sub">
@@ -145,7 +147,7 @@
         <?php phanquyen_menu('Quản lý Phường xã','place','man_ward',''); ?>
         <?php phanquyen_menu('Quản lý Đường','place','man_street',''); ?>
     </ul>
-</li>
+</li>-->
 
 <li class="categories_li setting_li <?php if($_GET['com']=='company' || $_GET['com']=='meta' || $_GET['com']=='about' || $_GET['com']=='user') echo ' activemenu' ?>" id="menu_cp"><a href="" title="" class="exp"><span>Nội dung khác</span><strong></strong></a>
     <ul class="sub">
