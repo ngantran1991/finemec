@@ -59,7 +59,7 @@
 <li class="categories_li <?php if($_GET['type']=='tintuc') echo ' activemenu' ?>" id="menu_tintuc"><a href="" title="" class="exp"><span>Media</span><strong></strong></a>
     <ul class="sub">
         <?php phanquyen_menu('Quản lý danh mục 1','news','man_danhmuc','tintuc'); ?>
-        <?php phanquyen_menu('Quản lý tin tức','news','man','tintuc'); ?>
+        <?php phanquyen_menu('Quản lý media','news','man','tintuc'); ?>
     </ul>
 </li>
 
@@ -67,7 +67,7 @@
     <ul class="sub">
         <?php phanquyen_menu('Quản lý danh mục 1','product','man_danhmuc','duan'); ?>
         <?php // phanquyen_menu('Quản lý danh mục 2','product','man_list','duan'); ?>
-        <?php phanquyen_menu('Quản lý dự án','product','man','duan'); ?>
+        <?php phanquyen_menu('Quản lý clinic','product','man','duan'); ?>
         <?php //phanquyen_menu('Quản lý đơn hàng','order','man',''); ?>
     </ul>
 </li>
