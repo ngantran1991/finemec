@@ -1,0 +1,290 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="X-UA-compatible" content="IE=edge,chrome=1">
+<head>
+
+<!--메타태그-->
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+<meta name="description" content="FineMEC" />
+<meta name="keywords" content="FineMEC" />
+<meta name="Location" content="" />
+
+<!--링크-->
+<link rel="stylesheet" type="text/css" href="../css/common.css"  />
+<link rel="stylesheet" type="text/css" href="../css/layout.css"  />
+<link rel="stylesheet" type="text/css" href="../css/style.css"  />
+<script language="JavaScript" type="text/javascript" src="../js/jquery-1.10.2.js"></script>
+<script language="JavaScript" type="text/javascript" src="../js/linkurl.js"></script>
+<script language="JavaScript" type="text/javascript" src="../js/common.js"></script>
+
+<!--타이틀-->
+<title></title>
+</head>
+<body>
+<!------------------------------------------------------------------------------------header--><div class="wrap" id="visual_sub">
+  <div class="container">
+  <div id="header">
+<div id="logo"><a href="javascript:main();"><img src="../images/common/logo.jpg" alt="logo"/></a></div>
+<div id="menu">
+  <div id="navi">
+    <div id="menu_left">
+      <ul>
+        <li><a href="javascript:sub01();"><img src="../images/common/navi_01.png" alt="company"/></a></li>
+        <li><a href="javascript:sub02();"><img src="../images/common/navi_02.png" alt="products"/></a></li>
+        <li><a href="javascript:sub03();"><img src="../images/common/navi_03.png" alt="media"/></a></li>
+        <li><a href="javascript:sub04();"><img src="../images/common/navi_04.png" alt="clinic"/></a></li>
+		<li><a href="javascript:sub05();"><img src="../images/common/navi_05.png" alt="online"/></a></li>
+      </ul>
+    </div>
+    <div id="menu_right">
+      <ul>
+        <li><a href="javascript:main();"><img src="../images/common/home.png" alt="HOME|"/></a></li>
+        <li><a href="mailto:cool@finemec.co.kr"><img src="../images/common/contactus.png" alt="CONTACT US|"/></a></li>
+        <li><a href="javascript:sub06();"><img src="../images/common/sitmap.png" alt="SITEMAP"/></a></li>
+        <li><a href="http://finemec.co.kr" target="_blank"><img src="../images/common/korea.png" alt="KOREA"/></a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>  	<div id="visual_sub_btn">
+    	<ul>
+        	<li><img src="../images/snavi/snavi_01.gif" /></li>     
+        </ul>
+    </div>
+	<img src="../images/common/sub_visual01.jpg" />  </div>
+</div>
+<div class="wrap" id="sub">
+  <div class="container">
+	<div id="snavi">    
+        <p><script>
+/*
+	함수명	: 이미지명 치환
+	작성자	: 장호연
+	작성일	: 2011.10.13
+	코멘트	- 넘겨받은 오브젝트의 src를 변경한다.
+			- obj 	= 대상 img
+			- flag 	= on, off
+*/
+function snaviReplace(obj,flag){
+	try {
+		var snaviSrc = obj.attr("src");
+		if(flag == "on"){
+			snaviSrc = snaviSrc.replace(".gif","_on.gif");
+		} else if(flag == "off"){
+			snaviSrc = snaviSrc.replace("_on.gif",".gif");
+		}
+		obj.attr("src",snaviSrc);
+	} catch(e) {}
+}
+
+$(function(){
+	var snbArea = $(".snb_area");
+ 	var snb = $("#snb");
+	var snb1Deps = $("#snb > li");
+	var snb2Deps = $("#snb > li > ul > li");
+	var snbTotal = $(".allmenu > h2 ");
+	var snb1Reset = snb1Deps.eq(snb1Idx-1);
+	var snb2Reset = snb1Reset.find(">ul >li").eq(snb2Idx-1);;
+	var has2depth = $(".snb_2depth");
+	var snbH2 = $(".t_h2");
+	var $allMenu 		= $(".allmenu");								//전체메뉴
+	var $allMenuArea	= $("#allmenu_area");							//전체 메뉴 리스트 영역
+	var all2depth = $(".all2depth");
+
+	hideGnb();
+	resetGnb();
+
+	function hideGnb(){
+		$("#allmenu_area").hide();
+		$(".all2depth").hide();
+		$(".all2depth").remove();
+	};
+
+	function showGnb(){
+		$(".header_wrap").after("<div class='all2depth'></div>");	
+		$(".all2depth").css("height",all2depth.height()).show();
+	};
+	
+	//1뎁스 제어
+	snb1Deps.mouseenter(function(){
+		snb1Deps.each(function(){
+			snaviReplace($(this).find(">h2 >a >img"), "off");
+			$(this).find(">ul").hide();
+		});
+		snaviReplace($(this).find(">h2 >a >img"), "on");
+		//$(this).find(">ul").show();
+		//snb2Deps.removeClass("on");
+	}).focusin(function(){
+		$(this).mouseenter();
+	});
+
+	snbArea.mouseleave(function(){
+		//hideGnb();
+		resetGnb();
+		return false;
+	});
+/*
+	//snb 2depth 펼치기
+	snbH2.mouseenter(function(){
+		//showGnb();
+	}).focusin(function(){
+		//$(this).mouseenter();
+	});
+
+	$(".inner, .leftSection, #content").mouseenter(function(){
+		hideGnb();
+		resetGnb();
+	}).focusin(function(){
+		$(this).mouseenter();
+	});
+
+	
+
+/*
+	//마우스 벗어 났을 때 초기화
+	snb.mouseleave(function(){
+		if(! $allMenu.hasClass("active") ){ //전체메뉴가 비활성화시에만 실행
+			resetGnb();
+		};
+	});
+	$(".inner, .allmenu, #container ").focusin(function(){
+		if(! $allMenu.hasClass("active") ){ //전체메뉴가 비활성화시에만 실행
+			resetGnb();
+		};
+	});
+*/
+	
+	//리셋함수
+	function resetGnb(){
+		snb1Deps.each(function(){
+			snaviReplace($(this).find(">h2 >a >img"), "off");
+			//$(this).find(">ul").hide();
+		});
+		if(snb1Idx != 0){
+			snaviReplace(snb1Reset.find(">h2 >a >img"), "on");
+			//snb1Reset.find(">ul").show();
+		};
+		if(snb2Idx != 0){
+			snb2Deps.removeClass("on");
+			snb2Reset.addClass("on");
+		};
+	};
+	
+	//  초기화
+	resetGnb();	
+	
+	//전체메뉴
+	$allMenu.find("> h2 > a").click(function(){
+		//snaviReplace ( snb1Reset.find("> h2 > a > img"),  "off" );
+		//snb.find(" > li.on").removeClass("on").find("ul").hide(); 
+		$allMenuArea.show();
+		//snaviReplace($(this).find("img") ,  "on");
+		//$allMenu.addClass("active");
+		showGnb();
+		//return false;
+	});
+	
+	$allMenu.find(".close").click(function(){
+		//snb1Reset.addClass("on").find("ul").show(); 
+		$allMenuArea.hide();
+		//$allMenu.removeClass("active");
+		//snb.find(" > li.on").removeClass("on").find("ul").hide();
+		hideGnb();
+	});	
+
+});
+
+</script>
+
+
+
+<!-- snb -->
+<div class="snb_area">
+  <ul id="snb">
+    <li class="snb01">
+      <h2 class="t_h2"><a href="javascript:sub01_01();"><img src="../images/snavi/snavi_01_01.gif"/></a></h2>
+    </li>
+    <li class="snb02">
+      <h2 class="t_h2"><a href="javascript:sub01_02();"><img src="../images/snavi/snavi_01_02.gif"  /></a></h2>
+    </li>
+    <li class="snb03">
+      <h2 class="t_h2"><a href="javascript:sub01_03();"><img src="../images/snavi/snavi_01_03.gif"  /></a></h2>
+    </li>
+    <li class="snb04">
+      <h2 class="t_h2"><a href="javascript:sub01_04();"><img src="../images/snavi/snavi_01_04.gif"/></a></h2>
+    </li>
+    <li class="snb05">
+      <h2 class="t_h2"><a href="javascript:sub01_05();"><img src="../images/snavi/snavi_01_05.gif"  /></a></h2>
+    </li>  
+  </ul>
+</div>
+<!-- // snb -->
+<script>
+    var snb1Idx = 1;
+    var snb2Idx = 1;
+</script>
+
+
+
+
+
+
+
+
+<p>		
+	</div>
+	<div id="contents">
+ 	<h1><img src="../images/tit/01_01.gif">
+
+
+
+
+
+
+
+</h1>
+	    <div class="location">
+        	<ul><li class="home"><a href="javascript:main();">HOME</a></li><li>Company</li><li>introduction
+
+
+
+
+</li></ul>
+      	</div>
+<div id="page"><img src="../images/sub/01_01.jpg" /></div>
+
+</div>
+</div>
+</div>
+<div class="wrap" id="footer">
+  <div class="container">
+    <div id="foot_left">
+        <h2><img src="../images/common/foot_logo.jpg" alt="FineMEC"></h2>
+    </div>
+    <div id="foot_right">
+	<!--<span><a href="javascript:sub01_05();"><img src="../images/common/foot_info.jpg" alt="COPYRIGHT FIND MEC ALL RIGHTS RESERVED"></span></a>-->
+	<span><a href="javascript:sub01_05();"><img src="../images/common/foot_tel.jpg" alt="TEL:+82-2-309-1882"></span></a>
+	<span><a href="../../admin/adm" target="_blank"><img src="../images/common/foot_admin.gif" alt="Admin"></a></span>
+	<span><a href="javascript:sub01_05();"><img src="../images/common/foot_banner.jpg" alt="식품의약품안전처 의료기기제품정보방"></span></a></div>
+
+  </div>
+</div>
+<div class="wrap">
+  <div class="container"><img src="../images/common/fine_info.jpg"></div>
+</div>
+
+
+
+<script>
+var quick_menu = $('#quick');
+var quick_top = 375;
+quick_menu.css('top', $(window).height() );
+$(document).ready(function(){
+	quick_menu.animate( { "top": $(document).scrollTop() + quick_top +"px" }, 0 ); 
+	$(window).scroll(function(){
+		quick_menu.stop();
+		quick_menu.animate( { "top": $(document).scrollTop() + quick_top + "px" }, 550 );
+	});
+});
+</script>
