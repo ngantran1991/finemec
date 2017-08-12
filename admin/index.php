@@ -37,6 +37,10 @@
                 case 'homepage':
 			$source = "homepage";
 			break;
+                    
+                case 'footercontent':
+			$source = "footercontent";
+			break;
 			
 		case 'phanquyen':
 			$source = "phanquyen";

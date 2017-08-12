@@ -13,6 +13,7 @@
         <?php phanquyen_menu('Cập nhật banner phải','background','capnhat','bannerqc'); ?>
         
         <?php phanquyen_menu('Cập nhật nội dung homepage','homepage','capnhat','banner'); ?>
+        <?php phanquyen_menu('Cập nhật footer','footercontent','capnhat','banner'); ?>
          
 <!--        Cập nhật sản phẩm hiển thị
         Cập nhật notice hiển thị
