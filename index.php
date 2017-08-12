@@ -32,8 +32,8 @@
 	include_once _lib."functions_user.php";
 	include_once _lib."functions_giohang.php";
 	include_once _lib."file_requick.php";
-	include_once _source."counter.php";	
-    // echo $type;
+	include_once _source."counter.php"; 
+   // echo $type;
 ?>
 <!doctype html PUBLIC>
 <html lang="vi">
@@ -342,18 +342,55 @@ $(function(){
 <div class="wrap" id="footer">
   <div class="container">
     <div id="foot_left">
-        <h2><img src="images/common/foot_logo.jpg" alt="FineMEC"></h2>
+        <h2>
+            <?php
+              $d->reset();
+            $sql = "select photo from #_background where type='logofooter' limit 0,1";
+            $d->query($sql);
+            $row_logo_footer = $d->fetch_array();
+              ?>
+            <img src="<?=_upload_hinhanh_l.$row_logo_footer['photo']?>" alt="FineMEC">
+        </h2>
     </div>
     <div id="foot_right">
 	<!--<span><a href="javascript:sub01_05();"><img src="../images/common/foot_info.jpg" alt="COPYRIGHT FIND MEC ALL RIGHTS RESERVED"></span></a>-->
-	<span><a href="javascript:sub01_05();"><img src="images/common/foot_tel.jpg" alt="TEL:+82-2-309-1882"></span></a>
-	<span><a href="../../admin/adm" target="_blank"><img src="images/common/foot_admin.gif" alt="Admin"></a></span>
-	<span><a href="javascript:sub01_05();"><img src="images/common/foot_banner.jpg" alt="�������쏀������泥� ��猷�湲곌린������蹂대갑"></span></a></div>
+	<span><a href="javascript:sub01_05();">
+                <?php
+              $d->reset();
+            $sql = "select photo from #_background where type='telfooter' limit 0,1";
+            $d->query($sql);
+            $row_tel_footer = $d->fetch_array();
+              ?>
+                <img src="<?=_upload_hinhanh_l.$row_tel_footer['photo']?>" alt="TEL:+82-2-309-1882">
+              </a>
+        </span>
+	<span><a href="/admin" target="_blank">
+                <img src="images/common/foot_admin.gif" alt="Admin">
+            </a>
+        </span>
+	<span><a href="javascript:sub01_05();">
+                <?php
+              $d->reset();
+            $sql = "select photo from #_background where type='footerright' limit 0,1";
+            $d->query($sql);
+            $row_footer_right = $d->fetch_array();
+              ?>
+                <img src="<?=_upload_hinhanh_l.$row_footer_right['photo']?>" alt="">
+                </a>
+        </span></div>
 
   </div>
 </div>
 <div class="wrap">
-  <div class="container"><img src="images/common/fine_info.jpg"></div>
+  <div class="container">
+      <?php
+              $d->reset();
+            $sql = "select photo from #_background where type='footerleft' limit 0,1";
+            $d->query($sql);
+            $row_footer_left = $d->fetch_array();
+              ?>
+      <img src="<?=_upload_hinhanh_l.$row_footer_left['photo']?>">
+  </div>
 </div>
 
 

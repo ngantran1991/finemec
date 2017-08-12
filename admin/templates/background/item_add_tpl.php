@@ -18,7 +18,7 @@
 			<h6>Sửa hình ảnh</h6>
 		</div>		
         <?php
-			if($_REQUEST['type']!='banner' and $_REQUEST['type']!='banner_mobi' and $_REQUEST['type']!='banner2' and $_REQUEST['type']!='bannerqc')
+			if($_REQUEST['type']!='banner' and $_REQUEST['type']!='banner_mobi' and $_REQUEST['type']!='banner2' && $_REQUEST['type']!='logofooter' && $_REQUEST['type']!='footerleft' && $_REQUEST['type']!='telfooter' && $_REQUEST['type']!='footerright')
 				$config['lang'] = array(''=>'Tiếng Việt');	
 		?>
         <ul class="tabs">

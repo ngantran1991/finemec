@@ -4,8 +4,14 @@
 <!-- Left navigation -->
 <ul id="menu" class="nav">
 <li class="dash" id="menu1"><a class=" active" title="" href="index.php"><span>Trang chủ</span></a></li>
-
-<li class="categories_li gallery_li <?php if($_GET['com']=='anhnen' || $_GET['com']=='background' || $_GET['com']=='slider' || $_GET['com']=='letruot') echo ' activemenu' ?>" id="menu_qc"><a href="" title="" class="exp"><span>Homepage</span><strong></strong></a>
+<?php 
+$activeHomepage = "";
+if($_GET['com']=='anhnen' || $_GET['com']=='background' || $_GET['com']=='homepage' || $_GET['com']=='slider' || $_GET['com']=='letruot')
+    $activeHomepage = "activemenu";
+if ($_GET['type'] == "logofooter" || $_GET['type'] == "footerleft" || $_GET['type'] == "telfooter" || $_GET['type'] == "footerright")
+    $activeHomepage = "";
+?>
+<li class="categories_li gallery_li <?=$activeHomepage ?>" id="menu_qc"><a href="" title="" class="exp"><span>Homepage</span><strong></strong></a>
      <ul class="sub">
 		<?php //phanquyen_menu('Cập nhật background','anhnen','capnhat','background'); ?>
         <?php phanquyen_menu('Cập nhật logo','background','capnhat','logo'); ?>
@@ -13,7 +19,6 @@
         <?php phanquyen_menu('Cập nhật banner phải','background','capnhat','bannerqc'); ?>
         
         <?php phanquyen_menu('Cập nhật nội dung homepage','homepage','capnhat','banner'); ?>
-        <?php phanquyen_menu('Cập nhật footer','footercontent','capnhat','banner'); ?>
          
 <!--        Cập nhật sản phẩm hiển thị
         Cập nhật notice hiển thị
@@ -39,6 +44,14 @@
         <?php // phanquyen_menu('Quản lý quảng cáo','slider','man_photo','quangcao'); ?>
         <?php // phanquyen_menu('Quản lý quảng cáo 2 bên','slider','man_photo','letruot'); ?>
         <?php // phanquyen_menu('Cập nhật pupop quảng cáo','background','capnhat','pupop'); ?>
+     </ul>
+</li>
+<li class="categories_li gallery_li <?php if($_GET['com']=='background' && ($_GET['type'] == "logofooter" || $_GET['type'] == "footerleft" || $_GET['type'] == "telfooter"  || $_GET['type'] == "footerright")) echo ' activemenu' ?>" id="menu_qc"><a href="" title="" class="exp"><span>Footer</span><strong></strong></a>
+     <ul class="sub">
+        <?php phanquyen_menu('Cập nhật logo footer','background','capnhat','logofooter'); ?>
+         <?php phanquyen_menu('Cập nhật footer left','background','capnhat','footerleft'); ?>
+         <?php phanquyen_menu('Cập nhật tel footer','background','capnhat','telfooter'); ?>
+         <?php phanquyen_menu('Cập nhật footer right','background','capnhat','footerright'); ?>
      </ul>
 </li>
 
