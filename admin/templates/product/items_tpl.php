@@ -181,7 +181,7 @@ function get_main_category()
       <tr>
         <td></td>
         <td class="tb_data_small"><a href="#" class="tipS" style="margin: 5px;">Thứ tự</a></td>     
-        <td class="tb_data_small"><?=get_main_danhmuc()?></td>
+<!--        <td class="tb_data_small"><?=get_main_danhmuc()?></td>-->
         <!--<td class="tb_data_small"><?=get_main_list()?></td>-->
         <td class="tb_data_small none"><?=get_main_category()?></td>
         <td class="tb_data_small none"><?=get_main_item()?></td>
@@ -205,15 +205,15 @@ function get_main_category()
          <td align="center">
             <input data-val0="<?=$items[$i]['id']?>" data-val2="table_<?=$_GET['com']?>" type="text" value="<?=$items[$i]['stt']?>" name="stt<?=$i?>" data-val3="stt" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" class="tipS smallText update_stt" onblur="stt(this)" original-title="Nhập số thứ tự sản phẩm" rel="<?=$items[$i]['id']?>" />
         </td> 
-        <td align="center">
+<!--        <td align="center">
 			<?php
 				$sql_danhmuc="select ten from table_product_danhmuc where id='".$items[$i]['id_danhmuc']."'";
 				$result=mysql_query($sql_danhmuc);
 				$item_danhmuc =mysql_fetch_array($result);
 				echo @$item_danhmuc['ten']
 			?>      
-<!--        </td>
-		<td align="center">
+        </td>-->
+	<!--	<td align="center">
 			<?php
 				$sql = "select ten from table_product_list where id='".$items[$i]['id_list']."'";
 				$result = mysql_query($sql);

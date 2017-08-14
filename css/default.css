@@ -104,7 +104,13 @@
 
 #snb {width:207px;}
 #snb:after {content:""; display:block; clear:both;}
-#snb li {width:207px; height:23px; display:block; font-size:0px; float:left; border-bottom:1px solid #d0d0d0; margin:5px 0px;}
+#snb li {width:207px; height:23px; display:block; float:left; border-bottom:1px solid #d0d0d0; margin:5px 0px; text-transform: uppercase; font-weight: 700;}
+#snb li a:hover {
+    color: #0054b4;
+}
+#snb li.active a{
+    color: #0054b4;
+}
 #snb li ul:after {content:""; display:block; clear:both;}
 
 #sub {margin-top:20px;}

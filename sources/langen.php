@@ -21,6 +21,7 @@
 @define ('_chuanhaptukhoa','You did not enter search keywords');
 @define ('_ketquatimkiem', 'Search Results');
 @define ('_timkiem','Search');
+@define ('_company','Company');
 
 // ------------ Danh mục + Nỗi bật----------------- 
 @define ('_danhmucsanpham','Product Categories');

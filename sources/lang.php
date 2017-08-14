@@ -247,6 +247,7 @@
 @define ('_sanphamkhac','Sản phẩm khác');
 @define ('_sanphamcungloai','Sản phẩm cùng loại');
 @define ('_chitiet','Chi tiết');
+@define ('_company','Company');
 
 @define ('_thongtinsanpham','Thông tin sản phẩm');
 @define ('_thongsokythuat','Thông số kỹ thuật');

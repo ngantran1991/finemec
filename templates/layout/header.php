@@ -33,7 +33,17 @@
   <div id="navi">
     <div id="menu_left">
       <ul>
-        <li><a href="javascript:sub01();"><img src="images/common/navi_01.png" alt="company"/></a></li>
+        <li>
+            <?php
+            $d->reset();
+            $sql = "select * from #_news where type='gioithieu' order by stt asc limit 0,1";
+            $d->query($sql);
+            $row_company = $d->fetch_array();
+            ?>
+            <a href="company/<?=$row_company['tenkhongdau']."-".$row_company['id']?>.html">
+                <img src="images/common/navi_01.png" alt="company"/>
+            </a>
+        </li>
         <li><a href="javascript:sub02();"><img src="images/common/navi_02.png" alt="products"/></a></li>
         <li><a href="javascript:sub03();"><img src="images/common/navi_03.png" alt="media"/></a></li>
         <li><a href="javascript:sub04();"><img src="images/common/navi_04.png" alt="clinic"/></a></li>

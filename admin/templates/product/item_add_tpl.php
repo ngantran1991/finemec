@@ -190,14 +190,38 @@ function get_main_item()
 
        <div id="info" class="tab_content">
         <input type="hidden" name="id" id="id_this_post" value="<?=@$item['id']?>" />
-		<div class="formRow">
+        <div class="formRow">
+            <label>Title</label>
+            <div class="formRight">
+                <input type="text" value="<?=@$item['title']?>" name="title" title="Nội dung thẻ meta Title dùng để SEO" class="tipS" />
+            </div>
+            <div class="clear"></div>
+        </div>
+       
+        <div class="formRow">
+            <label>Từ khóa</label>
+            <div class="formRight">
+                <input type="text" value="<?=@$item['keywords']?>" name="keywords" title="Từ khóa chính cho bài viết" class="tipS" />
+            </div>
+            <div class="clear"></div>
+        </div>
+        
+        <div class="formRow">
+            <label>Description:</label>
+            <div class="formRight">
+                <textarea rows="8" cols="" title="Nội dung thẻ meta Description dùng để SEO" class="tipS description_input" name="description"><?=@$item['description']?></textarea>
+                <b>(Tốt nhất là 68 - 170 ký tự)</b>
+            </div>
+            <div class="clear"></div>
+        </div>
+		<div class="formRow none">
 			<label>Chọn danh mục 1</label>
 			<div class="formRight">
 			<?=get_main_danhmuc()?>
 			</div>
 			<div class="clear"></div>
 		</div>
-        <div class="formRow">
+        <div class="formRow none">
 			<label>Chọn danh mục cấp 2</label>
 			<div class="formRight">
 			<?=get_main_list()?>
@@ -206,7 +230,7 @@ function get_main_item()
 		</div>
 
 		<?php if($_GET['type']!='duan') {?>
-        <div class="formRow">
+        <div class="formRow none">
             <label>Mã sản phẩm:</label>
             <div class="formRight">
                 <input type="text" id="code_pro" name="masp" value="<?=@$item['masp']?>"  title="Nhập mã sản phẩm" class="tipS" />
@@ -221,7 +245,7 @@ function get_main_item()
             <div class="clear"></div>
         </div>    
         
-         <div class="formRow">
+         <div class="formRow none">
             <label>Giá bán: </label>
             <div class="formRight">
                 <input type="text" id="price" name="gia" value="<?=@$item['gia']?>"  title="Nhập giá sản phẩm" class="tipS" onkeypress="return OnlyNumber(event)" />
@@ -271,7 +295,7 @@ function get_main_item()
 				<div class="formRight">
 	            	<input type="file" id="file2" name="file2" />
 					<img src="./images/question-button.png" alt="Upload file" class="icon_question tipS" original-title="Tải file">
-					<div class="note">doc|xls|ppt|pdf|rar|win|zip|docx|pptx|xlsx|DOC|XLS|PPT|PDF|RAR|WIN|ZIP|DOCX|PPTX|XLSX</div>
+					<div class="note">.jpg, .png, .jpeg, .gif</div>
 				</div>
 				<div class="clear"></div>
 			</div>
@@ -333,30 +357,6 @@ function get_main_item()
 
       </div>
           <div class="clear"></div>
-        </div>
- 	<div class="formRow">
-            <label>Title</label>
-            <div class="formRight">
-                <input type="text" value="<?=@$item['title']?>" name="title" title="Nội dung thẻ meta Title dùng để SEO" class="tipS" />
-            </div>
-            <div class="clear"></div>
-        </div>
-       
-        <div class="formRow">
-            <label>Từ khóa</label>
-            <div class="formRight">
-                <input type="text" value="<?=@$item['keywords']?>" name="keywords" title="Từ khóa chính cho bài viết" class="tipS" />
-            </div>
-            <div class="clear"></div>
-        </div>
-        
-        <div class="formRow">
-            <label>Description:</label>
-            <div class="formRight">
-                <textarea rows="8" cols="" title="Nội dung thẻ meta Description dùng để SEO" class="tipS description_input" name="description"><?=@$item['description']?></textarea>
-                <b>(Tốt nhất là 68 - 170 ký tự)</b>
-            </div>
-            <div class="clear"></div>
         </div>
         
          <div class="formRow none">

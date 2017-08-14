@@ -1,4 +1,6 @@
-<?php  if(!defined('_source')) die("Error");
+<?php  
+
+if(!defined('_source')) die("Error");
 
 	@$id_danhmuc =  trim(strip_tags(addslashes($_GET['id_danhmuc'])));
 	@$id_list =   trim(strip_tags(addslashes($_GET['id_list'])));
@@ -27,11 +29,21 @@
 		$d->query($sql_detail);
 		$row_detail = $d->fetch_array();
 		if(empty($row_detail)){redirect("http://".$config_url.'/404.php');}	
-		
+		$companyDetail = $row_detail;
+                
 		$title_cat = $row_detail['ten'];
 		$title = $row_detail['title'];	
 		$keywords = $row_detail['keywords'];
 		$description = $row_detail['description'];
+                $noidung = $row_detail['noidung'];
+                
+                // list all tin tuc
+                $d->reset();
+		$sql_list_company = "select id,ten$lang as ten, tenkhongdau, mota$lang as mota,noidung$lang as noidung FROM #_news where type='gioithieu' and hienthi=1 order by stt,id desc";
+		$d->query($sql_list_company);
+		$listCompany = $d->result_array();
+                
+                
 		
 		#Thông tin share facebook
 		$images_facebook = 'http://'.$config_url.'/'._upload_tintuc_l.$row_detail['photo'];

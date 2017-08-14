@@ -29,6 +29,14 @@
 			$source = "about";
 			$template = "about";
 			break;*/
+                case 'company':
+			$type = "company";
+			$title = _company;
+			$title_cat = _company;
+			$title_other = _tinlienquan;
+			$source = "news";
+			$template = "news_detail";
+			break;
 			
 		case 'tin-tuc':
 			$type = "tintuc";
