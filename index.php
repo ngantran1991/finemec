@@ -47,6 +47,7 @@
         <link href="style_m.css" type="text/css" rel="stylesheet" />
     <?php }else{ ?>    
         <link rel="stylesheet" type="text/css" href="css/common.css"  />
+        <link rel="stylesheet" type="text/css" href="css/layout.css"  />
         <link href="css/default.css" type="text/css" rel="stylesheet" />
         <link href="style.css" type="text/css" rel="stylesheet" />
     <?php } ?>
