@@ -8,6 +8,7 @@
 @define ('_gioithieu','Giới thiệu');
 @define ('_sanpham','Sản phẩm');
 @define ('_tintuc','Tin tức');
+@define ('_media','Media');
 @define ('_dichvu','Dịch vụ');
 @define ('_congtrinh','Công trình');
 @define ('_duan','Dự án');

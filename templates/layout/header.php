@@ -44,8 +44,29 @@
                 <img src="images/common/navi_01.png" alt="company"/>
             </a>
         </li>
-        <li><a href="javascript:sub02();"><img src="images/common/navi_02.png" alt="products"/></a></li>
-        <li><a href="javascript:sub03();"><img src="images/common/navi_03.png" alt="media"/></a></li>
+        <li>
+            <?php
+            $d->reset();
+            $sql_list_product = "select * FROM #_product where type='sanpham' and hienthi=1 order by stt,id asc limit 1";
+            $d->query($sql_list_product);
+            $row_product = $d->fetch_array();
+            ?>
+            <a href="san-pham/<?=$row_product['tenkhongdau']."-".$row_product['id']?>.html">
+                <img src="images/common/navi_02.png" alt="products"/>
+            </a>
+        </li>
+        <li>
+            <?php
+            $d->reset();
+            $sql_list = "select id,ten$lang as ten, tenkhongdau FROM #_news_danhmuc where hienthi=1 and type='tintuc' order by stt asc limit 1";
+            $d->query($sql_list);
+            $row_list = $d->fetch_array();
+            $listLoaiTinTucMenu = $row_list;
+            ?>
+            <a href="media/<?=$listLoaiTinTucMenu['tenkhongdau']."-".$listLoaiTinTucMenu['id']?>.html">
+                <img src="images/common/navi_03.png" alt="media"/>
+            </a>
+        </li>
         <li><a href="javascript:sub04();"><img src="images/common/navi_04.png" alt="clinic"/></a></li>
 		<li><a href="javascript:sub05();"><img src="images/common/navi_05.png" alt="online"/></a></li>
       </ul>

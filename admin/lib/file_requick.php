@@ -37,6 +37,15 @@
 			$source = "news";
 			$template = "news_detail";
 			break;
+                    
+                case 'media':
+			$type = "media";
+			$title = _media;
+			$title_cat = _media;
+			$title_other = _tinlienquan;
+			$source = "media";
+			$template = isset($_GET['id']) ? "media_detail" : "news";
+			break;
 			
 		case 'tin-tuc':
 			$type = "tintuc";
@@ -267,7 +276,7 @@
 			$template = "index";
 			break;
 	}
-	
+
 	if($source!="") include _source.$source.".php";	
 	if($_REQUEST['com']=='logout')
 	{

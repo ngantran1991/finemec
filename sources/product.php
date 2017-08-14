@@ -39,10 +39,18 @@
 		$row_detail = $d->fetch_array();
 		if(empty($row_detail)){redirect("http://".$config_url.'/404.php');}	
 		
+                $sanphamDetail = $row_detail;
 		$title_cat = $row_detail['ten'];
 		$title = $row_detail['title'];	
 		$keywords = $row_detail['keywords'];
 		$description = $row_detail['description'];
+
+                // list menu
+                $d->reset();
+		$sql_list_product = "select * FROM #_product where type='".$type."' and hienthi=1 order by stt,id asc";
+		$d->query($sql_list_product);
+		$listProduct = $d->result_array();
+                
 		
 		#Thông tin share facebook
 		$images_facebook = 'http://'.$config_url.'/'._upload_sanpham_l.$row_detail['photo'];

@@ -1,300 +1,286 @@
-<!-- slick -->
-<script type="text/javascript">
-    $(document).ready(function(){
-		$('.slick2').slick({
-			  slidesToShow: 1,
-			  slidesToScroll: 1,
-			  arrows: false,
-			  fade: true,
-			  autoplay:false,  //Tự động chạy
-			  autoplaySpeed:5000,  //Tốc độ chạy
-			  asNavFor: '.slick'			 
-		});
-		$('.slick').slick({
-			  slidesToShow: 4,
-			  slidesToScroll: 1,
-			  asNavFor: '.slick2',
-			  dots: false,
-			  centerMode: false,
-			  focusOnSelect: true
-		});
-		 return false;
-    });
-</script>
-<!-- slick -->
+<div class="wrap" id="sub">
+  <div class="container">
+	<div id="snavi">    
+        <p><script>
+/*
+	�⑥��紐�	: �대�몄�紐� 移���
+	���깆��	: �ν�몄��
+	���깆��	: 2011.10.13
+	肄�硫���	- ��寃⑤��� �ㅻ����몄�� src瑜� 蹂�寃쏀����.
+			- obj 	= ���� img
+			- flag 	= on, off
+*/
+function snaviReplace(obj,flag){
+	try {
+		var snaviSrc = obj.attr("src");
+		if(flag == "on"){
+			snaviSrc = snaviSrc.replace(".gif","_on.gif");
+		} else if(flag == "off"){
+			snaviSrc = snaviSrc.replace("_on.gif",".gif");
+		}
+		obj.attr("src",snaviSrc);
+	} catch(e) {}
+}
 
-<link href="magiczoomplus/magiczoomplus.css" rel="stylesheet" type="text/css" media="screen"/>
-<script src="magiczoomplus/magiczoomplus.js" type="text/javascript"></script>
-<script type="text/javascript">
-	var mzOptions = {
-		zoomMode:true,
-		onExpandClose: function(){MagicZoom.refresh();}
+$(function(){
+	var snbArea = $(".snb_area");
+ 	var snb = $("#snb");
+	var snb1Deps = $("#snb > li");
+	var snb2Deps = $("#snb > li > ul > li");
+	var snbTotal = $(".allmenu > h2 ");
+	var snb1Reset = snb1Deps.eq(snb1Idx-1);
+	var snb2Reset = snb1Reset.find(">ul >li").eq(snb2Idx-1);;
+	var has2depth = $(".snb_2depth");
+	var snbH2 = $(".t_h2");
+	var $allMenu 		= $(".allmenu");								//��泥대���
+	var $allMenuArea	= $("#allmenu_area");							//��泥� 硫��� 由ъ�ㅽ�� ����
+	var all2depth = $(".all2depth");
+
+	hideGnb();
+	resetGnb();
+
+	function hideGnb(){
+		$("#allmenu_area").hide();
+		$(".all2depth").hide();
+		$(".all2depth").remove();
 	};
+
+	function showGnb(){
+		$(".header_wrap").after("<div class='all2depth'></div>");	
+		$(".all2depth").css("height",all2depth.height()).show();
+	};
+	
+	//1���� ����
+	snb1Deps.mouseenter(function(){
+		snb1Deps.each(function(){
+			snaviReplace($(this).find(">h2 >a >img"), "off");
+			$(this).find(">ul").hide();
+		});
+		snaviReplace($(this).find(">h2 >a >img"), "on");
+		//$(this).find(">ul").show();
+		//snb2Deps.removeClass("on");
+	}).focusin(function(){
+		$(this).mouseenter();
+	});
+
+	snbArea.mouseleave(function(){
+		//hideGnb();
+		resetGnb();
+		return false;
+	});
+/*
+	//snb 2depth �쇱�湲�
+	snbH2.mouseenter(function(){
+		//showGnb();
+	}).focusin(function(){
+		//$(this).mouseenter();
+	});
+
+	$(".inner, .leftSection, #content").mouseenter(function(){
+		hideGnb();
+		resetGnb();
+	}).focusin(function(){
+		$(this).mouseenter();
+	});
+
+	
+
+/*
+	//留��곗�� 踰��� �ъ�� �� 珥�湲고��
+	snb.mouseleave(function(){
+		if(! $allMenu.hasClass("active") ){ //��泥대��닿� 鍮����깊������留� �ㅽ��
+			resetGnb();
+		};
+	});
+	$(".inner, .allmenu, #container ").focusin(function(){
+		if(! $allMenu.hasClass("active") ){ //��泥대��닿� 鍮����깊������留� �ㅽ��
+			resetGnb();
+		};
+	});
+*/
+	
+	//由ъ���⑥��
+	function resetGnb(){
+		snb1Deps.each(function(){
+			snaviReplace($(this).find(">h2 >a >img"), "off");
+			//$(this).find(">ul").hide();
+		});
+		if(snb1Idx != 0){
+			snaviReplace(snb1Reset.find(">h2 >a >img"), "on");
+			//snb1Reset.find(">ul").show();
+		};
+		if(snb2Idx != 0){
+			snb2Deps.removeClass("on");
+			snb2Reset.addClass("on");
+		};
+	};
+	
+	//  珥�湲고��
+	resetGnb();	
+	
+	//��泥대���
+	$allMenu.find("> h2 > a").click(function(){
+		//snaviReplace ( snb1Reset.find("> h2 > a > img"),  "off" );
+		//snb.find(" > li.on").removeClass("on").find("ul").hide(); 
+		$allMenuArea.show();
+		//snaviReplace($(this).find("img") ,  "on");
+		//$allMenu.addClass("active");
+		showGnb();
+		//return false;
+	});
+	
+	$allMenu.find(".close").click(function(){
+		//snb1Reset.addClass("on").find("ul").show(); 
+		$allMenuArea.hide();
+		//$allMenu.removeClass("active");
+		//snb.find(" > li.on").removeClass("on").find("ul").hide();
+		hideGnb();
+	});	
+
+});
+
 </script>
 
 
 
-<!--Tags sản phẩm-->
-<link href="css/tab.css" type="text/css" rel="stylesheet" />
-<script language="javascript" type="text/javascript">
-	$(document).ready(function(){
-		$('#content_tabs .tab').hide();
-		$('#content_tabs .tab:first').show();
-		$('#ultabs li:first').addClass('active');
+<!-- snb -->
+<div class="snb_area">
+  <ul id="snb">
+      <?php
+      if (is_array($listProduct) && count($listProduct)){
+          foreach ($listProduct as $itemProduct){
+              ?>
+            <li class="<?=$itemProduct['id'] == $sanphamDetail['id'] ? "active": ""?>">
+                <h2 class="t_h2"><a href="<?="san-pham/".$itemProduct['tenkhongdau']."-".$itemProduct['id'].".html"?>">
+                        <?=$itemProduct['ten']?>
+                    </a></h2>
+              </li>
+      <?php
+          }
+      }
+      ?>
+      
+
+  </ul>
+</div>
+<!-- // snb -->
+<script>
+    var snb1Idx = 0;
+    var snb2Idx = 0;
+</script>
+
+
+<script>
+    var snb1Idx = 1;
+    var snb2Idx = 1;
+</script>
+
+
+
+
+
+
+
+
+
+<p>		
+	</div>
+	<div id="contents">
+ 	<h1>
+            <?=$title_cat ?>
+</h1>
+	    <div class="location">
+        	<ul><li class="home"><a href="<?=$config_url ?>">HOME</a></li><li>Products</li><li>
+<?=$title_cat ?>
+
+
+
+</li></ul>
+      	</div><script>
+$(function(){	
+	$('.Limg a').click(function(){				
+		// 1.�닿� �대┃�� a��洹몄�� 寃쎈��� �닿꺼吏� �대�몄�瑜� .main img��洹몄���� ��濡� �ｌ�댁�. $('������A').before('異�媛����� ����')		
+		// .before 紐��뱀�� �듯�� ��濡�寃� 異�媛����� img��洹몄�� src 媛� = �닿� �대┃�� a��洹몄�� href 媛� $(this).attr('href')
+		$('.main img').before('<img src="' +  $(this).attr('href') + '" />');
+		// 2.�대�몄� fadeOut -> �������� �대�몄���洹� ����.
+		$('.main img:last').fadeOut(500, function(){
+		   $(this).remove();	
+		})		
+		return false;
+	})	
+	
+	// next踰��� �대┃������
+	$('.next').click(function(){
 		
-		$('#ultabs li').click(function(){
-			var vitri = $(this).data('vitri');
-			$('#ultabs li').removeClass('active');
-			$(this).addClass('active');
+		//.inner��寃� animater紐��뱀�� �ъ�⑺�� ��吏����� ����
+		$('.inner').animate({
 			
-			$('#content_tabs .tab').hide();
-			$('#content_tabs .tab:eq('+vitri+')').show();
-			return false;
-		});	
-	});
-</script>
-<!--Tags sản phẩm-->
-
-<!--Mua hàng-->
-<script type="text/javascript">
-	$(document).ready(function(e) {
-		$('.size').click(function(){
-			$('.size').removeClass('active_size');
-			$(this).addClass('active_size');
-		});
-		$('.mausac').click(function(){
-			$('.mausac').removeClass('active_mausac');
-			$(this).addClass('active_mausac');
-		});
-		$('a.dathang').click(function(){
-				if($('.size').length && $('.active_size').length==false)
-				{
-					alert('<?=_chonsize?>');
-					return false;
-				}
-				if($('.active_size').length)
-				{
-					var size = $('.active_size').html();
-				}
-				else
-				{
-					var size = '';
-				}
-				
-				if($('.mausac').length && $('.active_mausac').length==false)
-				{
-					alert('<?=_chonmau?>');
-					return false;
-				}
-				if($('.active_mausac').length)
-				{
-					var mausac = $('.active_mausac').html();
-				}
-				else
-				{
-					var mausac = '';
-				}
-					var act = "dathang";
-					var id = "<?=$row_detail['id']?>";
-					var soluong = $('.soluong').val();
-					if(soluong>0)
-					{
-						$.ajax({
-							type:'post',
-							url:'ajax/cart.php',
-							dataType:'json',
-							data:{id:id,size:size,mausac:mausac,soluong:soluong,act:act},
-							beforeSend: function() {
-								$('.thongbao').html('<p><img src="images/loader_p.gif"></p>');  
-							},
-							error: function(){
-								add_popup('<?=_hethongloi?>');
-							},
-							success:function(kq){
-								add_popup(kq.thongbao);
-								$('.menu2 li span').html(kq.sl);
-								console.log(kq);
-							}
-						});
-					}
-					else
-					{
-						alert('<?=_nhapsoluong?>');
-					}
-			return false;
-		});
-	});
-</script>
-<!--Mua hàng-->
-
-<!--Đánh giá sao-->
-<script type="text/javascript">
-	$(document).ready(function(e) {
-		var giatri_default = "<?=$num_danhgiasao?>";
-		$('.danhgiasao span:lt('+giatri_default+')').addClass('active');
-		$('.danhgiasao span').hover(function(){
-			var giatri = $(this).data('value');
-			$('.danhgiasao span').removeClass('hover');
-			$('.danhgiasao span:lt('+giatri+')').addClass('hover');
-		},function(){
-			$('.danhgiasao span').removeClass('hover');
-		});
+			marginLeft : parseInt($('.inner').css('margin-left')) - 220 + 'px'
+			
+			/* ���� .inner媛� 媛�吏�怨� ���� marginLeft媛�
+			=> $('.inner').css('magin-left')
+			=> ���� �듯�� 留��ㅼ�댁� 媛��� 臾몄��濡� �몄�� 臾몄��濡� �몄���� 媛��� �レ��濡� �몄������ ���� �⑥��瑜� �ъ��.
+			=> .parselnt()
+			=> .parselnt($('.inner').css('magin-left'))
+			
+			*/
+		},500,'swing')	
+	})
+	
+	$('.prev').click(function(){
 		
-		$('.danhgiasao span').click(function(){
-			var url = $('.danhgiasao').data('url');
-			var giatri = $(this).data('value');
+		//.inner��寃� animater紐��뱀�� �ъ�⑺�� ��吏����� ����
+		$('.inner').animate({
 			
-			$.ajax({
-				type:'post',
-				url:'ajax/danhgiasao.php',
-				data:{giatri:giatri,url:url},
-				success:function(kq){
-					if(kq==1){
-						$('.danhgiasao span:lt('+giatri+')').addClass('active');
-						alert('<?=_bandanhgia?>: '+giatri+'/10');
-						$('.num_danhgia').html(+giatri+'/10');
-					}
-					else if(kq==2){
-						alert('<?=_danhgiaroi?>');
-					}
-					else{
-						alert('<?=_hethongloi?>');
-					}
-				}
-			});
-		});
-	});
- </script>
-<!--Đánh giá sao-->
+			marginLeft : parseInt($('.inner').css('margin-left')) + 220 + 'px'
+			
+			/* ���� .inner媛� 媛�吏�怨� ���� marginLeft媛�
+			=> $('.inner').css('magin-left')
+			=> ���� �듯�� 留��ㅼ�댁� 媛��� 臾몄��濡� �몄�� 臾몄��濡� �몄���� 媛��� �レ��濡� �몄������ ���� �⑥��瑜� �ъ��.
+			=> .parselnt()
+			=> .parselnt($('.inner').css('magin-left'))
+			
+			*/
+		},500,'swing')	
+	})	
+})
+</script>
 
-
-<div class="tieude_giua"><div><?=$title_cat?></div><span></span></div>
-<div class="box_container">
-	<div class="wap_pro">
-        <div class="zoom_slick">    
-         	<div class="slick2">                
-                <a data-zoom-id="Zoom-detail" id="Zoom-detail" class="MagicZoom" href="<?php if($row_detail['photo'] != NULL)echo _upload_sanpham_l.$row_detail['photo'];else echo 'images/noimage.gif';?>" title="<?=$row_detail['ten']?>"><img class='cloudzoom' src="<?php if($row_detail['photo'] != NULL)echo _upload_sanpham_l.$row_detail['photo'];else echo 'images/noimage.gif';?>" /></a>
-                
-                <?php $count=count($hinhthem); if($count>0) {?>
-                <?php for($j=0,$count_hinhthem=count($hinhthem);$j<$count_hinhthem;$j++){?>
-                	<a data-zoom-id="Zoom-detail" id="Zoom-detail" class="MagicZoom" href="<?php if($hinhthem[$j]['photo']!=NULL) echo _upload_hinhthem_l.$hinhthem[$j]['photo']; else echo 'images/noimage.gif';?>" title="<?=$row_detail['ten']?>" ><img src="<?php if($hinhthem[$j]['photo']!=NULL) echo _upload_hinhthem_l.$hinhthem[$j]['photo']; else echo 'images/noimage.gif';?>" /></a>	
-                <?php }} ?>
-            </div><!--.slick-->
+<div id="page">
+    <?php
+    if (is_array($hinhthem) && count($hinhthem)){
+    ?>
+  <div id="produsts">
+    <div class="Limg">
+      <div class="inner">
+        <div>
+          <p><?=$title_cat ?></p>
+          <p><a href="/static/images/sub/noblex_b01.jpg" onClick="window.open('pop04.php', 'sms', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=565, height=567')" onfocus='blur()' style="cursor:hand;"><img src="static/images/sub/pro_bt.png" /></p>
+        </div>
+        <div class="page2">
             
-         
-         	<?php $count=count($hinhthem); if($count>0) {?>
-            <div class="slick">                
-                <p><img src="thumb/100x80/1/<?php if($row_detail['photo'] != NULL)echo _upload_sanpham_l.$row_detail['photo'];else echo 'images/noimage.gif';?>" /></p>
-                <?php for($j=0,$count_hinhthem=count($hinhthem);$j<$count_hinhthem;$j++){?>
-                	<p><img src="<?php if($hinhthem[$j]['thumb']!=NULL) echo _upload_hinhthem_l.$hinhthem[$j]['thumb']; else echo 'images/noimage.gif';?>" /></p>
-                <?php } ?>
-            </div><!--.slick-->
-            <?php } ?>
-        </div><!--.zoom_slick--> 
-        
-        <ul class="product_info">
-                <li class="ten"><?=$row_detail['ten'.$lang]?></li>
-                 <?php if($row_detail['masp'] != '') { ?><li><b><?=_masanpham?>:</b> <?=$row_detail['masp']?></span></li><?php } ?>
-                 	<?php if($row_detail['hangsanxuat'.$lang] != '') { ?><li><b><?=_hangsanxuat?>:</b> <?=$row_detail['hangsanxuat'.$lang]?></span></li><?php } ?>
-                 <?php if($row_detail['giacu'] > 0) { ?><li class="giacu"><?=_giacu?>: <?=number_format($row_detail['giacu'],0, ',', '.').' vnđ';?></li><?php } ?>
-                 <li class="gia"><?=_gia?>: <?php if($row_detail['gia'] > 0)echo number_format($row_detail['gia'],0, ',', '.').'  vnđ';else echo _lienhe; ?></li>
-                   
-                 <?php if($row_detail['size'] != '') { ?>
-                 <li><b><?=_chonsize?>:</b> 
-				  	<?php $arr_size = explode(',',$row_detail['size']);
-						foreach($arr_size as $key=>$value)
-						{
-							echo '<span class="size">'.$value.'</span>';
-						}
-					?>
-                 </li>
-				 <?php } ?> 
-                 
-                 <?php if($row_detail['mausac'] != '') { ?>
-                 <li><b style="float:left;"><?=_chonmau?>:</b> 
-				  	<?php $arr_mausac = explode(',',$row_detail['mausac']);
-						foreach($arr_mausac as $key=>$value)
-						{
-						  echo '<span class="mausac" style="background:'.$value.'">'.$value.'</span>';
-						}
-					?>
-                 <div class="clear"></div>
-                 </li>
-				 <?php } ?>
-                 <li class="none"><b><?=_soluong?>:</b> <input type="number" value="1" class="soluong" /> </li>  
-                            
-                 <li><b><?=_luotxem?>:</b> <span><?=$row_detail['luotxem']?></span></li>
-					
-					<?php if($row_detail['file'] != '') { ?><li><div class="file_down"><a href="<?=_upload_download_l.$row_detail['file']?>"><?=_tailieukythuat?></a></div></li><?php } ?>
-
-                 <?php if($row_detail['mota'.$lang] != '') { ?><li><?=$row_detail['mota'.$lang]?></li><?php } ?>
-                 <li class="none"><a class="dathang"><i class="fa fa-shopping-cart" aria-hidden="true"></i><?=_datmuasanpham?></a></li>
-                 <li class="none"><div class="danhgiasao" data-url="<?=getCurrentPageURL();?>"><?php for($i=1;$i<=10;$i++) { ?><span data-value="<?=$i?>"></span><?php } ?>&nbsp;&nbsp;<b class="num_danhgia"><?=$num_danhgiasao?>/10</b></div>
-                 </li>
-                 <li><div class="addthis_native_toolbox"><b><?=_chiase?>: </b></div></li>          
-        </ul>
-        <div class="clear"></div>  
-  </div><!--.wap_pro-->
-        
-        <div id="tabs">   
-            <ul id="ultabs">				 
-                <li data-vitri="0"><?=_thongtinsanpham?></li>
-                <li data-vitri="1"><?=_binhluan?></li>      
-            </ul>
-            <div style="clear:both"></div>
-                            
-            <div id="content_tabs">               
-                <div class="tab">
-                    <?=$row_detail['noidung']?>   
-                    
-                    <?php if(!empty($tags_sp)) { ?>
-                        <div class="tukhoa">
-                            <div id="tags">
-                                    <span>Tags:</span>
-									<?php foreach($tags_sp as $k=>$tags_sp_item) { ?>
-                                       <a href="tags/<?=changeTitle($tags_sp_item['ten'])?>/<?=$tags_sp_item['id']?>" title="<?=$tags_sp_item['ten']?>"><?=$tags_sp_item['ten']?></a>
-                                    <?php } ?>
-                                <div class="clear"></div>
-                            </div>					
-                        </div>   
-                	<?php } ?>      
-                </div> 
-                
-                <div class="tab">
-                	<?php //include _template."layout/comment.php";?>
-                    <div class="fb-comments" data-href="<?=getCurrentPageURL()?>" data-numposts="5" data-width="100%"></div>
-                </div>  
-            </div><!---END #content_tabs-->
-        </div><!---END #tabs-->	
-<div class="clear"></div>
-</div><!--.box_containerlienhe-->
-
-<?php if(count($product)>0) { ?>
-<div class="tieude_giua"><div><?=$title_other?></div><span></span></div>
-<div class="wap_item">
-<?php for($i=0,$count_product=count($product);$i<$count_product;$i++){	?>
-    <div class="item_product">
-            <div class="sp_img hover_sang1">
-            	<a href="<?=$com?>/<?=$product[$i]['tenkhongdau']?>-<?=$product[$i]['id']?>.html" title="<?=$product[$i]['ten']?>">
-            		<img src="<?php if($product[$i]['photo']!=NULL) echo 'thumb/205x140/1/'._upload_sanpham_l.$product[$i]['photo']; else echo 'images/noimage.png';?>" alt="<?=$product[$i]['ten']?>" />
-            	</a>
-            </div>
-            <div class="info">
-            	<div><?=_masanpham?>: <?=$product[$i]['masp']?></div>
-            	<div><?=_hangsanxuat?>: <?=$product[$i]['hsx']?></div>
-            	<div><?=_luotxem?>: <?=$product[$i]['luotxem']?></div>
-            </div>
-            <div class="info2">
-            	<div class="sp_name"><h3><a href="san-pham/<?=$product[$i]['tenkhongdau']?>-<?=$product[$i]['id']?>.html" title="<?=$product[$i]['ten']?>" ><?=$product[$i]['ten']?></a></h3></div>
-            	<div class="des"><?=$product[$i]['mota']?></div>
-            	<?php if(!empty($product[$i]['file'])){ ?>
-					<div class="file_down"><a href="<?=_upload_download_l.$product[$i]['file']?>"><?=_tailieukythuat?></a></div>
-            	<?php } ?>
-            </div>
-        <div class="clear"></div>
-    </div><!---END .item-->
-<?php } ?>
-<div class="clear"></div>
-<div class="pagination"><?=pagesListLimitadmin($url_link , $totalRows , $pageSize, $offset)?></div>
-</div><!---END .wap_item-->
-<?php } ?>
+          <ul>
+              <?php
+              foreach ($hinhthem as $hinh){
+                  ?>
+              <li><!-- a��洹몄�� �대�몄��� �곗�대�몄�瑜�, img�� �몃�ㅼ�쇱�� �대�몄�瑜� �ｌ�듬����. -->
+              <a href="<?=_upload_hinhthem_l.$hinh['photo']?>"><img src="<?=_upload_hinhthem_l.$hinh['thumb']?>" /></a>
+            </li>
+              <?php
+              }
+              ?>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="main"><img src="<?=_upload_hinhthem_l.$hinhthem[0]['photo']?>" /></div>
+  </div>
+    <?php
+    }
+    ?>
+   <?=$sanphamDetail['noidung']?>
+</div>
+</div>
+</div>
+</div>
