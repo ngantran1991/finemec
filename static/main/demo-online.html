@@ -1,24 +1,25 @@
 
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <meta http-equiv="X-UA-compatible" content="IE=edge,chrome=1">
 <head>
 
-<!--메타태그-->
+<!--??????-->
 <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
 <meta name="description" content="FineMEC" />
 <meta name="keywords" content="FineMEC" />
 <meta name="Location" content="" />
 
-<!--링크-->
+<!--???-->
 <link rel="stylesheet" type="text/css" href="../css/common.css"  />
 <link rel="stylesheet" type="text/css" href="../css/layout.css"  />
 <link rel="stylesheet" type="text/css" href="../css/style.css"  />
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>  
 <script language="JavaScript" type="text/javascript" src="../js/jquery-1.10.2.js"></script>
 <script language="JavaScript" type="text/javascript" src="../js/linkurl.js"></script>
 <script language="JavaScript" type="text/javascript" src="../js/common.js"></script>
-
-<!--타이틀-->
+<!--?????-->
 <title></title>
 </head>
 <body>
@@ -59,11 +60,11 @@
 	<div id="snavi">    
         <p><script>
 /*
-	함수명	: 이미지명 치환
-	작성자	: 장호연
-	작성일	: 2011.10.13
-	코멘트	- 넘겨받은 오브젝트의 src를 변경한다.
-			- obj 	= 대상 img
+	?????	: ??????? ???
+	?????	: ?????
+	?????	: 2011.10.13
+	?????	- ?????? ???????? src?? ???????.
+			- obj 	= ???? img
 			- flag 	= on, off
 */
 function snaviReplace(obj,flag){
@@ -88,8 +89,8 @@ $(function(){
 	var snb2Reset = snb1Reset.find(">ul >li").eq(snb2Idx-1);;
 	var has2depth = $(".snb_2depth");
 	var snbH2 = $(".t_h2");
-	var $allMenu 		= $(".allmenu");								//전체메뉴
-	var $allMenuArea	= $("#allmenu_area");							//전체 메뉴 리스트 영역
+	var $allMenu 		= $(".allmenu");								//??????
+	var $allMenuArea	= $("#allmenu_area");							//??? ??? ????? ???
 	var all2depth = $(".all2depth");
 
 	hideGnb();
@@ -106,7 +107,7 @@ $(function(){
 		$(".all2depth").css("height",all2depth.height()).show();
 	};
 	
-	//1뎁스 제어
+	//1??? ???
 	snb1Deps.mouseenter(function(){
 		snb1Deps.each(function(){
 			snaviReplace($(this).find(">h2 >a >img"), "off");
@@ -125,7 +126,7 @@ $(function(){
 		return false;
 	});
 /*
-	//snb 2depth 펼치기
+	//snb 2depth ?????
 	snbH2.mouseenter(function(){
 		//showGnb();
 	}).focusin(function(){
@@ -142,20 +143,20 @@ $(function(){
 	
 
 /*
-	//마우스 벗어 났을 때 초기화
+	//????? ??? ??? ?? ?????
 	snb.mouseleave(function(){
-		if(! $allMenu.hasClass("active") ){ //전체메뉴가 비활성화시에만 실행
+		if(! $allMenu.hasClass("active") ){ //???????? ??????????? ???
 			resetGnb();
 		};
 	});
 	$(".inner, .allmenu, #container ").focusin(function(){
-		if(! $allMenu.hasClass("active") ){ //전체메뉴가 비활성화시에만 실행
+		if(! $allMenu.hasClass("active") ){ //???????? ??????????? ???
 			resetGnb();
 		};
 	});
 */
 	
-	//리셋함수
+	//??????
 	function resetGnb(){
 		snb1Deps.each(function(){
 			snaviReplace($(this).find(">h2 >a >img"), "off");
@@ -171,10 +172,10 @@ $(function(){
 		};
 	};
 	
-	//  초기화
+	//  ?????
 	resetGnb();	
 	
-	//전체메뉴
+	//??????
 	$allMenu.find("> h2 > a").click(function(){
 		//snaviReplace ( snb1Reset.find("> h2 > a > img"),  "off" );
 		//snb.find(" > li.on").removeClass("on").find("ul").hide(); 
@@ -265,7 +266,7 @@ function formSubmit() {
 
 
 	var arrInput	= [ "inquiry_mkr_nm2", "inquiry_mkr_nm1", "inquiry_etc1" ];
-	var arrTxt		= [ "이름을", "휴대폰번호를", "이메일을" ];
+	var arrTxt		= [ "?????", "?????????", "??????" ];
 
 	var patternNo			= new RegExp('[^0-9]', 'i');
 	var patternEmail	= new RegExp('[^a-zA-Z0-9_.]', 'i');
@@ -278,38 +279,38 @@ function formSubmit() {
 			var obj = eval( 'document.getElementById( \'formInsert\').' + el[j] );
 
 			if( !obj.value || obj.value == '' ) {
-				alert( arrTxt[i] + ' 입력해 주세요.' );
+				alert( arrTxt[i] + ' ????? ?????.' );
 				obj.focus();
 				return false;
 			}
 			else {
-				//이메일일 경우 유효성 검사
+				//?????? ??? ????? ????
 				if( el[j] == 'email1' || el[j] == 'email2' ) {
 					if( patternEmail.exec( obj.value ) != null ) {
-						alert( '이메일을 정확히 입력해 주세요.' );
+						alert( '?????? ????? ????? ?????.' );
 						obj.focus();
 						obj.select();
 						return false;
 					}
 				}
 
-				//전화번호 유효성 검사
+				//?????? ????? ????
 				if( el[j] == 'phone1' || el[j] == 'phone2' || el[j] == 'phone3' ) {
 					if( patternNo.exec( obj.value ) != null ) {
-						alert( '휴대폰번호를 정확히 입력해 주세요.' );
+						alert( '????????? ????? ????? ?????.' );
 						obj.focus();
 						obj.select();
 						return false;
 					}
 
 					if( el[j] == 'phone2' && obj.value.length < 3 ) {
-						alert( '휴대폰번호를 정확히 입력해 주세요.' );
+						alert( '????????? ????? ????? ?????.' );
 						obj.focus();
 						return false;
 					}
 
 					if( el[j] == 'phone3' && obj.value.length < 4 ) {
-						alert( '휴대폰번호를 정확히 입력해 주세요.' );
+						alert( '????????? ????? ????? ?????.' );
 						obj.focus();
 						return false;
 					}
@@ -318,17 +319,19 @@ function formSubmit() {
 		}
 	}
 
-	if ( confirm( '등록하시겠습니까?' ) ) {
+	if ( confirm( '?????????????' ) ) {
 		frm.submit();
 
-		document.getElementById( "btnSubmit" ).innerHTML = '<img src="../image/sub/btn_send.gif" border="0" alt="보내기">';
+		document.getElementById( "btnSubmit" ).innerHTML = '<img src="../image/sub/btn_send.gif" border="0" alt="?????">';
 	}
+	
 }
 //-->
 </script>
 <div id="page"> <img src="../images/sub/04_01_tt.jpg" />
-<form name="formInsert" id="formInsert" method="post" action="./proc.php" target="_self" enctype="multipart/form-data">
-  <table width="100%" class="tbl_type" border="1" cellspacing="0" summary="기본정보입력">
+<form name="formInsert" id="formInsert"  target="_self" enctype="multipart/form-data" 
+	ng-app="myApp" ng-controller="validateCtrl" novalidate>
+  <table width="100%" class="tbl_type" border="1" cellspacing="0" summary="?????????">
     <caption>
     basic information
     </caption>
@@ -341,15 +344,23 @@ function formSubmit() {
     <tbody>
       <tr>
         <th scope="row">* Clinic name</th>
-        <td><input name="inquiry_mkr_nm2" required type="text" maxlength="50" hname="병원명" /></td>
+        <td>
+			<input name="inquiry_mkr_nm2" ng-model="inquiry_mkr_nm2" required type="text" maxlength="50" hname="?????" />
+			<br>
+			<p style="color:red" ng-show="formInsert.inquiry_mkr_nm2.$invalid && !formInsert.inquiry_mkr_nm2.$pristine" class="help-block">Clinic name is required.</p>
+		</td>
       </tr>
       <tr>
         <th scope="row">* Contact person</th>
-        <td><input name="inquiry_mkr_nm1" required type="text" maxlength="20" hname="성명" /></td>
+        <td><input name="inquiry_mkr_nm1" ng-model="inquiry_mkr_nm1" required type="text" maxlength="20" hname="???" />
+			<p style="color:red" ng-show="formInsert.inquiry_mkr_nm1.$invalid && !formInsert.inquiry_mkr_nm1.$pristine" class="help-block">Contact person is required.</p>
+		</td>
       </tr>
       <tr>
         <th scope="row">* Country</th>
-        <td><input name="inquiry_etc1" required type="text" maxlength="50" hname="국가" /></td>
+        <td><input name="inquiry_etc1" ng-model="inquiry_etc1" required type="text" maxlength="50" hname="???" />
+			<p style="color:red" ng-show="formInsert.inquiry_etc1.$invalid && !formInsert.inquiry_etc1.$pristine" class="help-block">Country is required.</p>
+		</td>	
       </tr>
       <tr>
         <th scope="row">Address</th>
@@ -357,25 +368,36 @@ function formSubmit() {
           -
           <input name="inquiry_zip_code2" onClick="window.open('?module=Default&amp;action=Zip&amp;sFormName=fi&amp;sZipCode=inquiry_zip_code&amp;sZipCode2=inquiry_zip_code2&amp;sAddr=inquiry_addr&amp;sAddrDtl=inquiry_addr_dtl&amp;sMode=SEARCH_FORM','','scrollbars=no,width=487,height=377')" type="text" size="4" readonly />
           <br>
-          <input name="inquiry_addr" readonly type="text" size="65" hname="기본주소" />
+          <input name="inquiry_addr" readonly type="text" size="65" hname="??????" />
           <br>
-          <input name="inquiry_addr_dtl" required type="text" size="65" maxlength="100" hname="나머지주소" /></td>
+          <input name="inquiry_addr_dtl" ng-model="inquiry_addr_dtl" required type="text" size="65" maxlength="100" hname="????????" />
+		</td>
+		  
       </tr>
       <tr>
         <th scope="row">* Phone</th>
-        <td><input name="inquiry_tel_no2" required onKeyUp="autotab(event.keyCode,this.name,4)" type="text" size="5" maxlength="4" hname="전화" />
-          <input name="inquiry_tel_no3" required type="text" size="5" maxlength="4" hname="전화" /></td>
+        <td>
+			<input name="inquiry_tel_no2" ng-model="inquiry_tel_no2" required  type="text" size="5" maxlength="4" hname="???" />
+			<input name="inquiry_tel_no3" ng-model="inquiry_tel_no3"  required type="text" size="5" maxlength="4" hname="???" />
+			<br>
+			<p style="color:red" ng-show="(formInsert.inquiry_tel_no2.$invalid && !formInsert.inquiry_tel_no2.$pristine) || (formInsert.inquiry_tel_no3.$invalid && !formInsert.inquiry_tel_no3.$pristine)" 
+				class="help-block">Phone is required.</p>
+		</td>
       </tr>
       <tr>
         <th scope="row">Cell Phone</th>
-        <td><input name="inquiry_hp_no2" required onKeyUp="autotab(event.keyCode,this.name,4)" type="text" size="5" maxlength="4" hname="휴대폰" />
-          <input name="inquiry_hp_no3" required type="text" size="5" maxlength="4" hname="휴대폰" /></td>
+        <td><input name="inquiry_hp_no2" ng-model="inquiry_hp_no2" required  type="text" size="5" maxlength="4" hname="?????" />
+          <input name="inquiry_hp_no3" ng-model="inquiry_hp_no3" required type="text" size="5" maxlength="4" hname="?????" /></td>
       </tr>
       <tr>
         <th scope="row">* E-mail</th>
-        <td><input name="inquiry_eml1" required type="text" size="15" maxlength="50" hname="이메일" />
+        <td><input name="inquiry_eml1" ng-model="inquiry_eml1" required type="text" size="15" maxlength="50" hname="?????" />
           @
-          <input name="inquiry_eml2" required type="text" size="15" maxlength="50" hname="이메일" /></td>
+          <input name="inquiry_eml2" ng-model="inquiry_eml2" required type="text" size="15" maxlength="50" hname="?????" />
+		  <br>
+			<p style="color:red" ng-show="(formInsert.inquiry_eml1.$invalid && !formInsert.inquiry_eml1.$pristine)||(formInsert.inquiry_eml2.$invalid && !formInsert.inquiry_eml2.$pristine) " 
+				class="help-block">E-mail is required.</p>
+		</td>	
       </tr>
     </tbody>
   </table>
@@ -398,38 +420,50 @@ function formSubmit() {
     <tbody>
       <tr>
         <th scope="row">* Request date</th>
-        <td><input name="inquiry_etc2" required type="text" maxlength="50" hname="요청일" /></td>
+        <td>
+			<input name="inquiry_etc2" ng-model="inquiry_etc2" required type="text" maxlength="50" hname="?????" />
+			<br>
+			<p style="color:red" ng-show="formInsert.inquiry_etc2.$invalid && !formInsert.inquiry_etc2.$pristine" class="help-block">Request date is required.</p>
+		</td>
       </tr>
       <tr>
         <th scope="row">* Product name</th>
-        <td><input name="inquiry_title" required type="text" maxlength="50" hname="제품명" /></td>
+        <td>
+			<input name="inquiry_title" ng-model="inquiry_title" required type="text" maxlength="50" hname="?????" />
+			<br>
+			<p style="color:red" ng-show="formInsert.inquiry_title.$invalid && !formInsert.inquiry_title.$pristine" class="help-block">Product name is required.</p>
+		</td>
       </tr>
       <tr>
         <th scope="row">* Comments/Questions</th>
-        <td><textarea name="inquiry_contents" required rows="10" cols="62" hname="문의 및 요청"></textarea></td>
+        <td>
+			<textarea name="inquiry_contents" ng-model="inquiry_contents" required rows="10" cols="62" hname="??? ?? ???"></textarea>
+			<br>
+			<p style="color:red" ng-show="formInsert.inquiry_contents.$invalid && !formInsert.inquiry_contents.$pristine" class="help-block">Comments/Questions is required.</p>
+		</td>
       </tr>
     </tbody>
   </table>
-  <!-- 개인정보 취급방침 시작 --> 
+  <!-- ?????? ?????? ??? --> 
 <!--   <br>
   <img src="../images/sub/04_03_tt.jpg" /><br>
-  <table width="100%" class="tbl_type2" border="1" cellspacing="0" summary="개인정보취급방침">
+  <table width="100%" class="tbl_type2" border="1" cellspacing="0" summary="????????????">
     <tbody>
       <tr>
-        <td scope="row"><p>이용문의 확인 및 답변 안내를 위해 아래와 같이 개인정보를 수집하고 있습니다.<br>
-            1. 수집 개인정보 항목 : 이름, 핸드폰, 이메일<br>
-            2. 개인정보의 수집 및 이용목적 : 상담 내역 확인 및 처리결과 회신 등 원활한 의사소통 경로 확보<br>
-            3. 개인정보의 이용기간 : 개인정보 수집 및 이용목적 달성 후, 해당 개인정보를 지체 없이 파기합니다.<br>
-            그 밖의 사항은 개인정보취급방침을 준수합니다.</p></td>
+        <td scope="row"><p>?????? ??? ?? ??? ????? ??? ????? ??? ???????? ?????? ??????.<br>
+            1. ??? ?????? ??? : ???, ?????, ?????<br>
+            2. ???????? ??? ?? ?????? : ??? ??? ??? ?? ?????? ??? ?? ????? ?????? ??? ???<br>
+            3. ???????? ?????? : ?????? ??? ?? ?????? ??? ??, ??? ???????? ???? ??? ????????.<br>
+            ?? ??? ????? ?????????????? ????????.</p></td>
       </tr>
     </tbody>
   </table>
   <input id="agree" name="agree" type="checkbox" value="" style="vertical-align:bottom; " >
-  개인정보 수집 및 이용에 동의합니다. <br> -->
-  <!-- 개인정보 취급방침 끝 --> 
+  ?????? ??? ?? ????? ????????. <br> -->
+  <!-- ?????? ?????? ?? --> 
 
   <br>
-  <div id="center"><img src="../images/sub/ok_bt.jpg" onClick="formSubmit();" style="cursor:pointer;"/></span> <span><a href="#"><img src="../images/sub/cancel_bt.jpg" /></a></span></div>
+  <div id="center"><img src="../images/sub/ok_bt.jpg" ng-click="submit()" style="cursor:pointer;"/></span> <span><a href="#"><img src="../images/sub/cancel_bt.jpg" /></a></span></div>
   </p>
   <!--//ui object --> 
 </div>
@@ -445,7 +479,7 @@ function formSubmit() {
 	<!--<span><a href="javascript:sub01_05();"><img src="../images/common/foot_info.jpg" alt="COPYRIGHT FIND MEC ALL RIGHTS RESERVED"></span></a>-->
 	<span><a href="javascript:sub01_05();"><img src="../images/common/foot_tel.jpg" alt="TEL:+82-2-309-1882"></span></a>
 	<span><a href="../../admin/adm" target="_blank"><img src="../images/common/foot_admin.gif" alt="Admin"></a></span>
-	<span><a href="javascript:sub01_05();"><img src="../images/common/foot_banner.jpg" alt="식품의약품안전처 의료기기제품정보방"></span></a></div>
+	<span><a href="javascript:sub01_05();"><img src="../images/common/foot_banner.jpg" alt="???????????? ??????????????"></span></a></div>
 
   </div>
 </div>
@@ -466,4 +500,95 @@ $(document).ready(function(){
 		quick_menu.animate( { "top": $(document).scrollTop() + quick_top + "px" }, 550 );
 	});
 });
+</script>
+
+<script>
+	// AngulaJS
+	var app = angular.module('myApp', []);
+	app.controller('validateCtrl', function($scope,$http) {
+		$scope.submit = function() {
+			
+			var patternNo			= new RegExp('[^0-9]', 'i');
+			var patternEmail	= new RegExp('[^a-zA-Z0-9_.]', 'i');
+			
+			if($scope.inquiry_mkr_nm2 ==null){
+				alert( 'Clinic name is required.' );
+				return;
+			}
+			if($scope.inquiry_mkr_nm1 ==null){
+				alert( 'Contact person is required.' );
+				return;
+			}
+			if($scope.inquiry_etc1 ==null){
+				alert( 'Country is required.' );
+				return;
+			}
+			if($scope.inquiry_mkr_nm2 ==null){
+				alert( 'Clinic name is required.' );
+				return;
+			}
+			if($scope.inquiry_tel_no2 ==null || $scope.inquiry_tel_no3 ==null){
+				alert( 'Phone is required.' );
+				return;
+			}
+			
+			if( $scope.inquiry_tel_no2 !=null && $scope.inquiry_tel_no3 !=null ) {
+				if( patternNo.exec( $scope.inquiry_tel_no2 ) != null || patternNo.exec( $scope.inquiry_tel_no3 )) {
+					alert( '?????? ????? ????? ?????.1' );
+					return false;
+				}
+			}
+			
+			if( $scope.inquiry_tel_no2 !=null && $scope.inquiry_tel_no2.length < 3 ) {
+				alert( '????????? ????? ????? ?????.' );
+				return false;
+			}
+
+			if( $scope.inquiry_tel_no3 !=null && $scope.inquiry_tel_no3.length < 4 ) {
+				alert( '????????? ????? ????? ?????.' );
+				obj.focus();
+				return false;
+			}
+			
+			if($scope.inquiry_eml1 ==null || $scope.inquiry_eml1 ==null){
+				alert( 'E-mail is required.' );
+				return;
+			}
+			if($scope.inquiry_eml1 !=null && $scope.inquiry_eml1 !=null){
+				if( patternEmail.exec( $scope.inquiry_eml1) != null || patternEmail.exec( $scope.inquiry_eml2) != null) {
+					alert( '?????? ????? ????? ?????.' );
+					return false;
+				}
+			}
+			if($scope.inquiry_etc2 ==null){
+				alert( 'Request date is required.' );
+				return;
+			}
+			if($scope.inquiry_title ==null){
+				alert( 'Product name is required.' );
+				return;
+			}
+			if($scope.inquiry_contents ==null){
+				alert( 'Comments/Questions is required.' );
+				return;
+			}
+
+			if ( confirm( '?????????????' ) ) {
+				//frm.submit();
+				//document.getElementById( "btnSubmit" ).innerHTML = '<img src="../image/sub/btn_send.gif" border="0" alt="?????">';
+				$http({
+					url: 'http://localhost/vcontrol/static/main/home.html',
+					method: "POST",
+					data: { 'data' : $scope.inquiry_contents }
+				})
+				.then(function(response) {
+					 window.location = "http://localhost/vcontrol/static/main/home.html";
+				}, 
+				function(response) { // optional
+					alert( 'failed' );
+				});
+			}
+	
+      };
+	});
 </script>

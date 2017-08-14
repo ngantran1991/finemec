@@ -17,28 +17,39 @@ if(!defined('_source')) die("Error");
 
     if($id!='')
 	{
-		
-		//Chi tiết loai tin tức
+                //Cập nhật lượt xem
 		$d->reset();
-		$sql_detail = "select id,ten$lang as ten, tenkhongdau FROM #_news_danhmuc where hienthi=1 and id='$id' limit 0,1";
+		$sql_lanxem = "UPDATE #_product SET luotxem=luotxem+1 WHERE id ='$id'";
+		$d->query($sql_lanxem);
+		
+		//Chi tiết loai product
+		$d->reset();
+		$sql_detail = "select id,ten$lang as ten, tenkhongdau, id_danhmuc, ngaytao, title, luotxem,noidung$lang as noidung FROM #_product where hienthi=1 and id='$id' limit 0,1";
 		$d->query($sql_detail);
 		$row_detail = $d->fetch_array();
 		if(empty($row_detail)){redirect("http://".$config_url.'/404.php');}	
-		$loaiTinTuc = $row_detail;
+		$clinic = $row_detail;
                 
-                // list loai tin tuc
+                // loai product
                 $d->reset();
-		$sql_list = "select id,ten$lang as ten, tenkhongdau FROM #_news_danhmuc where hienthi=1 and type='tintuc' order by stt asc";
+		$sql_list = "select id,ten$lang as ten, tenkhongdau FROM #_product_danhmuc where hienthi=1 and type='duan' and id= ".$clinic['id_danhmuc']." order by stt asc limit 1";
 		$d->query($sql_list);
-		$row_list = $d->result_array();
-		$listLoaiTinTuc = $row_list;
+		$row_list = $d->fetch_array();
+		$loaiProduct = $row_list;
+                
+                // list loai product
+                $d->reset();
+		$sql_list = "select id,ten$lang as ten, tenkhongdau FROM #_product_danhmuc where hienthi=1 and type='duan'  order by stt asc ";
+		$d->query($sql_list);
+		$row_list_loai = $d->result_array();
+		$listLoaiProduct = $row_list_loai;
 		
                 
-                // list all tin tuc
+                // list all product
                 $d->reset();
-		$sql_list_tintuc = "select id,ten$lang as ten, tenkhongdau, mota$lang as mota,noidung$lang as noidung, noibat, stt, title, ngaytao,luotxem FROM #_news where type='tintuc' and hienthi=1 and id_danhmuc = $id order by stt,id desc";
+		$sql_list_tintuc = "select id,ten$lang as ten, tenkhongdau, mota$lang as mota,noidung$lang as noidung, noibat, stt, title, ngaytao,luotxem FROM #_product where type='duan' and hienthi=1 and id_danhmuc = $id order by stt,id desc";
 		$d->query($sql_list_tintuc);
-		$listTinTuc = $d->result_array();
+		$listProduct = $d->result_array();
                 
                 
 		

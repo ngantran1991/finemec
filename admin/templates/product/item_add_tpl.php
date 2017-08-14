@@ -214,7 +214,7 @@ function get_main_item()
             </div>
             <div class="clear"></div>
         </div>
-		<div class="formRow none">
+		<div class="formRow">
 			<label>Chọn danh mục 1</label>
 			<div class="formRight">
 			<?=get_main_danhmuc()?>

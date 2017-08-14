@@ -46,6 +46,33 @@
 			$source = "media";
 			$template = isset($_GET['id']) ? "media_detail" : "news";
 			break;
+                    
+                case 'media-detail':
+			$type = "media";
+			$title = _media;
+			$title_cat = _media;
+			$title_other = _tinlienquan;
+			$source = "media-detail";
+			$template = isset($_GET['id']) ? "media_detail_item" : "news";
+			break;
+                    
+                case 'clinic':
+			$type = "clinic";
+			$title = _clinic;
+			$title_cat = _clinic;
+			$title_other = _tinlienquan;
+			$source = "clinic";
+			$template = isset($_GET['id']) ? "clinic_detail" : "news";
+			break;
+                    
+                case 'clinic-detail':
+			$type = "clinic";
+			$title = _clinic;
+			$title_cat = _clinic;
+			$title_other = _tinlienquan;
+			$source = "clinic-detail";
+			$template = isset($_GET['id']) ? "clinic_detail_item" : "news";
+			break;
 			
 		case 'tin-tuc':
 			$type = "tintuc";

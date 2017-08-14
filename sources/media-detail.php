@@ -20,18 +20,25 @@ if(!defined('_source')) die("Error");
 		
 		//Chi tiết loai tin tức
 		$d->reset();
-		$sql_detail = "select id,ten$lang as ten, tenkhongdau FROM #_news_danhmuc where hienthi=1 and id='$id' limit 0,1";
+		$sql_detail = "select id,ten$lang as ten, tenkhongdau, id_danhmuc, ngaytao, mail, tel, title, luotxem,noidung$lang as noidung FROM #_news where hienthi=1 and id='$id' limit 0,1";
 		$d->query($sql_detail);
 		$row_detail = $d->fetch_array();
 		if(empty($row_detail)){redirect("http://".$config_url.'/404.php');}	
-		$loaiTinTuc = $row_detail;
+		$media = $row_detail;
+                
+                // loai tin tuc
+                $d->reset();
+		$sql_list = "select id,ten$lang as ten, tenkhongdau FROM #_news_danhmuc where hienthi=1 and type='tintuc' and id= ".$media['id_danhmuc']." order by stt asc limit 1";
+		$d->query($sql_list);
+		$row_list = $d->fetch_array();
+		$loaiTinTuc = $row_list;
                 
                 // list loai tin tuc
                 $d->reset();
-		$sql_list = "select id,ten$lang as ten, tenkhongdau FROM #_news_danhmuc where hienthi=1 and type='tintuc' order by stt asc";
+		$sql_list = "select id,ten$lang as ten, tenkhongdau FROM #_news_danhmuc where hienthi=1 and type='tintuc'  order by stt asc ";
 		$d->query($sql_list);
-		$row_list = $d->result_array();
-		$listLoaiTinTuc = $row_list;
+		$row_list_loai = $d->result_array();
+		$listLoaiTinTuc = $row_list_loai;
 		
                 
                 // list all tin tuc

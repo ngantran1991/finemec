@@ -9,6 +9,7 @@
 @define ('_sanpham','products');
 @define ('_tintuc','News');
 @define ('_media','Media');
+@define ('_clinic','Clinic');
 @define ('_dichvu','Services');
 @define ('_congtrinh','work');
 @define ('_duan','projects');

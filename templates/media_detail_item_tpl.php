@@ -197,49 +197,11 @@ $(function(){
       	</div>
             
 <div id="page">
-    <?php
-    if (is_array($listTinTuc)){
-        ?>
-    Total: <?=count($listTinTuc)?>
-    <?php
-    if (count($listTinTuc)){
-        ?>
-    <table width="100%" border="0" cellpadding="0" cellspacing="0">
-  <tr>
-      <th>
-          No
-      </th>
-      <th>
-          Subject
-      </th>
-      <th>
-          Name
-      </th>
-      <th>
-          Date
-      </th>
-      <th>
-          Hits
-      </th>
-  </tr>
-  <?php
-        foreach ($listTinTuc as $itemTinTuc){
-            ?>
-  <tr>
-      <td><?=$itemTinTuc['stt']?></td>
-      <td><a href="media-detail/<?=$itemTinTuc['tenkhongdau']."-".$itemTinTuc['id']?>.html"><?=$itemTinTuc['title']?></a></td>
-      <td><?=$itemTinTuc['ten']?></td>
-      <td><?=$itemTinTuc['ngaytao']?></td>
-      <td><?=$itemTinTuc['luotxem']?></td>
-  </tr>
-    <?php
-        }
-        ?>
-  </table>
-        <?php
-    }
- }
-    ?>
+    <p>Date: <?=$media['ngaytao']?> <a href="media/<?=$loaiTinTuc['tenkhongdau']."-".$loaiTinTuc['id']?>.html">List</a></p>
+    <p><b><?=$media['title']?></b></p>
+    <p>Name: <?=$media['ten']?><span>Hits: <?=$media['luotxem']?></span></p>
+    <p>Email: <?=$media['mail']?> tel: <?=$media['tel']?></p>
+    <?=$media['noidung']?>
 </div>
 
 </div>

@@ -67,7 +67,17 @@
                 <img src="images/common/navi_03.png" alt="media"/>
             </a>
         </li>
-        <li><a href="javascript:sub04();"><img src="images/common/navi_04.png" alt="clinic"/></a></li>
+        <li>
+            <?php
+            $d->reset();
+            $sql_list = "select id,ten$lang as ten, tenkhongdau FROM #_product_danhmuc where hienthi=1 and type='duan' order by stt asc limit 1";
+            $d->query($sql_list);
+            $row_list_menu = $d->fetch_array();
+            ?>
+            <a href="clinic/<?=$row_list_menu['tenkhongdau']."-".$row_list_menu['id']?>.html">
+                <img src="images/common/navi_04.png" alt="clinic"/>
+            </a>
+        </li>
 		<li><a href="javascript:sub05();"><img src="images/common/navi_05.png" alt="online"/></a></li>
       </ul>
     </div>

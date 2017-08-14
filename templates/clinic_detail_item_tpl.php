@@ -146,14 +146,14 @@ $(function(){
 <!-- snb -->
 <div class="snb_area">
     <?php 
-      if (is_array($listLoaiTinTuc) && count($listLoaiTinTuc)){
+      if (is_array($listLoaiProduct) && count($listLoaiProduct)){
           ?>
   <ul id="snb">
       <?php
-      foreach ($listLoaiTinTuc as $loaitt){
+      foreach ($listLoaiProduct as $loaitt){
           ?>
-      <li class="<?=$loaitt['id'] == $loaiTinTuc['id'] ? "active": ""?>">
-        <h2 class="t_h2"><a href="<?="media/".$loaitt['tenkhongdau']."-".$loaitt['id'].".html"?>">
+      <li class="<?=$loaitt['id'] == $loaiProduct['id'] ? "active": ""?>">
+        <h2 class="t_h2"><a href="<?="clinic/".$loaitt['tenkhongdau']."-".$loaitt['id'].".html"?>">
                 <?=$loaitt['ten']?>
             </a>
         </h2>
@@ -185,61 +185,22 @@ $(function(){
 	</div>
 	<div id="contents">
  	<h1>
-           <?=$loaiTinTuc['ten']?> 
+           <?=$loaiProduct['ten']?> 
 </h1>
 	    <div class="location">
-        	<ul><li class="home"><a href="<?=$config_url ?>">HOME</a></li><li>Media</li><li>
+        	<ul><li class="home"><a href="<?=$config_url ?>">HOME</a></li><li>Clinic</li><li>
 
-<?=$loaiTinTuc['ten']?>
+<?=$loaiProduct['ten']?>
 
 
 </li></ul>
       	</div>
             
 <div id="page">
-    <?php
-    if (is_array($listTinTuc)){
-        ?>
-    Total: <?=count($listTinTuc)?>
-    <?php
-    if (count($listTinTuc)){
-        ?>
-    <table width="100%" border="0" cellpadding="0" cellspacing="0">
-  <tr>
-      <th>
-          No
-      </th>
-      <th>
-          Subject
-      </th>
-      <th>
-          Name
-      </th>
-      <th>
-          Date
-      </th>
-      <th>
-          Hits
-      </th>
-  </tr>
-  <?php
-        foreach ($listTinTuc as $itemTinTuc){
-            ?>
-  <tr>
-      <td><?=$itemTinTuc['stt']?></td>
-      <td><a href="media-detail/<?=$itemTinTuc['tenkhongdau']."-".$itemTinTuc['id']?>.html"><?=$itemTinTuc['title']?></a></td>
-      <td><?=$itemTinTuc['ten']?></td>
-      <td><?=$itemTinTuc['ngaytao']?></td>
-      <td><?=$itemTinTuc['luotxem']?></td>
-  </tr>
-    <?php
-        }
-        ?>
-  </table>
-        <?php
-    }
- }
-    ?>
+    <p>Date: <?=$clinic['ngaytao']?> <a href="clinic/<?=$loaiProduct['tenkhongdau']."-".$loaiProduct['id']?>.html">List</a></p>
+    <p><b><?=$clinic['title']?></b></p>
+    <p>Name: <?=$clinic['ten']?><span>Hits: <?=$clinic['luotxem']?></span></p>
+    <?=$clinic['noidung']?>
 </div>
 
 </div>
