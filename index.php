@@ -236,7 +236,7 @@ $(function(){
                 <img src="<?=_upload_hinhanh_l.$row_tel_footer['photo']?>" alt="TEL:+82-2-309-1882">
               </a>
         </span>
-	<span><a href="<?=$config_url ?>/admin" target="_blank">
+	<span><a href="admin" target="_blank">
                 <img src="images/common/foot_admin.gif" alt="Admin">
             </a>
         </span>
