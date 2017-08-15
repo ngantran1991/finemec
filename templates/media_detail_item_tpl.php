@@ -196,10 +196,10 @@ $(function(){
 </li></ul>
       	</div>
             
-<div id="page">
-    <p>Date: <?=$media['ngaytao']?> <a href="media/<?=$loaiTinTuc['tenkhongdau']."-".$loaiTinTuc['id']?>.html">List</a></p>
-    <p><b><?=$media['title']?></b></p>
-    <p>Name: <?=$media['ten']?><span>Hits: <?=$media['luotxem']?></span></p>
+<div id="page" class="page-media-detail-item">
+    <p><img src="images/main/icon_date.gif" align="absmiddle" border="0">Date: <?=date("y-m-d h:i",$media['ngaytao'])?> <span class="list-top"><a href="media/<?=$loaiTinTuc['tenkhongdau']."-".$loaiTinTuc['id']?>.html">List</a></span></p>
+    <p class="name-title"><b><?=$media['title']?></b></p>
+    <p>Name: <b><?=$media['ten']?></b><span style="float: right;">Hits: <?=$media['luotxem']?></span></p>
     <p>Email: <?=$media['mail']?> tel: <?=$media['tel']?></p>
     <?=$media['noidung']?>
 </div>

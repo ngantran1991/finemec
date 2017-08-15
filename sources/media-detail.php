@@ -17,6 +17,11 @@ if(!defined('_source')) die("Error");
 
     if($id!='')
 	{
+        
+                //Cập nhật lượt xem
+		$d->reset();
+		$sql_lanxem = "UPDATE #_news SET luotxem=luotxem+1 WHERE id ='$id'";
+		$d->query($sql_lanxem);
 		
 		//Chi tiết loai tin tức
 		$d->reset();

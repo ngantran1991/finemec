@@ -24,7 +24,7 @@
 			
 ?>
 <div id="logo">
-    <a href="javascript:main();">
+    <a href="/vcontrol">
         <img src="<?=_upload_hinhanh_l.$row_logo['photo']?>" alt="logo"/>
         <!--<img src="../images/common/logo.jpg" alt="logo"/>-->
     </a>
@@ -78,7 +78,7 @@
                 <img src="images/common/navi_04.png" alt="clinic"/>
             </a>
         </li>
-		<li><a href="javascript:sub05();"><img src="images/common/navi_05.png" alt="online"/></a></li>
+		<li><a href="static/main/demo-online.html"><img src="images/common/navi_05.png" alt="online"/></a></li>
       </ul>
     </div>
     <div id="menu_right">
@@ -86,7 +86,13 @@
         <li><a href="javascript:main();"><img src="images/common/home.png" alt="HOME|"/></a></li>
         <li><a href="mailto:cool@finemec.co.kr"><img src="images/common/contactus.png" alt="CONTACT US|"/></a></li>
         <li><a href="javascript:sub06();"><img src="images/common/sitmap.png" alt="SITEMAP"/></a></li>
-        <li><a href="http://finemec.co.kr" target="_blank"><img src="images/common/korea.png" alt="KOREA"/></a></li>
+        <li id="lang">
+	<?php if($lang=='en') { ?>
+		<a href="index.php?com=ngonngu&lang=" title="Việt Nam"><img src="img/vi.png" alt="Việt Nam" /></a>
+	<?php }else{ ?>
+		<a href="index.php?com=ngonngu&lang=en" title="English"><img src="img/en.png" alt="English" /></a>
+	<?php } ?>
+        </li>
       </ul>
     </div>
   </div>

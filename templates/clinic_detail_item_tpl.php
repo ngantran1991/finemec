@@ -196,10 +196,10 @@ $(function(){
 </li></ul>
       	</div>
             
-<div id="page">
-    <p>Date: <?=$clinic['ngaytao']?> <a href="clinic/<?=$loaiProduct['tenkhongdau']."-".$loaiProduct['id']?>.html">List</a></p>
-    <p><b><?=$clinic['title']?></b></p>
-    <p>Name: <?=$clinic['ten']?><span>Hits: <?=$clinic['luotxem']?></span></p>
+<div id="page" class="page-media-detail-item page-clinic-detail-item">
+    <p><img src="images/main/icon_date.gif" align="absmiddle" border="0">Date: <?=date("y-m-d h:i",$clinic['ngaytao'])?> <span class="list-top"><a href="clinic/<?=$loaiProduct['tenkhongdau']."-".$loaiProduct['id']?>.html">List</a></span></p>
+    <p class="name-title"><b><?=$clinic['title']?></b></p>
+    <p>Name: <?=$clinic['ten']?><span style="float: right;">Hits: <?=$clinic['luotxem']?></span></p>
     <?=$clinic['noidung']?>
 </div>
 
