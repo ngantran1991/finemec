@@ -15,7 +15,7 @@ if(!defined('_source')) die("Error");
 	}else{
 		$type_link = 'bv';
 	}
-
+     $id = 20;
     if($id!='')
 	{
 		//Cập nhật lượt xem
@@ -39,7 +39,7 @@ if(!defined('_source')) die("Error");
                 
                 // list all tin tuc
                 $d->reset();
-		$sql_list_company = "select id,ten$lang as ten, tenkhongdau, mota$lang as mota,noidung$lang as noidung FROM #_news where type='gioithieu' and hienthi=1 and id <> 20 order by stt,id desc";
+		$sql_list_company = "select id,ten$lang as ten, tenkhongdau, mota$lang as mota,noidung$lang as noidung FROM #_news where type='gioithieu' and hienthi=1 and id = 20 order by stt,id desc";
 		$d->query($sql_list_company);
 		$listCompany = $d->result_array();
                 

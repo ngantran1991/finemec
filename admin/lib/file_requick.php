@@ -38,6 +38,15 @@
 			$template = "news_detail";
 			break;
                     
+                 case 'site-map':
+			$type = "site-map";
+			$title = _company;
+			$title_cat = _company;
+			$title_other = _tinlienquan;
+			$source = "sitemap";
+			$template = "news_detail";
+			break;
+                    
                 case 'media':
 			$type = "media";
 			$title = _media;

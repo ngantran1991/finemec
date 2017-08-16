@@ -36,7 +36,7 @@
         <li>
             <?php
             $d->reset();
-            $sql = "select * from #_news where type='gioithieu' order by stt asc limit 0,1";
+            $sql = "select * from #_news where type='gioithieu' and id <> 20 order by stt asc limit 0,1";
             $d->query($sql);
             $row_company = $d->fetch_array();
             ?>
@@ -85,7 +85,7 @@
       <ul>
         <li><a href="javascript:main();"><img src="images/common/home.png" alt="HOME|"/></a></li>
         <li><a href="mailto:cool@finemec.co.kr"><img src="images/common/contactus.png" alt="CONTACT US|"/></a></li>
-        <li><a href="javascript:sub06();"><img src="images/common/sitmap.png" alt="SITEMAP"/></a></li>
+        <li><a href="site-map.html"><img src="images/common/sitmap.png" alt="SITEMAP"/></a></li>
         <li id="lang">
 	<?php if($lang=='en') { ?>
 		<a href="index.php?com=ngonngu&lang=" title="Việt Nam"><img src="img/vi.png" alt="Việt Nam" /></a>

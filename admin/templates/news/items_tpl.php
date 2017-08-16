@@ -254,8 +254,13 @@ function get_main_category()
         </td>
         <td class="actBtns">
             <a href="index.php?com=news&act=edit&id_danhmuc=<?=$items[$i]['id_danhmuc']?>&id_list=<?=$items[$i]['id_list']?>&id_cat=<?=$items[$i]['id_cat']?>&id_item=<?=$items[$i]['id_item']?>&type=<?=$_REQUEST['type']?>&p=<?=$_REQUEST['p']?>&id=<?=$items[$i]['id']?>" title="" class="smallButton tipS" original-title="Sửa sản phẩm"><img src="./images/icons/dark/pencil.png" alt=""></a>
-
+            <?php
+            if ($items[$i]['id'] != 20){
+                ?>
             <a href="index.php?com=news&act=delete&id=<?=$items[$i]['id']?>&type=<?=$_REQUEST['type']?>&p=<?=$_REQUEST['p']?>" onClick="if(!confirm('Xác nhận xóa')) return false;" title="" class="smallButton tipS" original-title="Xóa tin"><img src="./images/icons/dark/close.png" alt=""></a>
+            <?php
+            }
+            ?>
         </td>
           </tr>
          <?php } ?>
