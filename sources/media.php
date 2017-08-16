@@ -7,6 +7,9 @@ if(!defined('_source')) die("Error");
 	@$id_cat =   trim(strip_tags(addslashes($_GET['id_cat'])));
 	@$id_item =   trim(strip_tags(addslashes($_GET['id_item'])));
 	@$id =   trim(strip_tags(addslashes($_GET['id'])));
+
+        @$type =   trim(strip_tags(addslashes($_POST['type'])));
+	@$keyword =   trim(strip_tags(addslashes($_POST['keyword'])));
 	$type_link = '';
 	$tbl = 'news_danhmuc';
 	if($type=='dichvu'){
@@ -35,8 +38,17 @@ if(!defined('_source')) die("Error");
 		
                 
                 // list all tin tuc
+                $whereMedia = "";
+                if ($type != ""){
+                    if ($type == "title+noidung"){
+                        $whereMedia = " and (title like '%$keyword%' || noidung like '%$keyword%' ) ";
+                    } else {
+                        $whereMedia = " and $type like '%$keyword%' ";
+                    }
+                }
+//                var_dump($type); die;
                 $d->reset();
-		$sql_list_tintuc = "select id,ten$lang as ten, tenkhongdau, mota$lang as mota,noidung$lang as noidung, noibat, stt, title, ngaytao,luotxem FROM #_news where type='tintuc' and hienthi=1 and id_danhmuc = $id order by stt,id desc";
+		$sql_list_tintuc = "select id,ten$lang as ten, tenkhongdau, mota$lang as mota,noidung$lang as noidung, noibat, stt, title, ngaytao,luotxem FROM #_news where type='tintuc' and hienthi=1 and id_danhmuc = $id $whereMedia order by stt,id desc";
 		$d->query($sql_list_tintuc);
 		$listTinTuc = $d->result_array();
                 

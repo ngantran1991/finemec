@@ -248,10 +248,23 @@ $(function(){
         }
         ?>
   </table>
+    
         <?php
     }
  }
     ?>
+    <p>
+    <form action="" method="post">
+        <select class="inline type-select" name="type" style="margin-left: 30%;">
+            <option value="title" <?=$type=="title" ? "selected" : ""?>>Subject</option>
+            <option value="noidung" <?=$type=="noidung" ? "selected" : ""?>>Contents</option>
+            <option value="title+noidung" <?=$type=="title+noidung" ? "selected" : ""?>>Subject + Contents</option>
+            <option value="ten" <?=$type=="title" ? "selected" : ""?>>Name</option>
+        </select>
+        <input type="text" name="keyword" value="<?=$keyword?>" class="inline search-textbox"/>
+        <input type="submit" value="" class="inline search-botton"/>
+    </form>
+    </p>
 </div>
 
 </div>

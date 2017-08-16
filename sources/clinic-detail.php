@@ -24,11 +24,40 @@ if(!defined('_source')) die("Error");
 		
 		//Chi tiết loai product
 		$d->reset();
-		$sql_detail = "select id,ten$lang as ten, tenkhongdau, id_danhmuc, ngaytao, title, luotxem,noidung$lang as noidung FROM #_product where hienthi=1 and id='$id' limit 0,1";
+		$sql_detail = "select id,ten$lang as ten, tenkhongdau, id_danhmuc, ngaytao, title, luotxem,noidung$lang as noidung, stt FROM #_product where hienthi=1 and id='$id' limit 0,1";
 		$d->query($sql_detail);
 		$row_detail = $d->fetch_array();
 		if(empty($row_detail)){redirect("http://".$config_url.'/404.php');}	
 		$clinic = $row_detail;
+                
+                //Chi tiết product next
+		$d->reset();
+		$sql_detail_next = "select id, tenkhongdau FROM #_product where hienthi=1 and id_danhmuc = ".$clinic['id_danhmuc']." and stt > ".$clinic['stt']." limit 0,1";
+//                var_dump($sql_detail_next); die;
+		$d->query($sql_detail_next);
+		$row_detail_next = $d->fetch_array();
+                $mediaNext = $row_detail_next;
+                if (!$mediaNext){
+                    $d->reset();
+                    $sql_detail_next = "select id, tenkhongdau FROM #_product where hienthi=1 and id_danhmuc = ".$clinic['id_danhmuc']." and id <> ".$clinic['id']." limit 0,1";
+                    $d->query($sql_detail_next);
+                    $row_detail_next = $d->fetch_array();
+                    $mediaNext = $row_detail_next;
+                }
+                
+                 //Chi tiết product previous
+		$d->reset();
+		$sql_detail_previous = "select id, tenkhongdau FROM #_product where hienthi=1 and id_danhmuc = ".$clinic['id_danhmuc']." and stt < ".$clinic['stt']." limit 0,1";
+		$d->query($sql_detail_previous);
+		$row_detail_previous = $d->fetch_array();
+                $mediaPrevious = $row_detail_previous;
+                if (!$mediaPrevious){
+                    $d->reset();
+                    $sql_detail_previous = "select id, tenkhongdau FROM #_product where hienthi=1 and id_danhmuc = ".$clinic['id_danhmuc']." and id <> ".$clinic['id']." limit 0,1";
+                    $d->query($sql_detail_previous);
+                    $row_detail_previous = $d->fetch_array();
+                    $mediaPrevious = $row_detail_previous;
+                }
                 
                 // loai product
                 $d->reset();

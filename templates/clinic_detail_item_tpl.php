@@ -201,6 +201,24 @@ $(function(){
     <p class="name-title"><b><?=$clinic['title']?></b></p>
     <p>Name: <?=$clinic['ten']?><span style="float: right;">Hits: <?=$clinic['luotxem']?></span></p>
     <?=$clinic['noidung']?>
+    <p></p>
+    <p class="buttom-media-detail">
+        <?php
+        if ($mediaPrevious){
+            ?>
+            <a href="clinic-detail/<?=$mediaPrevious['tenkhongdau']."-".$mediaPrevious['id']?>.html" class="button-left"><b>Previous</b></a>
+        <?php
+        }
+        ?>
+        <?php
+        if ($mediaNext){
+            ?>
+            <a href="clinic-detail/<?=$mediaNext['tenkhongdau']."-".$mediaNext['id']?>.html" class="button-left"><b>Next</b></a>
+        <?php
+        }
+        ?>
+        <a href="clinic/<?=$loaiProduct['tenkhongdau']."-".$loaiProduct['id']?>.html" class="button-right"><b>List</b></a>
+    </p>
 </div>
 
 </div>

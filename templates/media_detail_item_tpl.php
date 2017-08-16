@@ -200,8 +200,26 @@ $(function(){
     <p><img src="images/main/icon_date.gif" align="absmiddle" border="0">Date: <?=date("y-m-d h:i",$media['ngaytao'])?> <span class="list-top"><a href="media/<?=$loaiTinTuc['tenkhongdau']."-".$loaiTinTuc['id']?>.html">List</a></span></p>
     <p class="name-title"><b><?=$media['title']?></b></p>
     <p>Name: <b><?=$media['ten']?></b><span style="float: right;">Hits: <?=$media['luotxem']?></span></p>
-    <p>Email: <?=$media['mail']?> tel: <?=$media['tel']?></p>
+    <p style="border-bottom: 1px dotted #ccc; border-top: 1px dotted #ccc;">Email: <?=$media['mail']?> tel: <?=$media['tel']?></p>
     <?=$media['noidung']?>
+    <p></p>
+    <p class="buttom-media-detail">
+        <?php
+        if ($mediaPrevious){
+            ?>
+            <a href="media-detail/<?=$mediaPrevious['tenkhongdau']."-".$mediaPrevious['id']?>.html" class="button-left"><b>Previous</b></a>
+        <?php
+        }
+        ?>
+        <?php
+        if ($mediaNext){
+            ?>
+            <a href="media-detail/<?=$mediaNext['tenkhongdau']."-".$mediaNext['id']?>.html" class="button-left"><b>Next</b></a>
+        <?php
+        }
+        ?>
+        <a href="media/<?=$loaiTinTuc['tenkhongdau']."-".$loaiTinTuc['id']?>.html" class="button-right"><b>List</b></a>
+    </p>
 </div>
 
 </div>

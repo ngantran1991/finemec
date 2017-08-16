@@ -2,7 +2,6 @@
     error_reporting(0);
 	session_start();
 	$session=session_id();
-
 	//@define ( '_template' , './templates/');
 	@define ( '_source' , './sources/');
 	@define ( '_lib' , './admin/lib/');

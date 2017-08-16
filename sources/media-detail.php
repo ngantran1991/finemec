@@ -25,11 +25,39 @@ if(!defined('_source')) die("Error");
 		
 		//Chi tiết loai tin tức
 		$d->reset();
-		$sql_detail = "select id,ten$lang as ten, tenkhongdau, id_danhmuc, ngaytao, mail, tel, title, luotxem,noidung$lang as noidung FROM #_news where hienthi=1 and id='$id' limit 0,1";
+		$sql_detail = "select id,ten$lang as ten, tenkhongdau, id_danhmuc, ngaytao, mail, tel, title, luotxem,noidung$lang as noidung, stt FROM #_news where hienthi=1 and id='$id' limit 0,1";
 		$d->query($sql_detail);
 		$row_detail = $d->fetch_array();
 		if(empty($row_detail)){redirect("http://".$config_url.'/404.php');}	
 		$media = $row_detail;
+                
+                //Chi tiết loai tin tức next
+		$d->reset();
+		$sql_detail_next = "select id, tenkhongdau FROM #_news where hienthi=1 and id_danhmuc = ".$media['id_danhmuc']." and stt > ".$media['stt']." limit 0,1";
+		$d->query($sql_detail_next);
+		$row_detail_next = $d->fetch_array();
+                $mediaNext = $row_detail_next;
+                if (!$mediaNext){
+                    $d->reset();
+                    $sql_detail_next = "select id, tenkhongdau FROM #_news where hienthi=1 and id_danhmuc = ".$media['id_danhmuc']." and id <> ".$media['id']." limit 0,1";
+                    $d->query($sql_detail_next);
+                    $row_detail_next = $d->fetch_array();
+                    $mediaNext = $row_detail_next;
+                }
+                
+                 //Chi tiết loai tin tức previous
+		$d->reset();
+		$sql_detail_previous = "select id, tenkhongdau FROM #_news where hienthi=1 and id_danhmuc = ".$media['id_danhmuc']." and stt < ".$media['stt']." limit 0,1";
+		$d->query($sql_detail_previous);
+		$row_detail_previous = $d->fetch_array();
+                $mediaPrevious = $row_detail_previous;
+                if (!$mediaPrevious){
+                    $d->reset();
+                    $sql_detail_previous = "select id, tenkhongdau FROM #_news where hienthi=1 and id_danhmuc = ".$media['id_danhmuc']." and id <> ".$media['id']." limit 0,1";
+                    $d->query($sql_detail_previous);
+                    $row_detail_previous = $d->fetch_array();
+                    $mediaPrevious = $row_detail_previous;
+                }
                 
                 // loai tin tuc
                 $d->reset();
