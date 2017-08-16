@@ -95,14 +95,14 @@
                         <select name="product[]" class="main_select">
                             <option value=""> -Chọn bài viết-</option>
                             <?php
-                            foreach ($itemNews as $itemNo){
+                            foreach ($itemProduct as $itemNo){
                                 $arrCheckSelected = array(
                                     'id' => $itemNo['id'],
                                     'is_homepage' => $i+1
                                 );
-                                $selected = in_array($arrCheckSelected, $itemNewsSelected) ? "selected": "";
+                                $selected = in_array($arrCheckSelected, $itemProductSelected) ? "selected": "";
                                 ?>
-                            <option value="<?=$itemNo['id']?>" <?=$selected?>><?=$itemNo['title']?></option>
+                            <option value="<?=$itemNo['id']?>" <?=$selected?>><?=$itemNo['ten']?></option>
                             <?php
                             }
                             ?>
@@ -141,7 +141,7 @@
                 <label>Bài viết: </label>
                 <div class="formRight">
                     <?php
-                    for ($i=0; $i<4; $i++){
+                    for ($i=0; $i<3; $i++){
                         ?>
                         <select name="baiviet[]" class="main_select">
                             <option value=""> -Chọn bài viết-</option>

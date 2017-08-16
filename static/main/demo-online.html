@@ -26,13 +26,13 @@
 <!------------------------------------------------------------------------------------header--><div class="wrap" id="visual_sub">
   <div class="container">
   <div id="header">
-<div id="logo"><a href="javascript:main();"><img src="../images/common/logo.jpg" alt="logo"/></a></div>
+      <div id="logo"><a href=""><img src="../images/common/logo.jpg" alt="logo"/></a></div>
 <div id="menu">
   <div id="navi">
     <div id="menu_left">
       <ul>
-        <li><a href="javascript:sub01();"><img src="../images/common/navi_01.png" alt="company"/></a></li>
-        <li><a href="javascript:sub02();"><img src="../images/common/navi_02.png" alt="products"/></a></li>
+        <li><a href="../../company/tam-nhin-13.html"><img src="../images/common/navi_01.png" alt="company"/></a></li>
+        <li><a href="../../san-pham/ten-san-pham-2.html"><img src="../images/common/navi_02.png" alt="products"/></a></li>
         <li><a href="javascript:sub03();"><img src="../images/common/navi_03.png" alt="media"/></a></li>
         <li><a href="javascript:sub04();"><img src="../images/common/navi_04.png" alt="clinic"/></a></li>
 		<li><a href="javascript:sub05();"><img src="../images/common/navi_05.png" alt="online"/></a></li>
@@ -364,13 +364,11 @@ function formSubmit() {
       </tr>
       <tr>
         <th scope="row">Address</th>
-        <td><input name="inquiry_zip_code" onClick="window.open('?module=Default&amp;action=Zip&amp;sFormName=fi&amp;sZipCode=inquiry_zip_code&amp;sZipCode2=inquiry_zip_code2&amp;sAddr=inquiry_addr&amp;sAddrDtl=inquiry_addr_dtl&amp;sMode=SEARCH_FORM','','scrollbars=no,width=487,height=377')" type="text" size="4" readonly />
+        <td><input name="inquiry_zip_code"  type="text" size="4" />
           -
-          <input name="inquiry_zip_code2" onClick="window.open('?module=Default&amp;action=Zip&amp;sFormName=fi&amp;sZipCode=inquiry_zip_code&amp;sZipCode2=inquiry_zip_code2&amp;sAddr=inquiry_addr&amp;sAddrDtl=inquiry_addr_dtl&amp;sMode=SEARCH_FORM','','scrollbars=no,width=487,height=377')" type="text" size="4" readonly />
+          <input name="inquiry_zip_code2" type="text" size="4" />
           <br>
-          <input name="inquiry_addr" readonly type="text" size="65" hname="??????" />
-          <br>
-          <input name="inquiry_addr_dtl" ng-model="inquiry_addr_dtl" required type="text" size="65" maxlength="100" hname="????????" />
+          <input name="inquiry_addr" type="text" size="65" hname="??????" />
 		</td>
 		  
       </tr>
@@ -421,7 +419,8 @@ function formSubmit() {
       <tr>
         <th scope="row">* Request date</th>
         <td>
-			<input name="inquiry_etc2" ng-model="inquiry_etc2" required type="text" maxlength="50" hname="?????" />
+			<input type="date"  name="inquiry_etc2" ng-model="inquiry_etc2" 
+				placeholder="yyyy-MM-dd" min="2000-01-01" max="2020-12-31" required hname="요청일" />
 			<br>
 			<p style="color:red" ng-show="formInsert.inquiry_etc2.$invalid && !formInsert.inquiry_etc2.$pristine" class="help-block">Request date is required.</p>
 		</td>
@@ -511,78 +510,103 @@ $(document).ready(function(){
 			var patternNo			= new RegExp('[^0-9]', 'i');
 			var patternEmail	= new RegExp('[^a-zA-Z0-9_.]', 'i');
 			
+			//validate
+			//Clinic name
 			if($scope.inquiry_mkr_nm2 ==null){
 				alert( 'Clinic name is required.' );
 				return;
 			}
+			//Contact person
 			if($scope.inquiry_mkr_nm1 ==null){
 				alert( 'Contact person is required.' );
 				return;
 			}
+			//Country
 			if($scope.inquiry_etc1 ==null){
 				alert( 'Country is required.' );
 				return;
 			}
-			if($scope.inquiry_mkr_nm2 ==null){
-				alert( 'Clinic name is required.' );
-				return;
-			}
+			//Phone
 			if($scope.inquiry_tel_no2 ==null || $scope.inquiry_tel_no3 ==null){
 				alert( 'Phone is required.' );
 				return;
 			}
-			
 			if( $scope.inquiry_tel_no2 !=null && $scope.inquiry_tel_no3 !=null ) {
 				if( patternNo.exec( $scope.inquiry_tel_no2 ) != null || patternNo.exec( $scope.inquiry_tel_no3 )) {
-					alert( '?????? ????? ????? ?????.1' );
+					alert( 'Please enter your phone number correctly' );
 					return false;
 				}
 			}
-			
 			if( $scope.inquiry_tel_no2 !=null && $scope.inquiry_tel_no2.length < 3 ) {
-				alert( '????????? ????? ????? ?????.' );
+				alert( 'Please enter your phone number correctly.' );
 				return false;
 			}
-
 			if( $scope.inquiry_tel_no3 !=null && $scope.inquiry_tel_no3.length < 4 ) {
-				alert( '????????? ????? ????? ?????.' );
-				obj.focus();
+				alert( 'Please enter your phone number correctly.' );
 				return false;
 			}
-			
+			//Cell phone
+			if( $scope.inquiry_hp_no2 !=null ) {
+				if( patternNo.exec( $scope.inquiry_hp_no2 ) != null) {
+					alert( 'Please enter your cell phone number correctly' );
+					return false;
+				}
+			}
+			if( $scope.inquiry_hp_no3 !=null ) {
+				if( patternNo.exec( $scope.inquiry_hp_no3 ) != null) {
+					alert( 'Please enter your cell phone number correctly' );
+					return false;
+				}
+			}
+			//E-mail
 			if($scope.inquiry_eml1 ==null || $scope.inquiry_eml1 ==null){
 				alert( 'E-mail is required.' );
 				return;
 			}
 			if($scope.inquiry_eml1 !=null && $scope.inquiry_eml1 !=null){
 				if( patternEmail.exec( $scope.inquiry_eml1) != null || patternEmail.exec( $scope.inquiry_eml2) != null) {
-					alert( '?????? ????? ????? ?????.' );
+					alert( 'Please enter your email correctly.' );
 					return false;
 				}
 			}
+			//Request date
 			if($scope.inquiry_etc2 ==null){
 				alert( 'Request date is required.' );
 				return;
 			}
+			//Product name
 			if($scope.inquiry_title ==null){
 				alert( 'Product name is required.' );
 				return;
 			}
+			//Comments/Questions
 			if($scope.inquiry_contents ==null){
 				alert( 'Comments/Questions is required.' );
 				return;
 			}
-
-			if ( confirm( '?????????????' ) ) {
+			
+			//call ajax
+			if ( confirm( 'Do you want to register?' ) ) {
 				//frm.submit();
 				//document.getElementById( "btnSubmit" ).innerHTML = '<img src="../image/sub/btn_send.gif" border="0" alt="?????">';
 				$http({
-					url: 'http://localhost/vcontrol/static/main/home.html',
+					url: 'http://localhost:81/vcontrol/ajax/demo-online.php',
 					method: "POST",
-					data: { 'data' : $scope.inquiry_contents }
+					data: { 'Clinic' : $scope.inquiry_mkr_nm2 != undefined ? $scope.inquiry_mkr_nm2:"",
+                                                'Contact': $scope.inquiry_mkr_nm1 != undefined ? $scope.inquiry_mkr_nm1 : "",
+                                                'Country': $scope.inquiry_etc1 != undefined ? $scope.inquiry_etc1: "",
+                                                'Zipcode': $scope.inquiry_zip_code != undefined ? $scope.inquiry_zip_code : "",
+                                                'Address': $scope.inquiry_addr != undefined ? $scope.inquiry_addr : "",
+                                                'Phone': $scope.inquiry_tel_no2 + " " + $scope.inquiry_tel_no3,
+                                                'Email': $scope.inquiry_eml1 + "@" + $scope.inquiry_eml2,
+                                                'Request-date': $scope.inquiry_etc2 != undefined ? $scope.inquiry_etc2 : "",
+                                                'Product_name': $scope.inquiry_title != undefined ? $scope.inquiry_title : "",
+                                                'comment': $scope.inquiry_contents != undefined ? $scope.inquiry_contents : ""
+                                        }
 				})
 				.then(function(response) {
-					 window.location = "http://localhost/vcontrol/static/main/home.html";
+					$scope.go('/employeehealth');
+					 //window.location = "http://localhost/vcontrol/";
 				}, 
 				function(response) { // optional
 					alert( 'failed' );

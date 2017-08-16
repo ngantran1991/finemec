@@ -196,15 +196,16 @@ $(function(){
 </li></ul>
       	</div>
             
-<div id="page">
+<div id="page" class="page-clinic-detail">
     <?php
     if (is_array($listProduct)){
         ?>
-    Total: <?=count($listProduct)?>
+    <span style="float: right;">Total: <?=count($listProduct)?></span>
     <?php
     if (count($listProduct)){
         ?>
-    <p>order</p>
+    <div style="clear: both;"></div>
+    <p class="order">order</p>
     
   <?php
         foreach ($listProduct as $itemProduct){
@@ -212,8 +213,8 @@ $(function(){
     <div class="box-clinic">
         <a href="clinic-detail/<?=$itemProduct['tenkhongdau']."-".$itemProduct['id']?>.html">
         <img src="<?=_upload_sanpham_l.$itemProduct['photo']?>"/>
-        <p><?=$itemProduct['ten']?></p>
-        <p><?=$itemProduct['ngaytao']?></p>
+        <p style="color: #005E8C"><?=$itemProduct['ten']?></p>
+        <p style="color: #ccc"><?=date("Y-m-d",$itemProduct['ngaytao'])?></p>
         </a>
     </div>
     

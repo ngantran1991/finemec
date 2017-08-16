@@ -85,10 +85,26 @@
 
 
 	  </li>
-      <li><a href="javascript:sub02_01();"><img src="images/main/aileen.jpg" alt="AILEEN"/></a></li>
-	  <li><a href="javascript:sub02_02();"><img src="images/main/neosys.jpg" alt="NEOSYS"/></a></li>
+          <?php 
+        $d->reset();
+        $sql = "select * from #_product where type='sanpham' and is_homepage <>0 order by is_homepage asc";
+	$d->query($sql);
+        $itemProductSelected = $d->result_array();
+        if (is_array($itemProductSelected) && count($itemProductSelected)){
+            foreach ($itemProductSelected as $itemProduct){
+                ?>
+      <li>
+          <a href="san-pham/<?=$itemProduct['tenkhongdau']."-".$itemProduct['id']?>.html">
+              <img src="<?=_upload_sanpham_l.$itemProduct['photo']?>" alt="AILEEN"/>
+          </a>
+      </li>
+      <?php
+            }
+        }
+            ?>
+<!--	  <li><a href="javascript:sub02_02();"><img src="images/main/neosys.jpg" alt="NEOSYS"/></a></li>
 	  <li><a href="javascript:sub02_03();"><img src="images/main/finepulse.jpg" alt="FINEPULSE"/></a></li>
-	  <li><a href="javascript:sub02_04();"><img src="images/main/regenlote.jpg" alt="REGENLOTE"/></a></li>
+	  <li><a href="javascript:sub02_04();"><img src="images/main/regenlote.jpg" alt="REGENLOTE"/></a></li>-->
     </ul>
   </div>
 </div>
@@ -123,8 +139,8 @@
       ?>
 <!--      <li><a href="javascript:sub01_05();"><img src="images/main/network.jpg" alt="SALES NETWORK"/></a></li>
 	  <li><a href="javascript:sub01_04();"><img src="images/main/map.jpg" alt="ROUGH MAP"/></a></li>
-	  <li><a href="javascript:sub04_01();"><img src="images/main/clinic.jpg" alt="CLINIC"/></a></li>
-	  <li><a href="javascript:sub05_01();"><img src="images/main/online.jpg" alt="DEMO ONLINE"/></a></li>-->
+	  <li><a href="javascript:sub04_01();"><img src="images/main/clinic.jpg" alt="CLINIC"/></a></li>-->
+	  <li><a href="static/main/demo-online.html"><img src="images/main/online.jpg" alt="DEMO ONLINE"/></a></li>
     </ul>
   </div>
 </div>

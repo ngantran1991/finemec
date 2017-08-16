@@ -196,15 +196,60 @@ $(function(){
 </script>
 <!-- new 濡ㅻ� �� -->
 <script language="JavaScript" type="text/javascript" src="js/slides.min.jquery.js"></script>
-<div class="wrap" id="visual_main_bg">
-  <div class="wrap" id="visual_main">
+<div class="wrap"  <?php echo ($template != "index") ? " id='visual_sub'" : "id='visual_main_bg'";?>>
+  <div class="wrap" <?php echo ($template != "index") ? " id='visual_sub'" : "id='visual_main'";?>>
       <div class="container">
           <div id="header">
     		<?php include _template."layout/header.php";?>
         </div><!---END #header-->
+        <?php
+        if ($template == "index"){
+            ?>
         <div id="visual">
             <?php include _template."layout/slider_jssor.php";?>
         </div>
+        <?php
+        } elseif ($template == "news_detail"){
+            ?>
+        <div id="visual_sub_btn">
+            <ul>
+                    <li><img src="static/images/snavi/snavi_01.gif"></li>     
+            </ul>
+        </div>
+        <img src="static/images/common/sub_visual01.jpg">
+        <?php
+        } elseif ($template == "product2_detail"){
+            ?>
+        <div id="visual_sub_btn">
+            <ul>
+                    <li><img src="static/images/snavi/snavi_02.gif"></li>     
+            </ul>
+        </div>
+        <img src="static/images/common/sub_visual02.jpg">
+        <?php
+        } elseif($template == "media_detail" || $template == "media_detail_item"){
+            ?>
+        <div id="visual_sub_btn">
+            <ul>
+                    <li><img src="static/images/snavi/snavi_03.gif"></li>     
+            </ul>
+        </div>
+        <img src="static/images/common/sub_visual03.jpg">
+        <?php
+        } elseif($template == "clinic_detail" || $template == "clinic_detail_item") {
+            ?>
+        <div id="visual_sub_btn">
+            <ul>
+                    <li><img src="static/images/snavi/snavi_04.gif"></li>     
+            </ul>
+        </div>
+        <img src="static/images/common/sub_visual04.jpg">
+        <?php
+        }
+
+//"media_detail || media_detail_item" media "clinic_detail|| clinic_detail_item
+        ?>
+        
       </div>
   </div>
 </div>

@@ -22,7 +22,7 @@ function fns_Rand_digit($min,$max,$num)
 	}
 
 function get_gioithieu(){
-	global $d, $item, $itemNotice, $itemNews, $itemNoticeSelected, $itemNewsSelected, $itemBaiViet, $itemBaiVietSelected;
+	global $d, $item, $itemNotice, $itemNews, $itemNoticeSelected, $itemNewsSelected, $itemBaiViet, $itemBaiVietSelected, $itemProduct, $itemProductSelected;
 
 	$sql = "select * from #_background where type='".$_REQUEST['type']."' limit 0,1";
 	$d->query($sql);
@@ -69,15 +69,28 @@ function get_gioithieu(){
         $sql = "select id, is_homepage from #_news where type='gioithieu' and is_homepage <>0";
 	$d->query($sql);
         $itemBaiVietSelected = $d->result_array();
+        
+        $d->reset();
+        $sql = "select * from #_product where id<>0  and type='sanpham' ";
+	$d->query($sql);
+        $itemProduct = $d->result_array();
+        
+        $d->reset();
+        $sql = "select id, is_homepage from #_product where id<>0  and type='sanpham' and is_homepage <>0";
+	$d->query($sql);
+        $itemProductSelected = $d->result_array();
+        
 }
 function save_gioithieu(){
 	global $d,$config;
         // update notice and news
         mysql_query("UPDATE table_news SET is_homepage = 0 where id <> 0");
+        mysql_query("UPDATE table_product SET is_homepage = 0 where id <> 0");
         
         $isHomepageNo = 0;
         $isHomepageNew = 0;
         $isHomepageBV = 0;
+        $isHomepageProduct = 0;
         $arrNotice = $_POST['notice'];
         foreach ($arrNotice as $itemNotice){
             if (!empty($itemNotice)){
@@ -90,6 +103,14 @@ function save_gioithieu(){
             if (!empty($itemNew)){
                 $isHomepageNew++;
                 mysql_query("UPDATE table_news SET is_homepage = $isHomepageNew where id = $itemNew");
+            }
+        }
+        
+        $arrProduct = $_POST['product'];
+        foreach ($arrProduct as $itemProduct){
+            if (!empty($itemProduct)){
+                $isHomepageProduct++;
+                mysql_query("UPDATE table_product SET is_homepage = $isHomepageProduct where id = $itemProduct");
             }
         }
         

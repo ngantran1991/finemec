@@ -196,11 +196,11 @@ $(function(){
 </li></ul>
       	</div>
             
-<div id="page">
+<div id="page" class="page-media-detail">
     <?php
     if (is_array($listTinTuc)){
         ?>
-    Total: <?=count($listTinTuc)?>
+    <div style="float: right;">Total: <?=count($listTinTuc)?></div>
     <?php
     if (count($listTinTuc)){
         ?>
@@ -227,9 +227,21 @@ $(function(){
             ?>
   <tr>
       <td><?=$itemTinTuc['stt']?></td>
-      <td><a href="media-detail/<?=$itemTinTuc['tenkhongdau']."-".$itemTinTuc['id']?>.html"><?=$itemTinTuc['title']?></a></td>
+      <td>
+          <a href="media-detail/<?=$itemTinTuc['tenkhongdau']."-".$itemTinTuc['id']?>.html">
+                    <?=$itemTinTuc['title']?>
+          </a>
+          <?php
+          if ($itemTinTuc['noibat'] == 1){
+              ?>
+          <img src="images/main/icon_hot.gif" align="absmiddle">
+          <?php
+          }
+          ?>
+          
+      </td>
       <td><?=$itemTinTuc['ten']?></td>
-      <td><?=$itemTinTuc['ngaytao']?></td>
+      <td><?=date('d-m',$itemTinTuc['ngaytao'])?></td>
       <td><?=$itemTinTuc['luotxem']?></td>
   </tr>
     <?php
