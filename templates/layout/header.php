@@ -23,6 +23,83 @@
 	//$duoi_banner = end(explode('.',$row_banner['photo']));
 			
 ?>
+<style>
+body {margin:0;}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav .icon {
+  display: none;
+}
+#myTopnav{
+    display: none;
+}
+.mobi-slide{
+    display: none;
+}
+
+@media screen and (max-width: 1030px) {
+  .topnav a:not(:first-child) {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+  #myTopnav{
+      display: block;
+  }
+  #menu{
+      display: none;
+  }
+}
+
+@media screen and (max-width: 1030px) {
+  .topnav.responsive {position: relative; z-index: 10;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .mobi-slide{
+      display: block;
+      margin-top: 60px;
+  }
+  #main_link .tabs-area ul li{
+      width: 49%;
+      padding-left: 0px;
+      padding-right: 0px;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  
+
+}
+@media screen and (max-width: 760px){
+    .mobi-slide img{
+      margin-top: 20px;
+  }
+}
+</style>
 <div id="logo">
     <a href="/vcontrol">
         <img src="<?=_upload_hinhanh_l.$row_logo['photo']?>" alt="logo"/>
@@ -97,6 +174,16 @@
     </div>
   </div>
 </div>
+<script>
+function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
+}
+</script>
 
 <!--<div id="lang">
 	<?php if($lang=='en') { ?>

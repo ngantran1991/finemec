@@ -206,6 +206,9 @@ $(function(){
             ?>
         <div id="visual">
             <?php include _template."layout/slider_jssor.php";?>
+            <div class='mobi-slide'>
+                <img src="<?=_upload_hinhanh_l.$slider[0]['photo']?>"/>
+            </div>
         </div>
         <?php
         } elseif ($template == "news_detail"){
@@ -249,6 +252,16 @@ $(function(){
 //"media_detail || media_detail_item" media "clinic_detail|| clinic_detail_item
         ?>
         
+      </div>
+      <div class="topnav" id="myTopnav">
+        <a href="/">Home</a>
+        <a href="company/<?=$row_company['tenkhongdau']."-".$row_company['id']?>.html">Company</a>
+        <a href="san-pham/<?=$row_product['tenkhongdau']."-".$row_product['id']?>.html">Products</a>
+        <a href="media/<?=$listLoaiTinTucMenu['tenkhongdau']."-".$listLoaiTinTucMenu['id']?>.html">Media</a>
+        <a href="clinic/<?=$row_list_menu['tenkhongdau']."-".$row_list_menu['id']?>.html">Clinic</a>
+        <a href="static/main/demo-online.html">Demo online</a>
+        <a href="site-map.html">Site Map</a>
+        <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
       </div>
   </div>
 </div>
