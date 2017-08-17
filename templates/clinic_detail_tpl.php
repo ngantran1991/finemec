@@ -196,15 +196,18 @@ $(function(){
 </li></ul>
       	</div>
             
-<div id="page">
+<div id="page" class="page-media-detail page-clinic-detail">
     <?php
     if (is_array($listProduct)){
         ?>
-    Total: <?=count($listProduct)?>
+    <span style="float: right;">Total: <?=count($listProduct)?></span>
     <?php
     if (count($listProduct)){
         ?>
-    <p>order</p>
+    <div style="clear: both;"></div>
+    <form method="post" action="" id="form-clinic">
+        <p class="order"><span value="ngaytao">Date</span>&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<span value="ten">Name</span></p>
+        <input type="hidden" name="order" id="hidden-order"/>
     
   <?php
         foreach ($listProduct as $itemProduct){
@@ -212,8 +215,8 @@ $(function(){
     <div class="box-clinic">
         <a href="clinic-detail/<?=$itemProduct['tenkhongdau']."-".$itemProduct['id']?>.html">
         <img src="<?=_upload_sanpham_l.$itemProduct['photo']?>"/>
-        <p><?=$itemProduct['ten']?></p>
-        <p><?=$itemProduct['ngaytao']?></p>
+        <p style="color: #005E8C"><?=$itemProduct['ten']?></p>
+        <p style="color: #ccc"><?=date("Y-m-d",$itemProduct['ngaytao'])?></p>
         </a>
     </div>
     
@@ -225,7 +228,26 @@ $(function(){
     }
  }
     ?>
+  <div style="clear: both;"></div>
+  <p style="height: 45px;border-top: 2px solid #ccc;border-bottom: 2px solid #ccc;"></p>
+    <p>
+        <select class="inline type-select" name="type" style="margin-left: 30%;">
+            <option value="title" <?=$type=="title" ? "selected" : ""?>>Subject</option>
+            <option value="noidung" <?=$type=="noidung" ? "selected" : ""?>>Contents</option>
+            <option value="title+noidung" <?=$type=="title+noidung" ? "selected" : ""?>>Subject + Contents</option>
+            <option value="ten" <?=$type=="title" ? "selected" : ""?>>Name</option>
+        </select>
+        <input type="text" name="keyword" value="<?=$keyword?>" class="inline search-textbox"/>
+        <input type="submit" value="" class="inline search-botton"/>
+    </p>
+    </form>
 </div>
+<script type="text/javascript">
+    $("p.order").on("click", "span", function(){
+        $("#hidden-order").attr("value",$(this).attr("value"));
+        $("form#form-clinic").submit();
+    });
+</script>
 
 </div>
 </div>

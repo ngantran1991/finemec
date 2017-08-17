@@ -196,15 +196,15 @@ $(function(){
 </li></ul>
       	</div>
             
-<div id="page">
+<div id="page" class="page-media-detail">
     <?php
     if (is_array($listTinTuc)){
         ?>
-    Total: <?=count($listTinTuc)?>
+    <div style="float: right;">Total: <?=count($listTinTuc)?></div>
     <?php
     if (count($listTinTuc)){
         ?>
-    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <table width="100%" border="0" cellpadding="0" cellspacing="0" class="board_list">
   <tr>
       <th>
           No
@@ -225,21 +225,46 @@ $(function(){
   <?php
         foreach ($listTinTuc as $itemTinTuc){
             ?>
-  <tr>
-      <td><?=$itemTinTuc['stt']?></td>
-      <td><a href="media-detail/<?=$itemTinTuc['tenkhongdau']."-".$itemTinTuc['id']?>.html"><?=$itemTinTuc['title']?></a></td>
-      <td><?=$itemTinTuc['ten']?></td>
-      <td><?=$itemTinTuc['ngaytao']?></td>
-      <td><?=$itemTinTuc['luotxem']?></td>
+  <tr class="bg1">
+      <td class="num"><?=$itemTinTuc['stt']?></td>
+      <td class="subject">
+          <a href="media-detail/<?=$itemTinTuc['tenkhongdau']."-".$itemTinTuc['id']?>.html">
+                    <?=$itemTinTuc['title']?>
+          </a>
+          <?php
+          if ($itemTinTuc['noibat'] == 1){
+              ?>
+          <img src="images/main/icon_hot.gif" align="absmiddle">
+          <?php
+          }
+          ?>
+          
+      </td>
+      <td class="member"><?=$itemTinTuc['ten']?></td>
+      <td class="datetime"><?=date('d-m',$itemTinTuc['ngaytao'])?></td>
+      <td class="hit"><?=$itemTinTuc['luotxem']?></td>
   </tr>
     <?php
         }
         ?>
   </table>
+    
         <?php
     }
  }
     ?>
+    <p>
+    <form action="" method="post">
+        <select class="inline type-select" name="type" style="margin-left: 30%;">
+            <option value="title" <?=$type=="title" ? "selected" : ""?>>Subject</option>
+            <option value="noidung" <?=$type=="noidung" ? "selected" : ""?>>Contents</option>
+            <option value="title+noidung" <?=$type=="title+noidung" ? "selected" : ""?>>Subject + Contents</option>
+            <option value="ten" <?=$type=="title" ? "selected" : ""?>>Name</option>
+        </select>
+        <input type="text" name="keyword" value="<?=$keyword?>" class="inline search-textbox"/>
+        <input type="submit" value="" class="inline search-botton"/>
+    </form>
+    </p>
 </div>
 
 </div>
