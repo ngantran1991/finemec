@@ -122,9 +122,20 @@ span.title-menu-right{
 }
 #navi #menu_left ul{
     margin-top: 5px;
+    margin-left: 10px;
 }
 #navi #menu_right{
     margin-top: 0px;
+    margin-left: 0px;
+}
+#navi #menu_right ul{
+    float: right;
+}
+#navi #menu_left ul li{
+    margin: 0px 5px;
+}
+#header #navi{
+    width: 99%
 }
     
     
