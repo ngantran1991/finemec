@@ -1,7 +1,7 @@
 /* CSS Document */
 html{overflow-y:scroll;}
 body,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textarea,button,select,figure,figcaption{margin:0;padding:0}
-body,input,textarea,select,button,table{font-family:Dotum,helvetica,sans-serif;font-size:11px;line-height:1.7}
+body,input,textarea,select,button,table{font-family:Calibri,Dotum,helvetica,sans-serif;font-size:11px;line-height:1.7}
 img{border:0}
 ul,ol{list-style:none}
 fieldset{border:none}
@@ -109,6 +109,22 @@ a:active{text-decoration:none}
     float: none;
     cursor: pointer;
 
+}
+span.title-menu{
+    font-size: 17px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+span.title-menu-right{
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+#navi #menu_left ul{
+    margin-top: 5px;
+}
+#navi #menu_right{
+    margin-top: 0px;
 }
     
     

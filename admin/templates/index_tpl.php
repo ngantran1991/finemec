@@ -36,7 +36,7 @@ $(function () {
             text: 'Thống kê truy cập tháng : <?php echo $month ?> - <?php echo $year ?> '
         },
         subtitle: {
-            text: 'Devetloper by : <a href="http://nina.vn">Nina .LTD</a>'
+            text: 'Devetloper by : <a href="http://bmweb.vn">BM web .LTD</a>'
         },
         xAxis: {
             type: 'category',
@@ -103,7 +103,7 @@ $(function () {
 <form name="supplier" id="validate" class="form" action="index.php" method="get" enctype="multipart/form-data">
 
 <div class="widget">
-   <div class="title"><h6>Chào mừng bạn đến với Administrator - HỆ THỐNG QUẢN TRỊ NỘI DUNG WEBSITE - Powered by <a href="http://www.nina.vn" target="_blank"><span style="color:#f00;">Thiết kế website NINA</span></a></h6><div class="clear"></div></div>
+   <div class="title"><h6>Chào mừng bạn đến với Administrator - HỆ THỐNG QUẢN TRỊ NỘI DUNG WEBSITE - Powered by <a href="http://www.bmweb.vn" target="_blank"><span style="color:#f00;">Thiết kế website BM Web</span></a></h6><div class="clear"></div></div>
    <p>Nếu bạn có thắc mắc trong quá trình sử dụng, xin vui lòng gởi mail về địa chỉ <strong><a href="mailto:nina@nina.vn">nina@nina.vn</a></strong></p>
 
    <div class="clear"></div>

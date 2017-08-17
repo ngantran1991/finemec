@@ -46,7 +46,7 @@ if ($_GET['type'] == "logofooter" || $_GET['type'] == "footerleft" || $_GET['typ
         <?php // phanquyen_menu('Cập nhật pupop quảng cáo','background','capnhat','pupop'); ?>
      </ul>
 </li>
-<li class="categories_li gallery_li <?php if($_GET['com']=='background' && ($_GET['type'] == "logofooter" || $_GET['type'] == "footerleft" || $_GET['type'] == "telfooter"  || $_GET['type'] == "footerright")) echo ' activemenu' ?>" id="menu_qc"><a href="" title="" class="exp"><span>Footer</span><strong></strong></a>
+<li class="categories_li gallery_li <?php if($_GET['com']=='background' && ($_GET['type'] == "logofooter" || $_GET['type'] == "footerleft" || $_GET['type'] == "telfooter"  || $_GET['type'] == "footerright")) echo ' activemenu' ?>" id="menu_image_footer"><a href="" title="" class="exp"><span>Footer</span><strong></strong></a>
      <ul class="sub">
         <?php phanquyen_menu('Cập nhật logo footer','background','capnhat','logofooter'); ?>
          <?php phanquyen_menu('Cập nhật footer left','background','capnhat','footerleft'); ?>
@@ -86,15 +86,51 @@ if ($_GET['type'] == "logofooter" || $_GET['type'] == "footerleft" || $_GET['typ
     </ul>
 </li>
 
-<li class="categories_li <?php if($_GET['com']=='about' || $_GET['com']=='video') echo ' activemenu' ?>" id="menu_t"><a href="" title="" class="exp"><span>Trang tĩnh</span><strong></strong></a>
+<!--<li class="categories_li <?php if($_GET['com']=='about' || $_GET['com']=='video') echo ' activemenu' ?>" id="menu_t"><a href="" title="" class="exp"><span>Trang tĩnh</span><strong></strong></a>
     <ul class="sub">
     	<?php //phanquyen_menu('Quản lý Video','video','man','video'); ?>
-        <?php phanquyen_menu('Cập nhật giới thiệu','about','capnhat','about'); ?>
-        <?php phanquyen_menu('Cập nhật liên hệ','about','capnhat','lienhe'); ?>
-        <?php phanquyen_menu('Cập nhật footer','about','capnhat','footer'); ?>
-        <?php phanquyen_menu('Cập nhật footer 2','about','capnhat','footer2'); ?>
+        <?php // phanquyen_menu('Cập nhật giới thiệu','about','capnhat','about'); ?>
+        <?php // phanquyen_menu('Cập nhật liên hệ','about','capnhat','lienhe'); ?>
+        <?php // phanquyen_menu('Cập nhật footer','about','capnhat','footer'); ?>
+        <?php // phanquyen_menu('Cập nhật footer 2','about','capnhat','footer2'); ?>
     </ul>
+</li>-->
+
+<li class="categories_li gallery_li <?php if($_GET['com']=='background' && ($_GET['type'] == "companytitle" || $_GET['type'] == "companybackground")) echo ' activemenu' ?>" id="menu_image_company"><a href="" title="" class="exp"><span>Image trang Company</span><strong></strong></a>
+     <ul class="sub">
+        <?php phanquyen_menu('Cập nhật Image Title','background','capnhat','companytitle'); ?>
+         <?php phanquyen_menu('Cập nhật Image Background','background','capnhat','companybackground'); ?>
+     </ul>
 </li>
+
+<li class="categories_li gallery_li <?php if($_GET['com']=='background' && ($_GET['type'] == "producttitle" || $_GET['type'] == "productbackground")) echo ' activemenu' ?>" id="menu_image_product"><a href="" title="" class="exp"><span>Image trang Product</span><strong></strong></a>
+     <ul class="sub">
+        <?php phanquyen_menu('Cập nhật Image Title','background','capnhat','producttitle'); ?>
+         <?php phanquyen_menu('Cập nhật Image Background','background','capnhat','productbackground'); ?>
+     </ul>
+</li>
+
+<li class="categories_li gallery_li <?php if($_GET['com']=='background' && ($_GET['type'] == "mediatitle" || $_GET['type'] == "mediabackground")) echo ' activemenu' ?>" id="menu_image_media"><a href="" title="" class="exp"><span>Image trang Media</span><strong></strong></a>
+     <ul class="sub">
+        <?php phanquyen_menu('Cập nhật Image Title','background','capnhat','mediatitle'); ?>
+         <?php phanquyen_menu('Cập nhật Image Background','background','capnhat','mediabackground'); ?>
+     </ul>
+</li>
+
+<li class="categories_li gallery_li <?php if($_GET['com']=='background' && ($_GET['type'] == "clinictitle" || $_GET['type'] == "clinicbackground")) echo ' activemenu' ?>" id="menu_image_clinic"><a href="" title="" class="exp"><span>Image trang Clinic</span><strong></strong></a>
+     <ul class="sub">
+        <?php phanquyen_menu('Cập nhật Image Title','background','capnhat','clinictitle'); ?>
+         <?php phanquyen_menu('Cập nhật Image Background','background','capnhat','clinicbackground'); ?>
+     </ul>
+</li>
+
+<li class="categories_li gallery_li <?php if($_GET['com']=='background' && ($_GET['type'] == "demoonlinetitle" || $_GET['type'] == "demoonlinebackground")) echo ' activemenu' ?>" id="menu_image_demoonline"><a href="" title="" class="exp"><span>Image trang demo online</span><strong></strong></a>
+     <ul class="sub">
+        <?php phanquyen_menu('Cập nhật Image Title','background','capnhat','demoonlinetitle'); ?>
+         <?php phanquyen_menu('Cập nhật Image Background','background','capnhat','demoonlinebackground'); ?>
+     </ul>
+</li>
+
 
 
 

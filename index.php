@@ -215,37 +215,91 @@ $(function(){
             ?>
         <div id="visual_sub_btn">
             <ul>
-                    <li><img src="static/images/snavi/snavi_01.gif"></li>     
+                    <li>
+                        <?php
+                        $d->reset();
+                      $sql = "select photo$lang as photo from #_background where type='companytitle' limit 0,1";
+                      $d->query($sql);
+                      $row_product_title = $d->fetch_array();
+                        ?>
+                        <img src="<?=_upload_hinhanh_l.$row_product_title['photo']?>">
+                    </li>     
             </ul>
         </div>
-        <img src="static/images/common/sub_visual01.jpg">
+        <?php
+                        $d->reset();
+                      $sql = "select photo$lang as photo from #_background where type='companybackground' limit 0,1";
+                      $d->query($sql);
+                      $row_product_background = $d->fetch_array();
+                        ?>
+        <img src="<?=_upload_hinhanh_l.$row_product_background['photo']?>">
         <?php
         } elseif ($template == "product2_detail"){
             ?>
         <div id="visual_sub_btn">
             <ul>
-                    <li><img src="static/images/snavi/snavi_02.gif"></li>     
+                    <li>
+                        <?php
+                        $d->reset();
+                      $sql = "select photo$lang as photo from #_background where type='producttitle' limit 0,1";
+                      $d->query($sql);
+                      $row_product_title = $d->fetch_array();
+                        ?>
+                        <img src="<?=_upload_hinhanh_l.$row_product_title['photo']?>">
+                    </li>     
             </ul>
         </div>
-        <img src="static/images/common/sub_visual02.jpg">
+        <?php
+        $d->reset();
+                      $sql = "select photo$lang as photo from #_background where type='productbackground' limit 0,1";
+                      $d->query($sql);
+                      $row_product_background = $d->fetch_array();
+                        ?>
+        <img src="<?=_upload_hinhanh_l.$row_product_background['photo']?>">
         <?php
         } elseif($template == "media_detail" || $template == "media_detail_item"){
             ?>
         <div id="visual_sub_btn">
             <ul>
-                    <li><img src="static/images/snavi/snavi_03.gif"></li>     
+                    <li><?php
+                        $d->reset();
+                      $sql = "select photo$lang as photo from #_background where type='mediatitle' limit 0,1";
+                      $d->query($sql);
+                      $row_product_title = $d->fetch_array();
+                        ?>
+                        <img src="<?=_upload_hinhanh_l.$row_product_title['photo']?>">
+                    </li>     
             </ul>
         </div>
-        <img src="static/images/common/sub_visual03.jpg">
+        <?php
+        $d->reset();
+                      $sql = "select photo$lang as photo from #_background where type='mediabackground' limit 0,1";
+                      $d->query($sql);
+                      $row_product_background = $d->fetch_array();
+                        ?>
+        <img src="<?=_upload_hinhanh_l.$row_product_background['photo']?>">
         <?php
         } elseif($template == "clinic_detail" || $template == "clinic_detail_item") {
             ?>
         <div id="visual_sub_btn">
             <ul>
-                    <li><img src="static/images/snavi/snavi_04.gif"></li>     
+                    <li><?php
+                        $d->reset();
+                      $sql = "select photo$lang as photo from #_background where type='clinictitle' limit 0,1";
+                      $d->query($sql);
+                      $row_product_title = $d->fetch_array();
+                        ?>
+                        <img src="<?=_upload_hinhanh_l.$row_product_title['photo']?>">
+                    </li>     
             </ul>
         </div>
-        <img src="static/images/common/sub_visual04.jpg">
+        <?php
+        $d->reset();
+                      $sql = "select photo$lang as photo from #_background where type='clinicbackground' limit 0,1";
+                      $d->query($sql);
+                      $row_product_background = $d->fetch_array();
+                        ?>
+        <img src="<?=_upload_hinhanh_l.$row_product_background['photo']?>">
         <?php
         }
 
@@ -254,13 +308,13 @@ $(function(){
         
       </div>
       <div class="topnav" id="myTopnav">
-        <a href="/">Home</a>
-        <a href="company/<?=$row_company['tenkhongdau']."-".$row_company['id']?>.html">Company</a>
-        <a href="san-pham/<?=$row_product['tenkhongdau']."-".$row_product['id']?>.html">Products</a>
-        <a href="media/<?=$listLoaiTinTucMenu['tenkhongdau']."-".$listLoaiTinTucMenu['id']?>.html">Media</a>
-        <a href="clinic/<?=$row_list_menu['tenkhongdau']."-".$row_list_menu['id']?>.html">Clinic</a>
-        <a href="static/main/demo-online.html">Demo online</a>
-        <a href="site-map.html">Site Map</a>
+        <a href="/"><?=_home?></a>
+        <a href="company/<?=$row_company['tenkhongdau']."-".$row_company['id']?>.html"><?=_company?></a>
+        <a href="san-pham/<?=$row_product['tenkhongdau']."-".$row_product['id']?>.html"><?=_product?></a>
+        <a href="media/<?=$listLoaiTinTucMenu['tenkhongdau']."-".$listLoaiTinTucMenu['id']?>.html"><?=_media?></a>
+        <a href="clinic/<?=$row_list_menu['tenkhongdau']."-".$row_list_menu['id']?>.html"><?=_clinic?></a>
+        <a href="static/main/demo-online.html"><?=_demoonline?></a>
+        <a href="site-map.html"><?=_sitemap?></a>
         <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
       </div>
   </div>

@@ -8,8 +8,8 @@
 @define ('_gioithieu','Introduction');
 @define ('_sanpham','products');
 @define ('_tintuc','News');
-@define ('_media','Media');
-@define ('_clinic','Clinic');
+//@define ('_media','Media');
+//@define ('_clinic','Clinic');
 @define ('_dichvu','Services');
 @define ('_congtrinh','work');
 @define ('_duan','projects');
@@ -24,6 +24,13 @@
 @define ('_ketquatimkiem', 'Search Results');
 @define ('_timkiem','Search');
 @define ('_company','Company');
+@define ('_product','Product');
+@define ('_media','Media');
+@define ('_clinic','Clinic');
+@define ('_demoonline','Demo online');
+@define ('_home','Home');
+@define ('_contactus','Contact us');
+@define ('_sitemap','Site map');
 
 // ------------ Danh mục + Nỗi bật----------------- 
 @define ('_danhmucsanpham','Product Categories');

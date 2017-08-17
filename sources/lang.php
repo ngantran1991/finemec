@@ -8,8 +8,8 @@
 @define ('_gioithieu','Giới thiệu');
 @define ('_sanpham','Sản phẩm');
 @define ('_tintuc','Tin tức');
-@define ('_media','Media');
-@define ('_clinic','Clinic');
+//@define ('_media','Media');
+//@define ('_clinic','Clinic');
 @define ('_dichvu','Dịch vụ');
 @define ('_congtrinh','Công trình');
 @define ('_duan','Dự án');
@@ -23,6 +23,15 @@
 @define ('_chuanhaptukhoa','Bạn chưa nhập từ khóa tìm kiếm');
 @define ('_ketquatimkiem','Kết quả tìm kiếm');
 @define ('_timkiem','Tìm kiếm');
+@define ('_company','Công ty');
+@define ('_product','Sản phẩm');
+@define ('_media','Truyền thông');
+@define ('_clinic','Phòng khám');
+@define ('_demoonline','Dùng thử');
+@define ('_home','Trang chủ');
+@define ('_contactus','Liên hệ');
+@define ('_sitemap','Bản đồ');
+
 
 //------------ Danh mục + Nỗi bật -----------------
 @define ('_danhmucsanpham','Danh mục sản phẩm');

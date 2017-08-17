@@ -118,7 +118,7 @@ body {margin:0;}
             $row_company = $d->fetch_array();
             ?>
             <a href="company/<?=$row_company['tenkhongdau']."-".$row_company['id']?>.html">
-                <img src="images/common/navi_01.png" alt="company"/>
+                <span class="title-menu"><?=_company?></span>
             </a>
         </li>
         <li>
@@ -129,7 +129,7 @@ body {margin:0;}
             $row_product = $d->fetch_array();
             ?>
             <a href="san-pham/<?=$row_product['tenkhongdau']."-".$row_product['id']?>.html">
-                <img src="images/common/navi_02.png" alt="products"/>
+                <span class="title-menu"><?=_product?></span>
             </a>
         </li>
         <li>
@@ -141,7 +141,7 @@ body {margin:0;}
             $listLoaiTinTucMenu = $row_list;
             ?>
             <a href="media/<?=$listLoaiTinTucMenu['tenkhongdau']."-".$listLoaiTinTucMenu['id']?>.html">
-                <img src="images/common/navi_03.png" alt="media"/>
+                <span class="title-menu"><?=_media?></span>
             </a>
         </li>
         <li>
@@ -152,22 +152,30 @@ body {margin:0;}
             $row_list_menu = $d->fetch_array();
             ?>
             <a href="clinic/<?=$row_list_menu['tenkhongdau']."-".$row_list_menu['id']?>.html">
-                <img src="images/common/navi_04.png" alt="clinic"/>
+                <span class="title-menu"><?=_clinic?></span>
             </a>
         </li>
-		<li><a href="static/main/demo-online.html"><img src="images/common/navi_05.png" alt="online"/></a></li>
+		<li><a href="static/main/demo-online.html">
+                        <span class="title-menu"><?=_demoonline?></span>
+                    </a></li>
       </ul>
     </div>
     <div id="menu_right">
       <ul>
-        <li><a href="javascript:main();"><img src="images/common/home.png" alt="HOME|"/></a></li>
-        <li><a href="mailto:cool@finemec.co.kr"><img src="images/common/contactus.png" alt="CONTACT US|"/></a></li>
-        <li><a href="site-map.html"><img src="images/common/sitmap.png" alt="SITEMAP"/></a></li>
+        <li><a href="/">
+                <span class="title-menu-right"><?=_home?></span>
+            </a></li><li>|</li>
+        <li><a href="mailto:cool@finemec.co.kr">
+                <span class="title-menu-right"><?=_contactus?></span>
+            </a></li><li>|</li>
+        <li><a href="site-map.html">
+                <span class="title-menu-right"><?=_sitemap?></span>
+            </a></li>
         <li id="lang">
 	<?php if($lang=='en') { ?>
-		<a href="index.php?com=ngonngu&lang=" title="Việt Nam"><img src="img/vi.png" alt="Việt Nam" /></a>
+		<a href="index.php?com=ngonngu&lang=" title="Việt Nam"><img style="margin-top:2px;" src="img/vi.png" alt="Việt Nam" /></a>
 	<?php }else{ ?>
-		<a href="index.php?com=ngonngu&lang=en" title="English"><img src="img/en.png" alt="English" /></a>
+		<a href="index.php?com=ngonngu&lang=en" title="English"><img style="margin-top:2px;" src="img/en.png" alt="English" /></a>
 	<?php } ?>
         </li>
       </ul>
