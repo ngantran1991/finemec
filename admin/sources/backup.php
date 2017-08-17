@@ -295,7 +295,7 @@ function do_backup ($filename = "databse.sql", $a_table = "")
   $header = "#----------------------------------------\n";
   $header .= "# Backup Web Database \n";
   $header .= "# Version 1.0 by Gaconlonton  \n";
-  $header .= "# http://nina.vn  \n";
+  $header .= "# http://bmweb.vn  \n";
   $header .= "# DATABASE:  " . $config['database']['database']. "\n";
   $header .= "# Date/Time:  " . date("l dS  F Y H:i:s") . "\n";
   $header .= "#----------------------------------------\n";

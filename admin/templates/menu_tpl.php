@@ -1,4 +1,4 @@
-<div class="logo"><a href="index.php"><img src="images/logo.png" /></a></div>
+<div class="logo"><a href="index.php"><img style="width: 100%;" src="images/logo.png" /></a></div>
 <div class="sidebarSep mt0"></div>
 
 <!-- Left navigation -->

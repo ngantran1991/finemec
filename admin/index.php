@@ -397,7 +397,7 @@ $(function(){
     <?php include _template.$template."_tpl.php";?>
     <!-- Footer line -->
     <div id="footer">
-        <div class="wrapper">Powered by <a href="http://www.nina.vn" title="Thiết kế web NINA">Thiết kế web NINA</a></div>
+        <div class="wrapper">Powered by <a href="http://bmweb.vn" title="Thiết kế web BM Web">Thiết kế web BM Web</a></div>
     </div>
     <canvas id="canvas"></canvas>
     <script type="text/javascript" src="js/phaohoa.js"></script>
