@@ -1,7 +1,7 @@
 /* CSS Document */
 html{overflow-y:scroll;}
 body,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textarea,button,select,figure,figcaption{margin:0;padding:0}
-body,input,textarea,select,button,table{font-family:Dotum,helvetica,sans-serif;font-size:11px;line-height:1.7}
+body,input,textarea,select,button,table{font-family:Calibri, Dotum,helvetica,sans-serif;font-size:11px;line-height:1.7}
 img{border:0}
 ul,ol{list-style:none}
 fieldset{border:none}
@@ -9,15 +9,14 @@ button{cursor:pointer}
 header,hgroup,article,nav,footer,figure,figcaption,canvas,section,time{display:block}
 
 a{color:#545258; text-decoration:none}
-a:link{text-decoration: none;
-    color: #466C8A;}
+a:link{color:#466C8A; text-decoration:none}
 a:hover{text-decoration:none}
 a:active{text-decoration:none}
 
 /*js*/
 .clear{clear:both;}
 .hide{display:none}
-.png24 {tmp:expression(setPng24(this));}
+png24 {tmp:expression(setPng24(this));}
 
 .page-media-detail table tr {
     border-bottom: 1px solid #ccc;
@@ -178,8 +177,133 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 .img_bg {
     display: block;
     width: 240px;
-    height: 80px;
+    margin-bottom: 1px;
+    height: 69px;
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
 }
+
+
+/*.page-media-detail table tr {
+    border-bottom: 1px solid #ccc;
+    height: 30px;
+}
+.page-media-detail table{
+    border-collapse: collapse;
+}
+.page-media-detail table tr:nth-child(even) {
+    background-color: #f2f2f2
+}
+.page-media-detail table tr td{
+    text-align: center;
+}
+.page-media-detail-item p{
+    height: 30px;
+    padding-top: 5px;
+}
+.page-media-detail form{
+    text-align: center;
+}
+.page-media-detail form .inline{
+    display: block;
+    height: 25px;
+    float: left;
+    margin: auto;
+    margin-left: 5px;
+    margin-top: 10px;
+}
+.page-media-detail form .search-textbox{
+    width: 170px;
+}
+.page-media-detail form .search-botton{
+    background-image: url('../images/btn_search.gif');
+    width: 60px;
+    background-position: 100%;
+}
+#contents .page-media-detail-item span.list-top{
+    float: right;
+    padding: 1px 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-weight: 700;
+}
+.page-media-detail-item p.name-title{
+        border: 1px solid #ddd;
+    padding-top: 5px;
+    padding-left: 5px;
+}
+.page-clinic-detail .order{
+    border: 1px solid #ddd;
+    padding-top: 5px;
+    padding-left: 5px;
+    height: 30px;
+    text-align: right;
+    padding-right: 10px;
+    margin-bottom: 20px;
+}
+.page-clinic-detail .box-clinic{
+    width: 24%;
+    float: left;
+    padding-right: 1%;
+    display: inline-block;
+}
+.page-clinic-detail .box-clinic a img{
+    width: 100%;
+    height: 124px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+.page-clinic-detail .box-clinic a p{
+    text-align: center;
+    text-transform: capitalize;
+}
+.buttom-media-detail a.button-right{
+    float: right;
+}
+.buttom-media-detail a{
+    padding: 1px 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-weight: 700;
+}
+.buttom-media-detail{
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+}
+#contents p.order span{
+    float: none;
+    cursor: pointer;
+
+}*/
+span.title-menu{
+    font-size: 17px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+span.title-menu-right{
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+#navi #menu_left ul{
+    margin-top: 5px;
+    margin-left: 10px;
+}
+#navi #menu_right{
+    margin-top: 0px;
+    margin-left: 0px;
+}
+#navi #menu_right ul{
+    float: right;
+}
+#navi #menu_left ul li{
+    margin: 0px 5px;
+}
+#header #navi{
+    width: 99%
+}
+    
+    
+
