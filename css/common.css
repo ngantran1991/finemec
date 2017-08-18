@@ -174,3 +174,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 
 .board_search { text-align:center; margin:10px 0 0 0; }
 .board_search .stx { height:21px; border:1px solid #9A9A9A; border-right:1px solid #D8D8D8; border-bottom:1px solid #D8D8D8; }
+
+.img_bg {
+    display: block;
+    width: 240px;
+    height: 80px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
