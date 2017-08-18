@@ -264,7 +264,9 @@ $(function(){
               foreach ($hinhthem as $hinh){
                   ?>
               <li><!-- a��洹몄�� �대�몄��� �곗�대�몄�瑜�, img�� �몃�ㅼ�쇱�� �대�몄�瑜� �ｌ�듬����. -->
-              <a href="<?=_upload_hinhthem_l.$hinh['photo']?>"><img src="<?=_upload_hinhthem_l.$hinh['thumb']?>" /></a>
+              <a href="<?=_upload_hinhthem_l.$hinh['photo']?>">
+              <div class="img_bg" style="background-image: url(<?=_upload_hinhthem_l.$hinh['photo']?>);"></div>
+              </a>
             </li>
               <?php
               }
