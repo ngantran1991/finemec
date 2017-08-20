@@ -124,7 +124,7 @@ png24 {tmp:expression(setPng24(this));}
 
 .board_top { clear:both; }
 
-.board_list { clear:both; width:100%; table-layout:fixed; margin:5px 0 0 0; }
+.board_list {clear:both;width:100%;table-layout: auto;margin:5px 0 0 0;}
 .board_list th { font-weight:bold; font-size:12px; } 
 .board_list th { 
     background: rgba(255,255,255,1);
@@ -155,7 +155,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 .board_list td { border-bottom:1px solid #ddd; } 
 .board_list td.num { color:#999999; text-align:center; }
 .board_list td.checkbox { text-align:center; }
-.board_list td.subject { overflow:hidden; }
+.board_list td.subject {overflow:hidden;}
 .board_list td.name { padding:0 0 0 10px; }
 .board_list td.datetime { font:normal 11px tahoma; color:#BABABA; text-align:center; }
 .board_list td.hit { font:normal 11px tahoma; color:#BABABA; text-align:center; }
@@ -176,12 +176,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 
 .img_bg {
     display: block;
-    width: 240px;
-    margin-bottom: 1px;
-    height: 69px;
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
+	width: 240px;
+	height: 62px;
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	margin-bottom: 10px;
 }
 
 
@@ -277,22 +277,26 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
     cursor: pointer;
 
 }*/
+#lang img{
+    height: 19px;
+    vertical-align: middle;
+}
 span.title-menu{
-    font-size: 17px;
+    font-size: 14px;
     font-weight: bold;
     text-transform: uppercase;
 }
 span.title-menu-right{
-    font-size: 12px;
+    font-size: 10px;
     font-weight: 700;
     text-transform: uppercase;
 }
 #navi #menu_left ul{
-    margin-top: 5px;
+    margin-top: 8px;
     margin-left: 10px;
 }
 #navi #menu_right{
-    margin-top: 0px;
+    margin-top: 10px;
     margin-left: 0px;
 }
 #navi #menu_right ul{
