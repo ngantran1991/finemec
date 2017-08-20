@@ -1,7 +1,7 @@
 <?php
 
 	$d->reset();
-	$sql_slider = "select ten$lang as ten,link,photo,noidung$lang as noidung from #_slider where hienthi=1 and type='slider' order by stt,id desc";
+	$sql_slider = "select ten$lang as ten,link,photo,noidung$lang as noidung from #_slider where hienthi=1 and type='slider$lang' order by stt,id desc";
 	$d->query($sql_slider);
 	$slider=$d->result_array();
 	

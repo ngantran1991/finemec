@@ -46,17 +46,20 @@ function fns_Rand_digit($min,$max,$num)
 	}
 
 function get_photos(){	
-	global $d, $items, $url_link,$totalRows , $pageSize, $offset,$paging,$urlcu;
-	
+	global $d, $items, $url_link,$totalRows , $pageSize, $offset,$paging,$urlcu, $itemsen;
+	$whereen ="";
 	if($_REQUEST['type']!='')
 	{
 		$where.=" and type='".$_REQUEST['type']."'";
+                $whereen.=" and type='".$_REQUEST['type']."en'";
 	}
 	if($_REQUEST['key']!='')
 	{
 		$where.=" and ten like '%".$_REQUEST['key']."%'";
+                $whereen.=" and ten like '%".$_REQUEST['key']."%'";
 	}
 	$where.=" order by stt,id desc";	
+        $whereen.=" order by stt,id desc";	
 	
 	$sql="SELECT count(id) AS numrows FROM #_slider where id<>0 $where";
 	$d->query($sql);	
@@ -77,6 +80,11 @@ function get_photos(){
 	$sql = "select * from #_slider where id<>0 $where limit $bg,$pageSize";		
 	$d->query($sql);
 	$items = $d->result_array();	
+        
+        $d->reset();
+        $sqlen = "select * from #_slider where id<>0 $whereen limit $bg,$pageSize";	
+	$d->query($sqlen);
+	$itemsen = $d->result_array();
 	$url_link="index.php?com=slider&act=man_photo".$urlcu;
 }
 
@@ -134,17 +142,17 @@ function save_photo(){
 			redirect("index.php?com=slider&act=man_photo".$urlcu);
 			
 	}
-	{ 			
+	{ 		
 		for($i=0; $i<3; $i++){
-				$file_name = $_FILES['file'.$i]['name'];
-				if($data['photo'] = upload_image("file".$i, _format_duoihinh, _upload_hinhanh,$file_name))
+				$file_name = $_FILES['file__'.$i]['name'];
+				if($data['photo'] = upload_image("file__".$i, _format_duoihinh, _upload_hinhanh,$file_name))
 					{							
 						$data['id_slider'] = $_REQUEST['id_slider'];
 						$data['type'] = $_REQUEST['type'];
 						$data['vitri'] = $_POST['vitri'.$i];
-						$data['stt'] = $_POST['stt'.$i];
+						$data['stt'] = $_POST['stt__'.$i];
 						$data['ten'] = $_POST['ten'.$i];	
-						$data['link'] = $_POST['link'.$i];	
+						$data['link'] = $_POST['link__'.$i];	
 						$data['mota'] = $_POST['mota'.$i];	
 
 						$data['noidung'] = $_POST['noidung'.$i];
@@ -153,7 +161,29 @@ function save_photo(){
 						$data['tenen'] = $_POST['tenen'.$i];
 						$data['motaen'] = $_POST['motaen'.$i];
 																
-						$data['hienthi'] = isset($_POST['hienthi'.$i]) ? 1 : 0;	
+						$data['hienthi'] = isset($_POST['hienthi__'.$i]) ? 1 : 0;	
+						$data['noibat'] = isset($_POST['noibat'.$i]) ? 1 : 0;																	
+						$d->setTable('slider');
+						if(!$d->insert($data)) transfer("Lưu dữ liệu bị lỗi", "index.php?com=slider&act=man_photo".$urlcu);
+					}
+                                $file_name = $_FILES['file_en_'.$i]['name'];
+				if($data['photo'] = upload_image("file_en_".$i, _format_duoihinh, _upload_hinhanh,$file_name))
+					{							
+						$data['id_slider'] = $_REQUEST['id_slider'];
+						$data['type'] = $_REQUEST['type']."en";
+						$data['vitri'] = $_POST['vitri'.$i];
+						$data['stt'] = $_POST['stt_en_'.$i];
+						$data['ten'] = $_POST['ten'.$i];	
+						$data['link'] = $_POST['link_en_'.$i];	
+						$data['mota'] = $_POST['mota'.$i];	
+
+						$data['noidung'] = $_POST['noidung'.$i];
+						$data['noidungen'] = $_POST['noidungen'.$i];
+						
+						$data['tenen'] = $_POST['tenen'.$i];
+						$data['motaen'] = $_POST['motaen'.$i];
+																
+						$data['hienthi'] = isset($_POST['hienthi_en_'.$i]) ? 1 : 0;	
 						$data['noibat'] = isset($_POST['noibat'.$i]) ? 1 : 0;																	
 						$d->setTable('slider');
 						if(!$d->insert($data)) transfer("Lưu dữ liệu bị lỗi", "index.php?com=slider&act=man_photo".$urlcu);

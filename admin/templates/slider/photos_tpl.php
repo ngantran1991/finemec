@@ -53,6 +53,24 @@
     </div>  
 </div>
 <div class="widget">
+    <ul class="tabs">
+           
+<!--           <li>
+               <a href="#info">Thông tin chung</a>
+           </li>-->
+           <?php foreach ($config['lang'] as $key => $value) { ?>
+           <li>
+               <a href="#content_lang_<?=$key?>"><?=$value?></a>
+           </li>
+           <?php } ?>
+
+
+       </ul>
+    <?php foreach ($config['lang'] as $key => $value) {
+        $items = $key == "en" ? $itemsen: $items;
+             
+        ?>
+    <div id="content_lang_<?=$key?>" class="tab_content">  
   <div class="title"><span class="titleIcon">
     <input type="checkbox" id="chonhet" name="titleCheck" />
     </span>
@@ -111,4 +129,8 @@
     </form>
     </tbody>
     </table>
+    </div>
+    <?php
+    }
+    ?>
 </div>

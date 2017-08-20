@@ -23,11 +23,6 @@
            <li>
                <a href="#info">Thông tin chung</a>
            </li>
-           <?php foreach ($config['lang'] as $key => $value) { ?>
-           <li>
-               <a href="#content_lang_<?=$key?>"><?=$value?></a>
-           </li>
-           <?php } ?>
 
 
        </ul>
@@ -100,33 +95,6 @@
         
         </div>
        
-       <!-- End info -->
-       
-       <?php foreach ($config['lang'] as $key => $value) {
-        ?>
-        
-        <div id="content_lang_<?=$key?>" class="tab_content">     
-            
-            <div class="formRow">   
-            <label>Tên hình ảnh</label>
-            <div class="formRight">
-                <input type="text" name="ten<?=$key?>" title="Nhập tên hình ảnh ( <?=$key?> )" id="ten<?=$key?>" class="tipS validate[required]" value="<?=@$item['ten'.$key]?>" />
-            </div>
-            <div class="clear"></div>
-            </div>
-            
-        	<div class="formRow">   
-            <label>Nội dung slide</label>
-            <div class="formRight">
-                 <textarea class="ck_editor" name="noidung<?=$key?>" id="noidung<?=$key?>" rows="8" cols="60"><?=@$item['noidung'.$key]?></textarea>
-            </div>
-            <div class="clear"></div>
-            </div>
-        
-        
-        </div><!-- End content <?=$key?> -->
-        
-        <?php } ?>
 
 			
 	<div class="formRow">

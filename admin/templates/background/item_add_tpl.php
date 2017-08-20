@@ -18,7 +18,17 @@
 			<h6>Sửa hình ảnh</h6>
 		</div>		
         <?php
-			if($_REQUEST['type']!='banner' and $_REQUEST['type']!='banner_mobi' and $_REQUEST['type']!='banner2' && $_REQUEST['type']!='logofooter' && $_REQUEST['type']!='footerleft' && $_REQUEST['type']!='telfooter' && $_REQUEST['type']!='footerright')
+			if($_REQUEST['type']!='banner' and $_REQUEST['type']!='banner_mobi' and $_REQUEST['type']!='banner2' && $_REQUEST['type']!='logofooter' && $_REQUEST['type']!='footerleft' && $_REQUEST['type']!='telfooter' && $_REQUEST['type']!='footerright' 
+                                && $_REQUEST['type']!='companytitle' 
+                                && $_REQUEST['type']!='companybackground' 
+                                && $_REQUEST['type']!='producttitle' 
+                                && $_REQUEST['type']!='productbackground'
+                                && $_REQUEST['type']!='mediatitle'
+                                && $_REQUEST['type']!='mediabackground'
+                                && $_REQUEST['type']!='clinictitle'
+                                && $_REQUEST['type']!='clinicbackground'
+                                && $_REQUEST['type']!='demoonlinetitle'
+                                && $_REQUEST['type']!='demoonlinebackground')
 				$config['lang'] = array(''=>'Tiếng Việt');	
 		?>
         <ul class="tabs">
