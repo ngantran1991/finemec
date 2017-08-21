@@ -155,7 +155,7 @@ body {margin:0;}
                 <span class="title-menu"><?=_clinic?></span>
             </a>
         </li>
-		<li><a href="static/main/demo-online.html">
+		<li><a href="demo-online.html">
                         <span class="title-menu"><?=_demoonline?></span>
                     </a></li>
       </ul>

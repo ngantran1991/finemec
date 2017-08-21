@@ -29,6 +29,15 @@
 			$source = "about";
 			$template = "about";
 			break;*/
+                case 'demo-online':
+			$type = "demo-online";
+			$title = _demoonline;
+			$title_cat = _demoonline;
+			$title_other = _tinlienquan;
+			$source = "demoonline";
+			$template = "demoonline";
+			break;
+                    
                 case 'company':
 			$type = "company";
 			$title = _company;

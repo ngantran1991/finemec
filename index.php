@@ -47,6 +47,7 @@
     <?php }else{ ?>    
         <link rel="stylesheet" type="text/css" href="css/common.css"  />
         <link rel="stylesheet" type="text/css" href="css/layout.css"  />
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>  
         <link href="css/default.css" type="text/css" rel="stylesheet" />
         <link href="style.css" type="text/css" rel="stylesheet" />
     <?php } ?>
@@ -301,6 +302,28 @@ $(function(){
                         ?>
         <img src="<?=_upload_hinhanh_l.$row_product_background['photo']?>">
         <?php
+        } elseif($template == "demoonline" || $template == "demoonline") {
+            ?>
+        <div id="visual_sub_btn">
+            <ul>
+                    <li><?php
+                        $d->reset();
+                      $sql = "select photo$lang as photo from #_background where type='demoonlinetitle' limit 0,1";
+                      $d->query($sql);
+                      $row_demoonline_title = $d->fetch_array();
+                        ?>
+                        <img src="<?=_upload_hinhanh_l.$row_demoonline_title['photo']?>">
+                    </li>     
+            </ul>
+        </div>
+        <?php
+        $d->reset();
+                      $sql = "select photo$lang as photo from #_background where type='demoonlinebackground' limit 0,1";
+                      $d->query($sql);
+                      $row_demoonline_background = $d->fetch_array();
+                        ?>
+        <img src="<?=_upload_hinhanh_l.$row_demoonline_background['photo']?>">
+        <?php
         }
 
 //"media_detail || media_detail_item" media "clinic_detail|| clinic_detail_item
@@ -313,7 +336,7 @@ $(function(){
         <a href="san-pham/<?=$row_product['tenkhongdau']."-".$row_product['id']?>.html"><?=_product?></a>
         <a href="media/<?=$listLoaiTinTucMenu['tenkhongdau']."-".$listLoaiTinTucMenu['id']?>.html"><?=_media?></a>
         <a href="clinic/<?=$row_list_menu['tenkhongdau']."-".$row_list_menu['id']?>.html"><?=_clinic?></a>
-        <a href="static/main/demo-online.html"><?=_demoonline?></a>
+        <a href="demo-online.html"><?=_demoonline?></a>
         <a href="site-map.html"><?=_sitemap?></a>
         <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
       </div>

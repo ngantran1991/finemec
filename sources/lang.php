@@ -8,6 +8,8 @@
 @define ('_gioithieu','Giới thiệu');
 @define ('_sanpham','Sản phẩm');
 @define ('_tintuc','Tin tức');
+@define('_demoonline_basic_infomation', "01. Basic infomation");
+@define('_demoonline_inquiry', "02. Inquiry");
 //@define ('_media','Media');
 //@define ('_clinic','Clinic');
 @define ('_dichvu','Dịch vụ');
