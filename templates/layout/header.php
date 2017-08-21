@@ -173,9 +173,13 @@ body {margin:0;}
             </a></li>
         <li id="lang">
 	<?php if($lang=='en') { ?>
-		<a href="index.php?com=ngonngu&lang=" title="Việt Nam"><img style="margin-top:2px;" src="img/vi.png" alt="Việt Nam" /></a>
+		<a href="index.php?com=ngonngu&lang=" title="Việt Nam">
+                    <span class="lang-top"><?=_lang_viet_nam?></span>
+                </a>
 	<?php }else{ ?>
-		<a href="index.php?com=ngonngu&lang=en" title="English"><img style="margin-top:2px;" src="img/en.png" alt="English" /></a>
+		<a href="index.php?com=ngonngu&lang=en" title="English">
+                    <span class="lang-top"><?=_lang_english?></span>
+                </a>
 	<?php } ?>
         </li>
       </ul>

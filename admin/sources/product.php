@@ -320,7 +320,7 @@ function save_item(){
 				delete_file(_upload_sanpham.$row['thumb']);								
 			}
 		}
-		if($file = upload_image("file2", _format_duoitailieu, _upload_download,$file_name_2)){
+		if($file = upload_image("file2", _format_duoihinh, _upload_download,$file_name_2)){
 			$data['file'] = $file;	
 			$d->setTable('product');
 			$d->setWhere('id', $id);

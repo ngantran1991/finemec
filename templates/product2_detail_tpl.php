@@ -198,7 +198,7 @@ $(function(){
 </li></ul>
       	</div><script>
 $(function(){	
-	$('.Limg a').click(function(){				
+	$('.Limg ul a').click(function(){				
 		// 1.�닿� �대┃�� a��洹몄�� 寃쎈��� �닿꺼吏� �대�몄�瑜� .main img��洹몄���� ��濡� �ｌ�댁�. $('������A').before('異�媛����� ����')		
 		// .before 紐��뱀�� �듯�� ��濡�寃� 異�媛����� img��洹몄�� src 媛� = �닿� �대┃�� a��洹몄�� href 媛� $(this).attr('href')
 		$('.main img').before('<img src="' +  $(this).attr('href') + '" />');
@@ -255,7 +255,13 @@ $(function(){
       <div class="inner">
         <div>
           <p><?=$title_cat ?></p>
-          <p><a href="/static/images/sub/noblex_b01.jpg" onClick="window.open('pop04.php', 'sms', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=565, height=567')" onfocus='blur()' style="cursor:hand;"><img src="static/images/sub/pro_bt.png" /></p>
+          <?php
+          if (isset($sanphamDetail['file']) && !empty($sanphamDetail['file'])){
+              ?>
+          <p><a href="javascript:void(0)" onClick="window.open('<?=_upload_download_l.$sanphamDetail['file']?>', 'sms', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=565, height=567')" onfocus='blur()' style="cursor:hand;"><img src="static/images/sub/pro_bt.png" /></p>
+          <?php
+          }
+          ?>
         </div>
         <div class="page2">
             

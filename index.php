@@ -212,7 +212,7 @@ $(function(){
             </div>
         </div>
         <?php
-        } elseif ($template == "news_detail"){
+        } elseif ($template == "news_detail" && $source != "sitemap"){
             ?>
         <div id="visual_sub_btn">
             <ul>
@@ -234,6 +234,29 @@ $(function(){
                       $row_product_background = $d->fetch_array();
                         ?>
         <img src="<?=_upload_hinhanh_l.$row_product_background['photo']?>">
+        <?php
+        } elseif ($template == "news_detail" && $source == "sitemap"){
+            ?>
+        <div id="visual_sub_btn">
+            <ul>
+                    <li>
+                        <?php
+                        $d->reset();
+                      $sql = "select photo$lang as photo from #_background where type='sitemaptitle' limit 0,1";
+                      $d->query($sql);
+                      $row_sitemap_title = $d->fetch_array();
+                        ?>
+                        <img src="<?=_upload_hinhanh_l.$row_sitemap_title['photo']?>">
+                    </li>     
+            </ul>
+        </div>
+        <?php
+                        $d->reset();
+                      $sql = "select photo$lang as photo from #_background where type='sitemapbackground' limit 0,1";
+                      $d->query($sql);
+                      $row_sitemap_background = $d->fetch_array();
+                        ?>
+        <img src="<?=_upload_hinhanh_l.$row_sitemap_background['photo']?>">
         <?php
         } elseif ($template == "product2_detail"){
             ?>

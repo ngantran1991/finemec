@@ -131,6 +131,13 @@ if ($_GET['type'] == "logofooter" || $_GET['type'] == "footerleft" || $_GET['typ
      </ul>
 </li>
 
+<li class="categories_li gallery_li <?php if($_GET['com']=='background' && ($_GET['type'] == "sitemaptitle" || $_GET['type'] == "sitemapbackground")) echo ' activemenu' ?>" id="menu_image_demoonline"><a href="" title="" class="exp"><span>Image trang Sitemap</span><strong></strong></a>
+     <ul class="sub">
+        <?php phanquyen_menu('Cập nhật Image Title','background','capnhat','sitemaptitle'); ?>
+         <?php phanquyen_menu('Cập nhật Image Background','background','capnhat','sitemapbackground'); ?>
+     </ul>
+</li>
+
 
 
 
