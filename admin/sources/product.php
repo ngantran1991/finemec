@@ -300,7 +300,8 @@ function copy_item(){
 function save_item(){
 	global $d,$config,$urlcu;
 	$file_name=$_FILES['file']['name'];	
-	$file_name_2=$_FILES['file2']['name'];	
+	$file_name_2=$_FILES['file2']['name'];
+        $file_name_2_en=$_FILES['file2en']['name'];
 	if(empty($_POST)) transfer("Không nhận được dữ liệu", "index.php?com=product&act=man".$urlcu);
 	$id = isset($_POST['id']) ? themdau($_POST['id']) : "";
 	if($id){
@@ -328,6 +329,16 @@ function save_item(){
 			if($d->num_rows()>0){
 				$row = $d->fetch_array();
 				delete_file(_upload_download.$row['file']);							
+			}
+		}
+                if($fileen = upload_image("file2en", _format_duoihinh, _upload_download,$file_name_2_en)){
+			$data['fileen'] = $fileen;	
+			$d->setTable('product');
+			$d->setWhere('id', $id);
+			$d->select();
+			if($d->num_rows()>0){
+				$row = $d->fetch_array();
+				delete_file(_upload_download.$row['fileen']);							
 			}
 		}
 		$data['tag'] = $_POST['tag'];
@@ -434,8 +445,11 @@ function save_item(){
 			$data['photo'] = $photo;		
 			$data['thumb'] = create_thumb($data['photo'], 250, 200, _upload_sanpham,$file_name,2);	
 		}
-		if($file = upload_image("file2", _format_duoitailieu, _upload_download,$file_name_2)){
+		if($file = upload_image("file2", _format_duoihinh, _upload_download,$file_name_2)){
 			$data['file'] = $file;	
+		}
+                if($fileen = upload_image("file2en", _format_duoihinh, _upload_download,$file_name_2_en)){
+			$data['fileen'] = $file;	
 		}
 		$data['id_danhmuc'] = (int)$_POST['id_danhmuc'];		
 		$data['id_list'] = (int)$_POST['id_list'];	
@@ -599,13 +613,15 @@ function xoafile(){
 	if(isset($_GET['id']))
 	{
 		$id =  themdau($_GET['id']);
+                $numFile = $_GET['numFile'];
+                $lang = $_GET['lang'];
 		$d->reset();
-		$sql = "select id,file from #_product where id='".$id."'";
+		$sql = "select id,file".$numFile.$lang." as file from #_product where id='".$id."'";
 		$d->query($sql);
 		$row = $d->fetch_array();
 		delete_file(_upload_download.$row['file']);
 		$d->reset();
-		$sql = "update table_product set file='' where id='".$id."'";
+		$sql = "update table_product set file".$numFile.$lang."='' where id='".$id."'";
 		$d->query($sql);
 		transfer('File đã được xóa',"index.php?com=product&act=edit&id=$id".$urlcu."");
 	}

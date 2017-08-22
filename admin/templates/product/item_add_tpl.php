@@ -190,6 +190,20 @@ function get_main_item()
 
        <div id="info" class="tab_content">
         <input type="hidden" name="id" id="id_this_post" value="<?=@$item['id']?>" />
+        <?php 
+        if ($_REQUEST['type'] != "sanpham"){
+            ?>
+            <div class="formRow">
+                <label>Chọn danh mục 1</label>
+                <div class="formRight">
+                <?=get_main_danhmuc()?>
+                </div>
+                <div class="clear"></div>
+        </div>
+        <?php
+        }
+        ?>
+        
         <div class="formRow">
             <label>Title</label>
             <div class="formRight">
@@ -214,13 +228,7 @@ function get_main_item()
             </div>
             <div class="clear"></div>
         </div>
-		<div class="formRow">
-			<label>Chọn danh mục 1</label>
-			<div class="formRight">
-			<?=get_main_danhmuc()?>
-			</div>
-			<div class="clear"></div>
-		</div>
+		
         <div class="formRow none">
 			<label>Chọn danh mục cấp 2</label>
 			<div class="formRight">
@@ -287,32 +295,6 @@ function get_main_item()
             <div class="clear"></div>
         </div> 
 
-
-		<?php if($_GET['type']=='sanpham') { ?>
-				
-			<div class="formRow">
-				<label>Tải file (tài liệu kỹ thuật):</label>
-				<div class="formRight">
-	            	<input type="file" id="file2" name="file2" />
-					<img src="./images/question-button.png" alt="Upload file" class="icon_question tipS" original-title="Tải file">
-					<div class="note">.jpg, .png, .jpeg, .gif</div>
-				</div>
-				<div class="clear"></div>
-			</div>
-	         <?php if($_GET['act']=='edit' && !empty($item['file'])){?>
-			<div class="formRow">
-				<label>File hiện Tại :</label>
-				<div class="formRight">
-					<a href="<?=_upload_download.$item['file']?>"><?=$item['file']?></a>
-					<a style="margin-left: 20px; color: red" href="index.php?com=product&act=xoafile&id=<?=$item['id']?><?php if($_REQUEST['type']!='') echo'&type='. $_REQUEST['type'];?>" title="xóa file này">[xóa file này]</a>
-				</div>
-				<div class="clear"></div>
-			</div>
-			<?php } ?>
-
-		<?php } ?>
-
-        
         <div class="formRow">
 			<label>Tải hình ảnh:</label>
 			<div class="formRight">
@@ -437,6 +419,29 @@ function get_main_item()
             </div>
             <div class="clear"></div>
         </div>  
+           <?php if($_GET['type']=='sanpham') { ?>
+				
+			<div class="formRow">
+				<label>Tải file (tài liệu kỹ thuật):</label>
+				<div class="formRight">
+	            	<input type="file" id="file2<?=$key?>" name="file2<?=$key?>" />
+					<img src="./images/question-button.png" alt="Upload file" class="icon_question tipS" original-title="Tải file">
+					<div class="note">.jpg, .png, .jpeg, .gif</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+	         <?php if($_GET['act']=='edit' && !empty($item['file'.$key])){?>
+			<div class="formRow">
+				<label>File hiện Tại :</label>
+				<div class="formRight">
+					<a href="<?=_upload_download.$item['file'.$key]?>"><?=$item['file'.$key]?></a>
+					<a style="margin-left: 20px; color: red" href="index.php?com=product&act=xoafile&id=<?=$item['id']?><?php if($_REQUEST['type']!='') echo'&type='. $_REQUEST['type']."&numFile=&lang=$key";?>" title="xóa file này">[xóa file này]</a>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<?php } ?>
+
+		<?php } ?>
 
 		<?php if($_GET['type']=='sanpham'){ ?>
 	     

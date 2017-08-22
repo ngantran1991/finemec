@@ -256,9 +256,9 @@ $(function(){
         <div>
           <p><?=$title_cat ?></p>
           <?php
-          if (isset($sanphamDetail['file']) && !empty($sanphamDetail['file'])){
+          if (isset($sanphamDetail['file'.$lang]) && !empty($sanphamDetail['file'.$lang])){
               ?>
-          <p><a href="javascript:void(0)" onClick="window.open('<?=_upload_download_l.$sanphamDetail['file']?>', 'sms', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=565, height=567')" onfocus='blur()' style="cursor:hand;"><img src="static/images/sub/pro_bt.png" /></p>
+          <p><a href="javascript:void(0)" onClick="window.open('<?=_upload_download_l.$sanphamDetail['file'.$lang]?>', 'sms', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=565, height=567')" onfocus='blur()' style="cursor:hand;"><img src="static/images/sub/pro_bt.png" /></p>
           <?php
           }
           ?>
