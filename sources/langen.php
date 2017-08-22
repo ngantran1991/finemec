@@ -10,6 +10,16 @@
 @define ('_tintuc','News');
 @define('_demoonline_basic_infomation', "01. Basic infomation");
 @define('_demoonline_inquiry', "02. Inquiry");
+@define('_demoonline_clinicname', "Clinic name");
+@define('_demoonline_contact_preson', "Contact person");
+@define('_demoonline_country', "Country");
+@define('_demoonline_address', "Address");
+@define('_demoonline_phone', "Phone");
+@define('_demoonline_cell_phone', "Cell Phone");
+@define('_demoonline_email', "E-mail");
+@define('_demoonline_request_date', "Request date");
+@define('_demoonline_product_name', "Product name");
+@define('_demoonline_comment_question', "Comments/Questions");
 @define('_lang_viet_nam', "Vietnamese");
 @define('_lang_english', "English");
 //@define ('_media','Media');

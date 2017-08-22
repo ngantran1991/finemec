@@ -279,7 +279,7 @@ function formSubmit() {
     </colgroup>
     <tbody>
       <tr>
-        <th scope="row">* Clinic name</th>
+        <th scope="row">* <?=_demoonline_clinicname?></th>
         <td>
 			<input name="inquiry_mkr_nm2" ng-model="inquiry_mkr_nm2" required="" type="text" maxlength="50" hname="?????" class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-maxlength">
 			<br>
@@ -287,19 +287,19 @@ function formSubmit() {
 		</td>
       </tr>
       <tr>
-        <th scope="row">* Contact person</th>
+        <th scope="row">* <?=_demoonline_contact_preson?></th>
         <td><input name="inquiry_mkr_nm1" ng-model="inquiry_mkr_nm1" required="" type="text" maxlength="20" hname="???" class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-maxlength">
 			<p style="color:red" ng-show="formInsert.inquiry_mkr_nm1.$invalid &amp;&amp; !formInsert.inquiry_mkr_nm1.$pristine" class="help-block ng-hide">Contact person is required.</p>
 		</td>
       </tr>
       <tr>
-        <th scope="row">* Country</th>
+        <th scope="row">* <?=_demoonline_country?></th>
         <td><input name="inquiry_etc1" ng-model="inquiry_etc1" required="" type="text" maxlength="50" hname="???" class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-maxlength">
 			<p style="color:red" ng-show="formInsert.inquiry_etc1.$invalid &amp;&amp; !formInsert.inquiry_etc1.$pristine" class="help-block ng-hide">Country is required.</p>
 		</td>	
       </tr>
       <tr>
-        <th scope="row">Address</th>
+        <th scope="row"><?=_demoonline_address?></th>
         <td><input name="inquiry_zip_code" type="text" size="4">
           -
           <input name="inquiry_zip_code2" type="text" size="4">
@@ -309,7 +309,7 @@ function formSubmit() {
 		  
       </tr>
       <tr>
-        <th scope="row">* Phone</th>
+        <th scope="row">* <?=_demoonline_phone?></th>
         <td>
 			<input name="inquiry_tel_no2" ng-model="inquiry_tel_no2" required="" type="text" size="5" maxlength="4" hname="???" class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-maxlength">
 			<input name="inquiry_tel_no3" ng-model="inquiry_tel_no3" required="" type="text" size="5" maxlength="4" hname="???" class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-maxlength">
@@ -318,12 +318,12 @@ function formSubmit() {
 		</td>
       </tr>
       <tr>
-        <th scope="row">Cell Phone</th>
+        <th scope="row"><?=_demoonline_cell_phone?></th>
         <td><input name="inquiry_hp_no2" ng-model="inquiry_hp_no2" required="" type="text" size="5" maxlength="4" hname="?????" class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-maxlength">
           <input name="inquiry_hp_no3" ng-model="inquiry_hp_no3" required="" type="text" size="5" maxlength="4" hname="?????" class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-maxlength"></td>
       </tr>
       <tr>
-        <th scope="row">* E-mail</th>
+        <th scope="row">* <?=_demoonline_email?></th>
         <td><input name="inquiry_eml1" ng-model="inquiry_eml1" required="" type="text" size="15" maxlength="50" hname="?????" class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-maxlength">
           @
           <input name="inquiry_eml2" ng-model="inquiry_eml2" required="" type="text" size="15" maxlength="50" hname="?????" class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-maxlength">
@@ -351,7 +351,7 @@ function formSubmit() {
     </colgroup>
     <tbody>
       <tr>
-        <th scope="row">* Request date</th>
+        <th scope="row">* <?=_demoonline_request_date?></th>
         <td>
 			<input name="inquiry_etc2" ng-model="inquiry_etc2" required="" type="text" maxlength="50" hname="?????" class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-maxlength">
 			<br>
@@ -359,7 +359,7 @@ function formSubmit() {
 		</td>
       </tr>
       <tr>
-        <th scope="row">* Product name</th>
+        <th scope="row">* <?=_demoonline_product_name?></th>
         <td>
 			<input name="inquiry_title" ng-model="inquiry_title" required="" type="text" maxlength="50" hname="?????" class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-maxlength">
 			<br>
@@ -367,7 +367,7 @@ function formSubmit() {
 		</td>
       </tr>
       <tr>
-        <th scope="row">* Comments/Questions</th>
+        <th scope="row">* <?=_demoonline_comment_question?></th>
         <td>
 			<textarea name="inquiry_contents" ng-model="inquiry_contents" required="" rows="10" cols="62" hname="??? ?? ???" class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required"></textarea>
 			<br>

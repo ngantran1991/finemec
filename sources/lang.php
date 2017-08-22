@@ -8,8 +8,19 @@
 @define ('_gioithieu','Giới thiệu');
 @define ('_sanpham','Sản phẩm');
 @define ('_tintuc','Tin tức');
-@define('_demoonline_basic_infomation', "01. Basic infomation");
-@define('_demoonline_inquiry', "02. Inquiry");
+@define('_demoonline_basic_infomation', "01. Thông tin cơ bản");
+@define('_demoonline_inquiry', "02. Thông tin cần thiết");
+@define('_demoonline_clinicname', "Tên phòng khám");
+@define('_demoonline_contact_preson', "Người liên hệ");
+@define('_demoonline_country', "Đất nước");
+@define('_demoonline_address', "Địa chỉ");
+@define('_demoonline_phone', "Số điện thoại");
+@define('_demoonline_cell_phone', "Di động");
+@define('_demoonline_email', "Thư điện tử");
+@define('_demoonline_request_date', "Ngày yêu cầu");
+@define('_demoonline_product_name', "Tên sản phẩm");
+@define('_demoonline_comment_question', "Chú thích/câu hỏi");
+
 @define('_lang_viet_nam', "Vietnamese");
 @define('_lang_english', "English");
 //@define ('_media','Media');
