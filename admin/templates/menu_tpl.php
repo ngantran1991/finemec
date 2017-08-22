@@ -46,11 +46,11 @@ if ($_GET['type'] == "logofooter" || $_GET['type'] == "footerleft" || $_GET['typ
         <?php // phanquyen_menu('Cập nhật pupop quảng cáo','background','capnhat','pupop'); ?>
      </ul>
 </li>
-<li class="categories_li gallery_li <?php if($_GET['com']=='background' && ($_GET['type'] == "logofooter" || $_GET['type'] == "footerleft" || $_GET['type'] == "telfooter"  || $_GET['type'] == "footerright")) echo ' activemenu' ?>" id="menu_image_footer"><a href="" title="" class="exp"><span>Footer</span><strong></strong></a>
+<li class="categories_li gallery_li <?php if(($_GET['com']=='background' && ($_GET['type'] == "logofooter" || $_GET['type'] == "footerleft" || $_GET['type'] == "telfooter"  || $_GET['type'] == "footerright")) ||
+        ($_GET['com']=='about' && $_GET['type'] == "footer")) echo ' activemenu' ?>" id="menu_image_footer"><a href="" title="" class="exp"><span>Footer</span><strong></strong></a>
      <ul class="sub">
         <?php phanquyen_menu('Cập nhật logo footer','background','capnhat','logofooter'); ?>
-         <?php phanquyen_menu('Cập nhật footer left','background','capnhat','footerleft'); ?>
-         <?php phanquyen_menu('Cập nhật tel footer','background','capnhat','telfooter'); ?>
+         <?php phanquyen_menu('Cập nhật footer left','about','capnhat','footer'); ?>
          <?php phanquyen_menu('Cập nhật footer right','background','capnhat','footerright'); ?>
      </ul>
 </li>

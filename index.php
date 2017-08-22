@@ -384,14 +384,15 @@ $(function(){
     </div>
     <div id="foot_right">
 	<!--<span><a href="javascript:sub01_05();"><img src="../images/common/foot_info.jpg" alt="COPYRIGHT FIND MEC ALL RIGHTS RESERVED"></span></a>-->
-	<span><a href="javascript:sub01_05();">
-                <?php
+	<?php
               $d->reset();
-            $sql = "select photo from #_background where type='telfooter' limit 0,1";
-            $d->query($sql);
-            $row_tel_footer = $d->fetch_array();
+                $sql_contact = "select noidung$lang as noidung, tel from #_about where type='footer' limit 0,1";
+                $d->query($sql_contact);
+                $footer_content = $d->fetch_array();
               ?>
-                <img src="<?=_upload_hinhanh_l.$row_tel_footer['photo']?>" alt="TEL:+82-2-309-1882">
+        <span><a href="tel:<?=str_replace("-", "", str_replace("+", "", $footer_content['tel']))?>">
+                
+                <span class="footer-tel">TEL: <?=$footer_content['tel']?></span>
               </a>
         </span>
 	<span><a href="admin" target="_blank">
@@ -413,13 +414,7 @@ $(function(){
 </div>
 <div class="wrap">
   <div class="container">
-      <?php
-              $d->reset();
-            $sql = "select photo from #_background where type='footerleft' limit 0,1";
-            $d->query($sql);
-            $row_footer_left = $d->fetch_array();
-              ?>
-      <img src="<?=_upload_hinhanh_l.$row_footer_left['photo']?>">
+      <?=$footer_content['noidung']?>
   </div>
 </div>
 

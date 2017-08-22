@@ -32,7 +32,7 @@
 		</div>
         
         <ul class="tabs">
-           <?php if($_REQUEST['type']!='lienhe' && $_REQUEST['type']!='footer'){ ?>
+           <?php if($_REQUEST['type']!='lienhe'){ ?>
            <li>
                <a href="#info">Thông tin chung</a>
            </li>
@@ -44,7 +44,7 @@
            <?php } ?>
        </ul>
        
-	<?php if($_REQUEST['type']!='lienhe' && $_REQUEST['type']!='footer'){ ?>
+	<?php if($_REQUEST['type']!='lienhe'){ ?>
      <div id="info" class="tab_content">
      <input type="hidden" name="id" id="id" value="<?=@$item['id']?>" />     
      <?php if($_REQUEST['type']=='about'){ ?>
@@ -60,8 +60,20 @@
             </div>
             <div class="clear"></div>
         </div>
-     <?php } ?>
-        
+     <?php } 
+     
+     if ($_REQUEST['type']=='footer') {
+         ?>
+     <div class="formRow">
+            <label>Tel</label>
+            <div class="formRight">
+                <input type="text" value="<?=@$item['tel']?>" name="tel" title="Nội dung tell" class="tipS" />
+            </div>
+            <div class="clear"></div>
+        </div>
+     <?php
+     } else {
+         ?>
          <div class="formRow">
             <label>Title</label>
             <div class="formRight">
@@ -107,7 +119,15 @@
         </div>       
 				
 		
-       </div>
+       
+     <?php
+         
+     }
+?>
+     </div>
+        
+        
+         
        <?php } ?>
         
          <!-- End info -->
@@ -138,15 +158,16 @@
             <div class="clear"></div>
         </div>
 
-        <div class="formRow">
+        
+       </div><!-- End content <?=$key?> -->      
+     <?php } ?>	
+       <div class="formRow">
             <div class="formRight">
                 
                 <input type="button" class="blueB" onclick="TreeFilterChanged2(); return false;" value="Hoàn tất" />
             </div>
             <div class="clear"></div>
         </div>
-       </div><!-- End content <?=$key?> -->      
-     <?php } ?>		
 	</div>
 </form>   
 

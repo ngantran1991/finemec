@@ -142,6 +142,17 @@ span.demoonline-title-sub{
     color: #0054b4;
     font-weight: 700;
 }
+
+
+span.footer-tel{
+    font-size: 18px;
+    font-weight: bold;
+    color: #0454b7;
+}
+#foot_right span{
+    display: block;
+    float: left;
+}
     
     
 
